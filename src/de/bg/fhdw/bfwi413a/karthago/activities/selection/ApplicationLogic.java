@@ -27,28 +27,28 @@ public class ApplicationLogic {
 	public void onButtonClicked(int i) {
 		switch ( i ) {
 		case 1:   // Call CardFile1
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 2:   // Call CardFile2
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 3:   // Call CardFile3
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 4:   // Call CardFile4
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 5:   // Call CardFile5
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 6:   // Call CardFile6
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 7:   // Call CardFile7
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		case 8:   // Call CardFile8
-			Navigation.startActivityLMode(CardFileID);
+			//Navigation.startActivityLMode(CardFileID);
 			break;
 		}
 	}
