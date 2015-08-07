@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 public class EventToListenerMapping implements OnClickListener, OnItemSelectedListener{
 	
@@ -25,7 +26,15 @@ public class EventToListenerMapping implements OnClickListener, OnItemSelectedLi
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
-		mApplicationLogic.onSpinnerUsed();
+		//mApplicationLogic.onSpinnerUsed();
+		
+		// On selecting a spinner item
+        String label = parent.getItemAtPosition(position).toString();
+ 
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "You selected: " + label,
+                Toast.LENGTH_LONG).show();
+ 
 	}
 
 	@Override

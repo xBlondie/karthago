@@ -20,7 +20,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
     ArrayAdapter<CharSequence> adapter_learn;
 	SQLiteDatabase configDB;
 	DatabaseHandlerConfig dbHelper = new DatabaseHandlerConfig(this);
-	
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +67,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	        
 	        //DB-Manager
 	        configDB = dbHelper.getWritableDatabase();
+	       
 	}
 
 	@Override
