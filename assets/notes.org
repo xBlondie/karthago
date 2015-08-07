@@ -1,0 +1,18 @@
+* Statistiken
+
+** XML
+
+- Anzahl an Karten
+- Aufgeschlüsselt nach Typ (Multiple Choice, Free Form, ...)
+- Optional: Aufgeschlüsselt nach Kartei (1-8)
+
+** DB
+
+- Anzahl an Antworten
+- Aufgeschlüsselt nach richtig/falsch
+- Optional: Aufgeschlüsselt nach Kartei und richtig/falsch
+
+* Strategien
+
+- Alphabetisch
+- Zufällig
