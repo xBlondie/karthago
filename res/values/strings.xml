@@ -4,5 +4,19 @@
     <string name="app_name">Karthago</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="config">Konfiguration</string>
+    <string name="sorttyp">Sortierreihenfolge</string>
+    <string name="learntyp">Lernmodus</string>
+    
+
+    <string-array name="spn_sort">
+        <item>Ältestes zuerst</item>
+        <item>Neustes zuerst</item>
+    </string-array>
+    
+    <string-array name="spn_learn">
+        <item>Freitext</item>
+        <item>Multiple Choice</item>
+    </string-array>
 
 </resources>
