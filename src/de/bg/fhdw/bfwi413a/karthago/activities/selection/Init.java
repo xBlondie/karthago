@@ -2,17 +2,20 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
 
+import de.bg.fhdw.bfwi413a.karthago.activities.selection.Data;
 import android.app.Activity;
 import android.os.Bundle;
 
 public class Init extends Activity{
 
+	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
@@ -23,12 +26,16 @@ public class Init extends Activity{
 		super.onSaveInstanceState(outState);
 	}
 	
+	private void initData(Bundle savedInstanceState) {
+		mData = new Data(this, savedInstanceState);
+	}
+	
 	private void initGui() {
 		mGui = new Gui(this);	
 	}
 	
 	private void initApplicationLogic() {
-		mApplicationLogic = new ApplicationLogic(mGui);
+		mApplicationLogic = new ApplicationLogic(mGui, mData);
 	}
 	
 	private void initEventToListenerMapping() {

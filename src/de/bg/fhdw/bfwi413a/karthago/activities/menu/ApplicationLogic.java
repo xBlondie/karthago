@@ -7,12 +7,13 @@ public class ApplicationLogic {
 	private Gui mGui;
 	private Data mData;
 	
-	public ApplicationLogic(Gui gui){
+	public ApplicationLogic(Gui gui, Data data){
 		mGui = gui;
-		initGui();
+		mData = data;
+		initDataToGui();
 	}
 	
-	private void initGui(){
+	private void initDataToGui(){
 		
 	}
 
