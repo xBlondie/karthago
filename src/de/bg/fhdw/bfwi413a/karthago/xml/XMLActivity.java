@@ -41,7 +41,7 @@ OnClickListener, OnItemSelectedListener{
  
     public void onClick(View v) {
         try {
-            cards = XMLParser.parse(getAssets().open("FrageXML.xml"));
+            cards = XMLParser.parse(getAssets().open("FrageXML2.xml"));
             ArrayAdapter<Card> adapter = new ArrayAdapter<Card>(this,
                     R.layout.list_item, cards);
             spinner.setAdapter(adapter);
