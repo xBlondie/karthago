@@ -42,10 +42,11 @@ public class DatabaseHandlerXML extends SQLiteOpenHelper {
 				+ RIGHT_ANSWER + " integer,"
 				+ COUNT_OF_RIGHT_ANSWER + " integer"
 				+ ");";
-
+		
 		
 		Log.d("Database", sqlStatement); 
 		db.execSQL(sqlStatement);
+		
 		
 	}
 
