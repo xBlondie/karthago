@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardFile id="Allgemeinwissen">
+  <Cards>
+    <Question>
+      <QuestionId>01</QuestionId>
+      <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
+      <AnswerType type="MC">
+        <AnswerPossibilities>
+          <Answer id="1" correct="false">
+            <AnswerText>7</AnswerText>
+          </Answer>
+          <Answer id="2" correct="false">
+            <AnswerText>8</AnswerText>
+          </Answer>
+          <Answer id="3" correct="true">
+            <AnswerText>9</AnswerText>
+          </Answer>
+          <Answer id="4" correct="false">
+            <AnswerText>10</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>02</QuestionId>
+      <QuestionText>Welcher ist der höchste Berg der Welt?</QuestionText>
+      <AnswerType type="MC">
+        <AnswerPossibilities>
+          <Answer id="1" correct="false">
+            <AnswerText>Mount St.Helens</AnswerText>
+          </Answer>
+          <Answer id="2" correct="false">
+            <AnswerText>K2</AnswerText>
+          </Answer>
+          <Answer id="3" correct="false">
+            <AnswerText>Matternhorn</AnswerText>
+          </Answer>
+          <Answer id="4" correct="true">
+            <AnswerText>Mount Everest</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>03</QuestionId>
+      <QuestionText>In welchem Jahr endete der zweite Weltkrieg?(Bitte Ganzzahl angeben)</QuestionText>
+      <AnswerType type="FT">
+        <AnswerPossibilities>
+          <Answer id="1">
+            <AnswerText>1945</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>04</QuestionId>
+      <QuestionText>Wieviele Menschen gibt es auf der Welt?</QuestionText>
+      <AnswerType type="MC">
+        <AnswerPossibilities>
+          <Answer id="1" correct="true">
+            <AnswerText>Über 5 Milliarden Menschen</AnswerText>
+          </Answer>
+          <Answer id="2" correct="true">
+            <AnswerText>Über 7 Milliarden Menschen</AnswerText>
+          </Answer>
+          <Answer id="3" correct="false">
+            <AnswerText>700 Millionen Menschen</AnswerText>
+          </Answer>
+          <Answer id="4" correct="false">
+            <AnswerText>Über 8 Milliarden Menschen</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>05</QuestionId>
+      <QuestionText>Was ist die Antwort auf alle Fragen?</QuestionText>
+      <AnswerType type="FT">
+        <AnswerPossibilities>
+          <Answer id="1">
+            <AnswerText>42</AnswerText>
+          </Answer>
+          <Answer id="2">
+            <AnswerText>Zweiunvierzig</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>06</QuestionId>
+      <QuestionText>Welche dieser Vokabeln ist ein sog. "false friend"?</QuestionText>
+      <AnswerType type="MC">
+        <AnswerPossibilities>
+          <Answer id="1" correct="true">
+            <AnswerText>hardly = härter</AnswerText>
+          </Answer>
+          <Answer id="2" correct="false">
+            <AnswerText>mostly = meistens</AnswerText>
+          </Answer>
+          <Answer id="3" correct="false">
+            <AnswerText>barely = kaum</AnswerText>
+          </Answer>
+          <Answer id="4" correct="true">
+            <AnswerText>actual = aktuell</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>07</QuestionId>
+      <QuestionText>Was ist die Quersumme von 1337? (Bitte Ganzzahl eingeben)</QuestionText>
+      <AnswerType type="FT">
+        <AnswerPossibilities>
+          <Answer id="1">
+            <AnswerText>14</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+    <Question>
+      <QuestionId>08</QuestionId>
+      <QuestionText>Welches Erkennungssignal benutzt die Feuerwehr?</QuestionText>
+      <AnswerType type="MC">
+        <AnswerPossibilities>
+          <Answer id="1" correct="true">
+            <AnswerText>Martinshorn</AnswerText>
+          </Answer>
+          <Answer id="2" correct="false">
+            <AnswerText>Jagdhorn</AnswerText>
+          </Answer>
+          <Answer id="3" correct="false">
+            <AnswerText>Alphorn</AnswerText>
+          </Answer>
+          <Answer id="4" correct="false">
+            <AnswerText>Tuba</AnswerText>
+          </Answer>
+        </AnswerPossibilities>
+      </AnswerType>
+    </Question>
+  </Cards>
+</CardFile>
