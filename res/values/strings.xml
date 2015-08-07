@@ -7,6 +7,7 @@
     <string name="config">Konfiguration</string>
     <string name="sorttyp">Sortierreihenfolge</string>
     <string name="learntyp">Lernmodus</string>
+    <string name="send">Abschicken</string>
     
 
     <string-array name="spn_sort">
