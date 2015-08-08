@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import de.bg.fhdw.bfwi413a.karthago.ku.db.DatabaseHandlerConfig;
+import de.bg.fhdw.bfwi413a.karthago.ku.db.DatabaseHandler;
 
 public class ConfigActivity extends Activity  implements AdapterView.OnItemSelectedListener{
 	//Declaration of Spinner and ArrayAdapters (strings.xml);
@@ -19,7 +19,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
     Spinner spn_lernmode;
     ArrayAdapter<CharSequence> adapter_learn;
 	SQLiteDatabase configDB;
-	DatabaseHandlerConfig dbHelper = new DatabaseHandlerConfig(this);
+	DatabaseHandler dbHelper = new DatabaseHandler(this);
 
 	
 	@Override
@@ -37,7 +37,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            @Override
 	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-	                dbHelper.updateConfigOption1(configDB, (int) parent.getItemIdAtPosition(position));
+	                dbHelper.updateConfigOption1((int) parent.getItemIdAtPosition(position));
 	            }
 
 	            @Override
@@ -56,7 +56,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            @Override
 	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-	            	dbHelper.updateConfigOption2(configDB, (int) parent.getItemIdAtPosition(position));
+	            	dbHelper.updateConfigOption2((int) parent.getItemIdAtPosition(position));
 	            }
 
 	            @Override
@@ -91,13 +91,13 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
