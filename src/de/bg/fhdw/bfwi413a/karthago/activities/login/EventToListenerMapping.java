@@ -14,7 +14,7 @@ public class EventToListenerMapping implements OnClickListener, OnItemSelectedLi
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
 		mApplicationLogic = applicationLogic;
 		mGui = gui;
-		mGui.getmButtonLogin().setOnClickListener(this);
+//		mGui.getmButtonLogin().setOnClickListener(this);
 		mGui.getmSpinnerUser().setOnItemSelectedListener(this);
 		
 		
@@ -22,7 +22,7 @@ public class EventToListenerMapping implements OnClickListener, OnItemSelectedLi
 
 	@Override
 	public void onClick(View v) {
-		mApplicationLogic.onLoginButtonClick();
+//		mApplicationLogic.onLoginButtonClick();
 	}
 	
 

@@ -1,4 +1,14 @@
-package de.bg.fhdw.bfwi413a.karthago.session_management;
+/*************************************************************************************************
+ * @author Patrick
+ * 
+ * Diese Klasse dient zur Implementierung des Session-Managements der App. Um die ständige 
+ * Verfügbarkeit des eingeloggten Benutzers und der damit verbundenen userspezifischen
+ * Appanpassungen sicherzustellen, wird der Benutzer am Anfang der App (nach betätigen des Login-
+ * Buttons) in eine temporäre Session gesichert und kann von jeder anderen Activity verwendet
+ * werden.
+ * 
+ ************************************************************************************************/
+package de.bg.fhdw.bfwi413a.karthago.sessionmanagement;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,10 +18,10 @@ import android.content.SharedPreferences.Editor;
 
 @SuppressLint("CommitPrefEdits")
 public class SessionManagement {
-	SharedPreferences pref;
-	Editor editor;
-	Context _context;
-	int PRIVATE_MODE = 0;
+	private SharedPreferences pref;
+	private Editor editor;
+	private Context _context;
+	private int PRIVATE_MODE = 0;
 	
 	// Sharedpref file name
     private static final String PREF_NAME = "Karthago";
@@ -29,13 +39,12 @@ public class SessionManagement {
         editor = pref.edit();
     }
     
-    public void createLoginSession(String user){
+    public void createLoginSession(String username){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
          
         // Storing name in pref
-        editor.putString(KEY_NAME, user);
-         
+        editor.putString(KEY_NAME, username);
         // commit changes
         editor.commit();
     }

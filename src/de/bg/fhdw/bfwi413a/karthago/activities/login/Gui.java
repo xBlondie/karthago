@@ -15,7 +15,7 @@ public class Gui {
 	public Gui (Activity activity){
 		activity.setContentView(R.layout.activity_login);
 		mTextviewWelcome = (TextView) activity.findViewById(R.id.textview_welcome);
-		mButtonLogin = (Button) activity.findViewById(R.id.btn_login_start);
+		//mButtonLogin = (Button) activity.findViewById(R.id.btn_login_start);
 		mSpinnerUser = (Spinner) activity.findViewById(R.id.spn_userlist);
 	}
 	

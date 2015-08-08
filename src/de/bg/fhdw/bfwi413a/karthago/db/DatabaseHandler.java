@@ -20,7 +20,7 @@
  * Nähere Informationen zu den Methoden finden Sie an der passenden Stelle!
  * 
  ***********************************************************************************************/
-package de.bg.fhdw.bfwi413a.karthago.ku.db;
+package de.bg.fhdw.bfwi413a.karthago.db;
 
 import java.util.ArrayList;
 import java.util.List;

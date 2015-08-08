@@ -1,4 +1,10 @@
-//created by Patrick
+/* **********************************************************************************************
+ * @author Patrick
+ * 
+ * Diese Klasse dient zur Verwaltung der Config-Optionen durch den Nutzer. Ebenso kann hier der
+ * Nutzer gewechselt werden und ggf. auch gelöscht werden, sofern es der User bestätigt.
+ * 
+ ***********************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago;
 
 import android.app.Activity;
@@ -10,15 +16,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import de.bg.fhdw.bfwi413a.karthago.ku.db.DatabaseHandler;
+import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
 public class ConfigActivity extends Activity  implements AdapterView.OnItemSelectedListener{
-	//Declaration of Spinner and ArrayAdapters (strings.xml);
+	//DECLARATION OF SPINNERS AND ADAPTERS(STRINGS.XML)
 	Spinner spn_sorttyper;
     ArrayAdapter<CharSequence> adapter_sort;
     Spinner spn_lernmode;
     ArrayAdapter<CharSequence> adapter_learn;
-	SQLiteDatabase configDB;
+    //DECLARATION OF DATABASE-INSTANCE
 	DatabaseHandler dbHelper = new DatabaseHandler(this);
 
 	
@@ -27,7 +33,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_config);
 		
-		//Initialize Spinner One (Sorttyp) and Implemented SelectedListener
+		//INITIALIZE SPINNER ONE (SORT) AND IMPLEMENT LISTENER
 		 	spn_sorttyper = (Spinner) findViewById(R.id.spn_sort);
 	        adapter_sort = ArrayAdapter.createFromResource(this, R.array.spn_sort, android.R.layout.simple_spinner_item);
 	        adapter_sort.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -46,7 +52,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	            }
 	        });
 	        
-	        //Initialize Spinner Two (Learntyp) and Implemented SelectedListener
+	        //INITIALIZE SPINNER TWO (LEARNMODE) AND IMPLEMENT LISTENER
 	        spn_lernmode = (Spinner) findViewById(R.id.spn_learn);
 	        adapter_learn = ArrayAdapter.createFromResource(this, R.array.spn_learn, android.R.layout.simple_spinner_item);
 	        adapter_learn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -56,6 +62,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            @Override
 	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+	            	//UPDATE SELECTED OPTION IN DATABASE
 	            	dbHelper.updateConfigOption2((int) parent.getItemIdAtPosition(position));
 	            }
 
@@ -64,9 +71,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            }
 	        });
-	        
-	        //DB-Manager
-	        configDB = dbHelper.getWritableDatabase();
+	       
 	       
 	}
 

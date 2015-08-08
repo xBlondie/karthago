@@ -15,9 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
-import de.bg.fhdw.bfwi413a.karthago.ku.db.DatabaseHandler;
-import de.bg.fhdw.bfwi413a.karthago.session_management.SessionManagement;
+import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
+import de.bg.fhdw.bfwi413a.karthago.sessionmanagement.SessionManagement;
 
 public class Init extends Activity implements
 OnItemSelectedListener {
@@ -30,6 +31,8 @@ OnItemSelectedListener {
 	private DatabaseHandler mdbHandler;
 	Spinner userlist;
 	Button new_user;
+	Button mButtonLogin;
+	SessionManagement session;
 	
 	// ----END @author Patrick ----
 	
@@ -46,6 +49,8 @@ OnItemSelectedListener {
 		initSpinner();
 		initBtnNewUser();
 		loadUserlistFromDatabase();
+		initLoginBtn();
+		session = new SessionManagement(getApplicationContext());
 		//----END @auhtor Patrick ----
 	}
 	
@@ -160,6 +165,20 @@ OnItemSelectedListener {
             }
         });
 		
+	}
+	
+	private void initLoginBtn(){
+		mButtonLogin = (Button) findViewById(R.id.btn_login_start);
+		mButtonLogin.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				session.createLoginSession((String) userlist.getSelectedItem().toString());
+				
+				Navigation.startActivityMenu(mData.getmActivity());
+				
+			}
+		});
 	}
 	
 	
