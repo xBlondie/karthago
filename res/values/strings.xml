@@ -4,12 +4,30 @@
     <string name="app_name">Karthago</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+    <!-- @author Patrick -->
+    
     <string name="config">Konfiguration</string>
     <string name="sorttyp">Sortierreihenfolge</string>
     <string name="learntyp">Lernmodus</string>
     <string name="send">Abschicken</string>
-    
-
+    <string name="start_selection">Kartei auswählen</string>
+    <string name="start_config">Konfiguration</string>
+    <string name="logout">Logout</string>
+    <string name="statistics">Statistiken</string>
+    <string name="hello">Hallo</string>
+    <string name="text_textview_cardfile_selection">Wähle eine Kartei aus</string>
+    <string name="cardfile1">Kartei 1</string>
+    <string name="cardfile2">Kartei 2</string>
+    <string name="cardfile3">Kartei 3</string>
+    <string name="cardfile4">Kartei 4</string>
+    <string name="cardfile5">Kartei 5</string>
+    <string name="cardfile6">Kartei 6</string>
+    <string name="cardfile7">Kartei 7</string>
+    <string name="cardfile8">Kartei 8</string>
+    <string name="changeUser">User wechseln</string>
+    <string name="deleateUser">User löschen</string>
+	 
     <string-array name="spn_sort">
         <item>Ältestes zuerst</item>
         <item>Neustes zuerst</item>
@@ -19,10 +37,16 @@
         <item>Freitext</item>
         <item>Multiple Choice</item>
     </string-array>
+
+    <string name="login">Login</string>
+    <string name="new_user">Neuen Benutzer erstellen</string>
+
+    <!-- END @author Patrick -->
     
     <string name="menu_settings">Settings</string>
     <string name="title_activity_saxparser">SAXParserActivity</string>
     <string name="button">Parse XML using SAX</string>
+    
     <string name="button_login">Einloggen</string>
 
 </resources>

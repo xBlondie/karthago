@@ -12,14 +12,35 @@
         android:id="@+id/btn_login_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spinner_userlogin"
-        android:layout_below="@+id/spinner_userlogin"
-        android:text="@string/button_login" />
+        android:layout_alignLeft="@+id/spn_userlist"
+        android:layout_below="@+id/spn_userlist"
+        android:text="@string/login" />
 
-    <Spinner
-        android:id="@+id/spinner_userlogin"
+    <TextView
+        android:id="@+id/textview_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/hello_world" />
+
+    <Spinner
+        android:id="@+id/spn_userlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textview_welcome"
+        android:layout_below="@+id/textview_welcome"
         android:layout_marginTop="78dp" />
+
+    <Button
+        android:id="@+id/new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="@string/new_user" />
 
 </RelativeLayout>

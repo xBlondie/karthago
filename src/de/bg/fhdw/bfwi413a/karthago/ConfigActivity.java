@@ -1,25 +1,42 @@
-//created by Patrick
+/* **********************************************************************************************
+ * @author Patrick
+ * 
+ * Diese Klasse dient zur Verwaltung der Config-Optionen durch den Nutzer. Ebenso kann hier der
+ * Nutzer gewechselt werden und ggf. auch gelöscht werden, sofern es der User bestätigt.
+ * 
+ ***********************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago;
 
+import java.util.List;
+
 import android.app.Activity;
-import android.database.sqlite.SQLiteDatabase;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
-import de.bg.fhdw.bfwi413a.karthago.ku.db.DatabaseHandlerConfig;
+import android.widget.Toast;
+import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
 public class ConfigActivity extends Activity  implements AdapterView.OnItemSelectedListener{
-	//Declaration of Spinner and ArrayAdapters (strings.xml);
+	//DECLARATION OF SPINNERS AND ADAPTERS(STRINGS.XML)
 	Spinner spn_sorttyper;
     ArrayAdapter<CharSequence> adapter_sort;
     Spinner spn_lernmode;
     ArrayAdapter<CharSequence> adapter_learn;
-	SQLiteDatabase configDB;
-	DatabaseHandlerConfig dbHelper = new DatabaseHandlerConfig(this);
+    Spinner userlist;
+    //DECLARATION OF DATABASE-INSTANCE
+	DatabaseHandler dbHelper = new DatabaseHandler(this);
+	Button changeUser;
+	Button deleateUser;
+	SessionManagement session;
 
 	
 	@Override
@@ -27,7 +44,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_config);
 		
-		//Initialize Spinner One (Sorttyp) and Implemented SelectedListener
+		//INITIALIZE SPINNER ONE (SORT) AND IMPLEMENT LISTENER
 		 	spn_sorttyper = (Spinner) findViewById(R.id.spn_sort);
 	        adapter_sort = ArrayAdapter.createFromResource(this, R.array.spn_sort, android.R.layout.simple_spinner_item);
 	        adapter_sort.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -37,7 +54,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            @Override
 	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-	                dbHelper.updateConfigOption1(configDB, (int) parent.getItemIdAtPosition(position));
+	                dbHelper.updateConfigOption1((int) parent.getItemIdAtPosition(position));
 	            }
 
 	            @Override
@@ -46,7 +63,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	            }
 	        });
 	        
-	        //Initialize Spinner Two (Learntyp) and Implemented SelectedListener
+	        //INITIALIZE SPINNER TWO (LEARNMODE) AND IMPLEMENT LISTENER
 	        spn_lernmode = (Spinner) findViewById(R.id.spn_learn);
 	        adapter_learn = ArrayAdapter.createFromResource(this, R.array.spn_learn, android.R.layout.simple_spinner_item);
 	        adapter_learn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -56,7 +73,8 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            @Override
 	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-	            	dbHelper.updateConfigOption2(configDB, (int) parent.getItemIdAtPosition(position));
+	            	//UPDATE SELECTED OPTION IN DATABASE
+	            	dbHelper.updateConfigOption2((int) parent.getItemIdAtPosition(position));
 	            }
 
 	            @Override
@@ -64,10 +82,12 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            }
 	        });
-	        
-	        //DB-Manager
-	        configDB = dbHelper.getWritableDatabase();
 	       
+	     initSpinner();
+	     initDatabaseHandler();
+	     loadUserlistFromDatabase();
+	     initButtons();
+	     session = new SessionManagement(getApplicationContext());
 	}
 
 	@Override
@@ -91,14 +111,117 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
-		// TODO Auto-generated method stub
 		
+		
+	}
+	
+	private void initSpinner(){
+		userlist = (Spinner) findViewById(R.id.spn_userlist_config);
+	}
+	
+	private void initDatabaseHandler(){
+		 dbHelper = new DatabaseHandler(getApplicationContext());
+	}
+	
+	private void loadUserlistFromDatabase() {
+		 
+        // Spinner Drop down elements
+        List<String> users = dbHelper.getUserList();
+ 
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, users);
+ 
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+ 
+        // attaching data adapter to spinner
+        userlist.setAdapter(dataAdapter);
+		
+	}
+	
+	private void initButtons(){
+		changeUser = (Button) findViewById(R.id.btn_changeUser);
+		deleateUser = (Button) findViewById(R.id.btn_deleateUser);
+		
+		changeUser.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String choosedUser = userlist.getSelectedItem().toString();
+				session.changeUserWithRedirectToMenu(choosedUser);;				
+				
+			}
+		});
+		
+		deleateUser.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				final String user = userlist.getSelectedItem().toString();
+				
+					//GET CONFIRMATION OF USER TO DELEATE CHOOSED USER (ONLY IF USERNAME TYPED IN CORRECTLY)
+					AlertDialog.Builder builder = new AlertDialog.Builder(ConfigActivity.this);
+	            	builder.setTitle("Bitte Namen des zu löschenden Users eingeben:");
+
+	            	// Set up the input
+	            	final EditText input = new EditText(ConfigActivity.this);
+	            	// Specify the type of input expected; in this case as text
+	            	input.setInputType(InputType.TYPE_CLASS_TEXT);
+	            	builder.setView(input);
+
+	            	// Set up the buttons
+	            	builder.setPositiveButton("Löschen", new DialogInterface.OnClickListener() { 
+	            	    @Override
+	            	    public void onClick(DialogInterface dialog, int which) {
+	            	    	if (input.getText().toString().length() > 0) {
+	            	    		if(user.equals("ADMIN")){
+	            					Toast.makeText(getApplicationContext(), "User ADMIN kann nicht gelöscht werden", Toast.LENGTH_LONG).show();
+	            				}else{
+		            				if (user.equals(input.getText().toString())){
+		            					//DELEATE ROW IN DATABASE
+		            					dbHelper.deleateUser(user);
+		            					Toast.makeText(getApplicationContext(), "User wurde erfolgreich gelöscht!",
+			                                    Toast.LENGTH_SHORT).show();
+		            					if(user.equals(session.getUserDetails())){
+		            						//"LOGOUT" TO DELEATE SESSION AND USER FINALLY
+			            					session.logoutUser();
+		            					}else{
+		            						//RELOAD SPINNER
+			            					loadUserlistFromDatabase();
+		            					}
+		            				}else{
+		            					Toast.makeText(getApplicationContext(), "Abweichungen im Namen erkannt. User konnte nicht gelöscht werden!",
+			                                    Toast.LENGTH_SHORT).show();
+		            				}
+	            				}
+	            	    		
+	            	    	}else{
+	            	    		Toast.makeText(getApplicationContext(), "Keinen User eingegeben. Löschvorgang abgebrochen.",
+	                                    Toast.LENGTH_SHORT).show();
+	            	    	}
+	            	    	
+	            	    }
+	            	});
+	            	builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+	            	    @Override
+	            	    public void onClick(DialogInterface dialog, int which) {
+	            	        dialog.cancel();
+	            	    }
+	            	});
+
+	            	builder.show();
+					
+				}
+				
+			
+		});
 	}
 	
 	

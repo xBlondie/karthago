@@ -15,38 +15,54 @@
         android:text="@string/hello_world" />
 
     <Button
-        android:id="@+id/btn_logout"
+        android:id="@+id/btn_start_selection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_start_statistics"
-        android:layout_below="@+id/btn_start_statistics"
-        android:layout_marginTop="24dp"
-        android:text="Button" />
+        android:layout_below="@+id/textview_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:text="@string/start_selection" />
 
     <Button
         android:id="@+id/btn_start_config"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_start_selection"
-        android:layout_below="@+id/textview_logo"
-        android:text="Button" />
+        android:layout_below="@+id/btn_start_selection"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start_config" />
 
     <Button
-        android:id="@+id/btn_start_selection"
+        android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_start_config"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="Button" />
+        android:text="@string/logout" />
 
     <Button
         android:id="@+id/btn_start_statistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_start_selection"
-        android:layout_below="@+id/btn_start_selection"
-        android:layout_marginTop="32dp"
-        android:text="Button" />
+        android:layout_below="@+id/btn_logout"
+        android:layout_centerHorizontal="true"
+        android:text="@string/statistics" />
+
+    <TextView
+        android:id="@+id/salutations1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textview_logo"
+        android:layout_below="@+id/textview_logo"
+        android:layout_marginTop="34dp"
+        android:text="@string/hello" />
+
+    <TextView
+        android:id="@+id/set_salutations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/salutations1"
+        android:layout_alignBottom="@+id/salutations1"
+        android:layout_toLeftOf="@+id/btn_start_selection"
+        android:text="" />
 
 </RelativeLayout>
