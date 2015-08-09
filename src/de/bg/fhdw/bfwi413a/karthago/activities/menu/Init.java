@@ -1,10 +1,10 @@
 package de.bg.fhdw.bfwi413a.karthago.activities.menu;
 
 import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
-import de.bg.fhdw.bfwi413a.karthago.sessionmanagement.SessionManagement;
 
 public class Init extends Activity{
 	

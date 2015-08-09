@@ -8,7 +8,7 @@
  * werden.
  * 
  ************************************************************************************************/
-package de.bg.fhdw.bfwi413a.karthago.sessionmanagement;
+package de.bg.fhdw.bfwi413a.karthago;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -83,8 +83,27 @@ public class SessionManagement {
         editor.clear();
         editor.commit();
          
-        // After logout redirect user to Loing Activity
+        // After logout redirect user to Login Activity
         Intent i = new Intent(_context, de.bg.fhdw.bfwi413a.karthago.activities.login.Init.class);
+        // Closing all the Activities
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+         
+        // Add new Flag to start new Activity
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+         
+        // Staring Login Activity
+        _context.startActivity(i);
+    }
+    
+    public void changeUserWithRedirectToMenu(String choosedUser){
+    	// Clearing all data from Shared Preferences
+        editor.clear();
+        editor.commit();
+        
+        createLoginSession(choosedUser);
+        
+     // After logout redirect user to Menu Activity
+        Intent i = new Intent(_context, de.bg.fhdw.bfwi413a.karthago.activities.menu.Init.class);
         // Closing all the Activities
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
          

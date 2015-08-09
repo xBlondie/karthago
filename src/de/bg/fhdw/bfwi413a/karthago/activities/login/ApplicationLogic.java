@@ -1,7 +1,7 @@
 package de.bg.fhdw.bfwi413a.karthago.activities.login;
 
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
-import de.bg.fhdw.bfwi413a.karthago.sessionmanagement.SessionManagement;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 
 public class ApplicationLogic {
 	

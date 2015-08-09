@@ -241,4 +241,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
 	 }
 	 
+	 public void deleateUser (String user){
+		 //CREATE DATABASE-INSTANCE
+		 SQLiteDatabase db = this.getWritableDatabase();
+		 
+		 //PREPARE SQL
+		 db.delete(TB_NAME_USER, USER + " = '" + user +"'", null);
+		 db.close();
+	 }
+	 
 }

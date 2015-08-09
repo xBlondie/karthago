@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 import de.bg.fhdw.bfwi413a.karthago.R;
-import de.bg.fhdw.bfwi413a.karthago.sessionmanagement.SessionManagement;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 
 public class EventToListenerMapping implements OnClickListener{
 	

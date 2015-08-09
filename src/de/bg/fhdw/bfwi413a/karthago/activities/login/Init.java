@@ -17,8 +17,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
-import de.bg.fhdw.bfwi413a.karthago.sessionmanagement.SessionManagement;
 
 public class Init extends Activity implements
 OnItemSelectedListener {
