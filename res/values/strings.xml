@@ -27,6 +27,7 @@
     <string name="cardfile8">Kartei 8</string>
     <string name="changeUser">User wechseln</string>
     <string name="deleateUser">User löschen</string>
+     <string name="info">Über diese App</string>
 	 
     <string-array name="spn_sort">
         <item>Ältestes zuerst</item>
