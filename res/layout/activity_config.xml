@@ -75,4 +75,13 @@
         android:layout_marginBottom="18dp"
         android:text="@string/deleateUser" />
 
+    <Button
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/title"
+        android:layout_toRightOf="@+id/spn_sort"
+        android:src="@drawable/info"
+        android:text="@string/info" />
+
 </RelativeLayout>

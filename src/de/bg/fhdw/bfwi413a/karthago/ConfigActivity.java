@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
@@ -37,12 +39,15 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	Button changeUser;
 	Button deleateUser;
 	SessionManagement session;
+	Button info;
 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_config);
+		
+		initImages();
 		
 		//INITIALIZE SPINNER ONE (SORT) AND IMPLEMENT LISTENER
 		 	spn_sorttyper = (Spinner) findViewById(R.id.spn_sort);
@@ -221,6 +226,32 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 				}
 				
 			
+		});
+	}
+	
+	private void initImages(){
+		 info = (Button) findViewById(R.id.info);
+		 info.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(ConfigActivity.this);
+				builder.setTitle("Über diese App");
+				TextView myMsg = new TextView(ConfigActivity.this);
+				myMsg.setText("Version 1.0.0 \n \n Diese App wurde programmiert von: \n Leonie Schiburr \n Julia Körvers \n Franziska Plate \n An-Nam Pham \n Vasilij Schneidermann \n Pascal Thronicke \n Fynn-Ole Carlsen \n Patrick Künzl");
+				myMsg.setGravity(Gravity.CENTER_HORIZONTAL);
+				builder.setView(myMsg);
+				// Add the buttons
+				builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				               dialog.cancel();
+				           }
+				       });
+				
+				// Create the AlertDialog
+				builder.show();
+				
+			}
 		});
 	}
 	

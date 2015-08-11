@@ -47,18 +47,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String TB_NAME_XML ="cards";
 	private static final String CARD_DECK = "CARD_DECK";
 	private static final String QUESTION_ID = "QUESTION_ID";
-	private static final String QUESTION_TEXT = "QUESTION_TEXT";
 	private static final String ANSWER_TYPE = "ANSWER_TYPE";
-	private static final String ANSWER_ONE = "ANSWER_ONE";
-	private static final String ANSWER_TWO = "ANSWER_TWO";
-	private static final String ANSWER_THREE = "ANSWER_THREE";
-	private static final String ANSWER_FOUR = "ANSWER_FOUR";
 	private static final String RIGHT_ANSWER = "RIGHT_ANSWER";
+	private static final String TIMESTAMP = "TIMESTAMP";
 	private static final String COUNT_OF_RIGHT_ANSWER = "COUNT_OF_RIGHT_ANSWER";
 	
 	//DECLARE COLUMNS-USER
 	public static final String TB_NAME_USER ="user";
 	private static final String USER = "USER";
+	
+	//DECLARE COLUMNS-TIMESTAMP
+	public static final String TB_NAME_TIMESTAMP = "timestamp";
+	private static final String LEVEL = "LEVEL";
+	private static final String INCREASED_TIME_FOR_LEVEL = "INCREASED_TIME_FOR_LEVEL_IN_SECONDS";
 	
 	
 	//CONSTRUCTOR TO INITIALIZE THE DATABASE IF NOT EXISTS
@@ -82,13 +83,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ " (" 
 				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
 				+ CARD_DECK + " INTEGER,"
+				+ TIMESTAMP + " TEXT,"
 				+ QUESTION_ID + " INTEGER,"
-				+ QUESTION_TEXT + " TEXT,"
 				+ ANSWER_TYPE + " TEXT,"
-				+ ANSWER_ONE + " TEXT,"
-				+ ANSWER_TWO + " TEXT,"
-				+ ANSWER_THREE + " TEXT,"
-				+ ANSWER_FOUR + " TEXT,"
 				+ RIGHT_ANSWER + " INTEGR,"
 				+ COUNT_OF_RIGHT_ANSWER + " INTEGER"
 				+ ");";
@@ -96,8 +93,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		//CREATE USER-TABLE
 		String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_USER
 				+ " (" 
-				+ ID + " integer primary key autoincrement not null,"
-				+ USER + " text"
+				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+				+ USER + " TEXT"
+				+ ");";
+		
+		//CREATE TIMESTAMP-TABLE
+		String CREATE_TIMESTAMP_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_TIMESTAMP
+				+ " (" 
+				+ ID + " INTEGER PRIMARY KEY AUTIONCREMENT NOT NULL,"
+				+ LEVEL + " INTEGER,"
+				+ INCREASED_TIME_FOR_LEVEL + " INTEGER"
 				+ ");";
 		
 		
@@ -105,6 +110,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(CREATE_CONFIG_TABLE);
 		db.execSQL(CREATE_XML_TABLE);
 		db.execSQL(CREATE_USER_TABLE);
+		db.execSQL(CREATE_TIMESTAMP_TABLE);
 		
 		//INITIALIZE TABLES FOR USING FIRST TIME
 		initializeTablesForFirstStart(db);
@@ -117,6 +123,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CONFIG);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_XML);
+        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_TIMESTAMP);
   
         //RESTART THE CREATE PROCESS
         onCreate(db);
@@ -131,9 +138,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		//ADMIN USER HAS TO EXIST EVERYTIME, SO HE IS NOT DELETEABLE (NO INFLUENCE ON SYSTEM)
 		String SET_FIRST_USER = "INSERT INTO " + TB_NAME_USER +" VALUES (0, 'ADMIN');";
 		
+		//SET THE LEVELS AND TIMES FOR TIMESTAMPS
+		String LEVEL_1 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (0,1,60)";
+		String LEVEL_2 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (1,2,300)";
+		String LEVEL_3 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (2,3,3600)";
+		String LEVEL_4 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (3,4,43200)";
+		String LEVEL_5 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (4,5,86400)";
+		String LEVEL_6 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (5,6,172800)";
+		String LEVEL_7 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (6,7,604800)";
+		
+		//EXCECUTE SQL-STATEMENTS
 		db.execSQL(initializeSorttyp);
 		db.execSQL(initializeLearnmode);
 		db.execSQL(SET_FIRST_USER);
+		db.execSQL(LEVEL_1);
+		db.execSQL(LEVEL_2);
+		db.execSQL(LEVEL_3);
+		db.execSQL(LEVEL_4);
+		db.execSQL(LEVEL_5);
+		db.execSQL(LEVEL_6);
+		db.execSQL(LEVEL_7);
 	}
 	
 	public void updateConfigOption1(int value){
