@@ -238,7 +238,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 				AlertDialog.Builder builder = new AlertDialog.Builder(ConfigActivity.this);
 				builder.setTitle("Über diese App");
 				TextView myMsg = new TextView(ConfigActivity.this);
-				myMsg.setText("Version 1.0.0 \n \n Diese App wurde programmiert von: \n Leonie Schiburr \n Julia Körvers \n Franziska Plate \n An-Nam Pham \n Pascal Thronicke \n Fynn-Ole Carlsen \n Patrick Künzl");
+				myMsg.setText("Version 1.0.0 \n \n Diese App wurde programmiert von: \n Leonie Schiburr \n Julia Körvers \n Franziska Plate \n An-Nam Pham \n Vasilij Schneidermann \n Pascal Thronicke \n Fynn-Ole Carlsen \n Patrick Künzl");
 				myMsg.setGravity(Gravity.CENTER_HORIZONTAL);
 				builder.setView(myMsg);
 				// Add the buttons
