@@ -3,7 +3,7 @@
  * verschiedenen Activities, sowie deren gegenseitigen Aufruf.
  *  
  * In dieser Klasse werden alle notwendigen persistenten und nicht persistenten
- * Daten �bermittelt
+ * Daten übermittelt
  * 
  * Autor: Leonie Schiburr
  *  */

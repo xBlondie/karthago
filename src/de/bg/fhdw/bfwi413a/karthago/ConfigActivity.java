@@ -2,7 +2,7 @@
  * @author Patrick
  * 
  * Diese Klasse dient zur Verwaltung der Config-Optionen durch den Nutzer. Ebenso kann hier der
- * Nutzer gewechselt werden und ggf. auch gel�scht werden, sofern es der User best�tigt.
+ * Nutzer gewechselt werden und ggf. auch gelöscht werden, sofern es der User bestatigt.
  * 
  ***********************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago;
@@ -173,7 +173,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 				
 					//GET CONFIRMATION OF USER TO DELEATE CHOOSED USER (ONLY IF USERNAME TYPED IN CORRECTLY)
 					AlertDialog.Builder builder = new AlertDialog.Builder(ConfigActivity.this);
-	            	builder.setTitle("Bitte Namen des zu l�schenden Users eingeben:");
+	            	builder.setTitle("Bitte Namen des zu löschenden Users eingeben:");
 
 	            	// Set up the input
 	            	final EditText input = new EditText(ConfigActivity.this);
@@ -182,17 +182,17 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	            	builder.setView(input);
 
 	            	// Set up the buttons
-	            	builder.setPositiveButton("L�schen", new DialogInterface.OnClickListener() { 
+	            	builder.setPositiveButton("Löschen", new DialogInterface.OnClickListener() { 
 	            	    @Override
 	            	    public void onClick(DialogInterface dialog, int which) {
 	            	    	if (input.getText().toString().length() > 0) {
 	            	    		if(user.equals("ADMIN")){
-	            					Toast.makeText(getApplicationContext(), "User ADMIN kann nicht gel�scht werden", Toast.LENGTH_LONG).show();
+	            					Toast.makeText(getApplicationContext(), "User ADMIN kann nicht gelöscht werden", Toast.LENGTH_LONG).show();
 	            				}else{
 		            				if (user.equals(input.getText().toString())){
 		            					//DELEATE ROW IN DATABASE
 		            					dbHelper.deleateUser(user);
-		            					Toast.makeText(getApplicationContext(), "User wurde erfolgreich gel�scht!",
+		            					Toast.makeText(getApplicationContext(), "User wurde erfolgreich gelöscht!",
 			                                    Toast.LENGTH_SHORT).show();
 		            					if(user.equals(session.getUserDetails())){
 		            						//"LOGOUT" TO DELEATE SESSION AND USER FINALLY
@@ -202,13 +202,13 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 			            					loadUserlistFromDatabase();
 		            					}
 		            				}else{
-		            					Toast.makeText(getApplicationContext(), "Abweichungen im Namen erkannt. User konnte nicht gel�scht werden!",
+		            					Toast.makeText(getApplicationContext(), "Abweichungen im Namen erkannt. User konnte nicht gelöscht werden!",
 			                                    Toast.LENGTH_SHORT).show();
 		            				}
 	            				}
 	            	    		
 	            	    	}else{
-	            	    		Toast.makeText(getApplicationContext(), "Keinen User eingegeben. L�schvorgang abgebrochen.",
+	            	    		Toast.makeText(getApplicationContext(), "Keinen User eingegeben. Löschvorgang abgebrochen.",
 	                                    Toast.LENGTH_SHORT).show();
 	            	    	}
 	            	    	

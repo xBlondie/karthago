@@ -18,7 +18,7 @@ import android.content.res.AssetManager;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 
 
-public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! Wichtig, Klasse muss von Activity erben f�r AssetManager
+public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! Wichtig, Klasse muss von Activity erben für AssetManager
 	
 	DocumentBuilderFactory mFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder mBuilder;
@@ -34,7 +34,7 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 	
 	// END @author Patrick
 	
-	public XMLDomParserAndHandler (Context context){ // immer sch�n auf den Context aufpassen!!!! ;-) am besten �bergeben wo der Construktor gestartet wird
+	public XMLDomParserAndHandler (Context context){ // immer schön auf den Context aufpassen!!!! ;-) am besten übergeben wo der Construktor gestartet wird
 		//@author Patrick
 		
 		session = new SessionManagement(context);
