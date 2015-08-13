@@ -2,7 +2,7 @@
 <Cards>
 <CardFile>Allgemeinwissen</CardFile>
     <Question>
-      <QuestionId>01</QuestionId>
+      <QuestionId>1</QuestionId>
       <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
       <AnswerType>MC</AnswerType>
       <Answer1>7</Answer1>
@@ -12,7 +12,7 @@
       <correct>9</correct> <!-- Das entspricht dem Wert der 3. Antwortmöglichkeit -->
     </Question>
     <Question>
-      <QuestionId>02</QuestionId>
+      <QuestionId>2</QuestionId>
       <QuestionText>Welcher ist der höchste Berg der Welt?</QuestionText>
       <AnswerType>MC</AnswerType>
         <AnswerPossibilities>
@@ -32,7 +32,7 @@
       <correct>Mount Everest</correct>
     </Question>
     <Question>
-      <QuestionId>03</QuestionId>
+      <QuestionId>3</QuestionId>
       <QuestionText>In welchem Jahr endete der zweite Weltkrieg?(Bitte Ganzzahl angeben)</QuestionText>
       <AnswerType>FT</AnswerType>
         <AnswerPossibilities>
@@ -43,7 +43,7 @@
       <correct>1945</correct>
     </Question>
     <Question>
-      <QuestionId>04</QuestionId>
+      <QuestionId>4</QuestionId>
       <QuestionText>Wieviele Menschen gibt es auf der Welt?</QuestionText>
       <AnswerType>MC</AnswerType>
         <AnswerPossibilities>
@@ -63,7 +63,7 @@
       <correct>Über 7 Milliarden Menschen</correct>
     </Question>
     <Question>
-      <QuestionId>05</QuestionId>
+      <QuestionId>5</QuestionId>
       <QuestionText>Was ist die Antwort auf alle Fragen?</QuestionText>
       <AnswerType>FT</AnswerType>
         <AnswerPossibilities>
@@ -77,7 +77,7 @@
       <correct>42</correct>
     </Question>
     <Question>
-      <QuestionId>06</QuestionId>
+      <QuestionId>6</QuestionId>
       <QuestionText>Welche dieser Vokabeln ist ein sog. "false friend"?</QuestionText>
       <AnswerType>FT</AnswerType>
         <AnswerPossibilities>
@@ -97,7 +97,7 @@
       <correct>actual = aktuell</correct>
     </Question>
     <Question>
-      <QuestionId>07</QuestionId>
+      <QuestionId>7</QuestionId>
       <QuestionText>Was ist die Quersumme von 1337? (Bitte Ganzzahl eingeben)</QuestionText>
       <AnswerType>FT</AnswerType>
         <AnswerPossibilities>
@@ -108,7 +108,7 @@
       <correct>14</correct>
     </Question>
     <Question>
-      <QuestionId>08</QuestionId>
+      <QuestionId>8</QuestionId>
       <QuestionText>Welches Erkennungssignal benutzt die Feuerwehr?</QuestionText>
       <AnswerType>MC</AnswerType>
         <AnswerPossibilities>

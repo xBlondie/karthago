@@ -3,7 +3,7 @@
  * verschiedenen Activities, sowie deren gegenseitigen Aufruf.
  *  
  * In dieser Klasse werden alle notwendigen persistenten und nicht persistenten
- * Daten übermittelt
+ * Daten ï¿½bermittelt
  * 
  * Autor: Leonie Schiburr
  *  */
@@ -34,6 +34,18 @@ public class Navigation {
 	public static final Class<?> STATISTICS_ACTIVITY_CLASS =
 			de.bg.fhdw.bfwi413a.karthago.activities.statistics.Init.class;
 	public static final String KEY_STATISTICS_ID = "de.bg.fhdw.bfwi413a.karthago.KEY_MENU_VALUE";
+	
+	public static final Class<?> LM3_ACTIVITY_CLASS =
+			de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.Init.class;
+	public static final String KEY_LM3_ID = "de.bg.fhdw.bfwi413a.karthago.KEY_LM3_VALUE";
+	
+	public static final Class<?> LM2_ACTIVITY_CLASS =
+			de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft.Init.class;
+	public static final String KEY_LM2_ID = "de.bg.fhdw.bfwi413a.karthago.KEY_LM2_VALUE";
+	
+	public static final Class<?> LM1_ACTIVITY_CLASS =
+			de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc.Init.class;
+	public static final String KEY_LM1_ID = "de.bg.fhdw.bfwi413a.karthago.KEY_LM1_VALUE";
 	
 	private static void startActivity (Activity activity, Class<?> classOfActivityToStart) {
 		Intent intent;

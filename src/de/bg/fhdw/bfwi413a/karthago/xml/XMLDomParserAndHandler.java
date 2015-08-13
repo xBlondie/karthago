@@ -18,7 +18,7 @@ import android.content.res.AssetManager;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 
 
-public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! Wichtig, Klasse muss von Activity erben für AssetManager
+public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! Wichtig, Klasse muss von Activity erben fï¿½r AssetManager
 	
 	DocumentBuilderFactory mFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder mBuilder;
@@ -29,11 +29,12 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 	SessionManagement session;
 	ArrayList<String> list_ids;
 	ArrayList<String> list_cardfile_id;
+	ArrayList<String> list_answer_type;
 	
 	
 	// END @author Patrick
 	
-	public XMLDomParserAndHandler (Context context){ // immer schön auf den Context aufpassen!!!! ;-) am besten übergeben wo der Construktor gestartet wird
+	public XMLDomParserAndHandler (Context context){ // immer schï¿½n auf den Context aufpassen!!!! ;-) am besten ï¿½bergeben wo der Construktor gestartet wird
 		//@author Patrick
 		
 		session = new SessionManagement(context);
@@ -41,6 +42,7 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		ifXMLFileExist();
 		list_ids = new ArrayList<String>();
 		list_cardfile_id = new ArrayList<String>();
+		list_answer_type = new ArrayList<String>();
 		// END @ author Patrick
 		
 	}
@@ -105,6 +107,7 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 
 				Element eElement = (Element) nNode;
 				list_ids.add(eElement.getElementsByTagName("QuestionId").item(0).getTextContent());
+				list_answer_type.add(eElement.getElementsByTagName("AnswerType").item(0).getTextContent());
 				
 				Element eElementParent = (Element) nNode.getParentNode();
 				list_cardfile_id.add(eElementParent.getElementsByTagName("CardFile").item(0).getTextContent());
@@ -112,7 +115,15 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 			}
 		}
 		
-		return new Results(list_ids, list_cardfile_id);
+		return new Results(list_ids, list_cardfile_id, list_answer_type);
+	}
+	
+	public ArrayList<String> getQuestionTypes(ArrayList<String> requieredQuestionsID){
+		ArrayList<String> questionTypes = new ArrayList<String>();
+		
+		
+		
+		return questionTypes;
 	}
 	// ---- END @author Patrick ----
 }
