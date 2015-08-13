@@ -76,6 +76,18 @@ public class Navigation {
 	public static void startActivityStatistics(Activity callingActivity) {
 		startActivity(callingActivity, MENU_ACTIVITY_CLASS);		
 	}
+	
+	public static void startActivityLM1_MC(Activity callingActivity) {
+		startActivity(callingActivity, LM1_ACTIVITY_CLASS);		
+	}
+	
+	public static void startActivityLM2_FT(Activity callingActivity) {
+		startActivity(callingActivity, LM2_ACTIVITY_CLASS);		
+	}
+	
+	public static void startActivityLM3_G(Activity callingActivity) {
+		startActivity(callingActivity, LM3_ACTIVITY_CLASS);		
+	}
 
 
 	
