@@ -57,6 +57,16 @@ public class Navigation {
 		activity.finish();
 	}
 	
+	private static void startActivity (Activity activity, Class<?> classOfActivityToStart, String key, String par) {
+		Intent intent;
+		
+		intent = new Intent();
+		intent.setClass(activity, classOfActivityToStart);
+		intent.putExtra(key, par);
+		activity.startActivity(intent);
+		activity.finish();
+	}
+	
 	public static void startActivityLogin (Activity callingActivity) {
 		startActivity(callingActivity, LOGIN_ACTIVITY_CLASS);
 	}
@@ -77,16 +87,16 @@ public class Navigation {
 		startActivity(callingActivity, MENU_ACTIVITY_CLASS);		
 	}
 	
-	public static void startActivityLM1_MC(Activity callingActivity) {
-		startActivity(callingActivity, LM1_ACTIVITY_CLASS);		
+	public static void startActivityLM1_MC(Activity callingActivity, String questionId) {
+		startActivity(callingActivity, LM1_ACTIVITY_CLASS, "currentQuestionId", questionId);		
 	}
 	
-	public static void startActivityLM2_FT(Activity callingActivity) {
-		startActivity(callingActivity, LM2_ACTIVITY_CLASS);		
+	public static void startActivityLM2_FT(Activity callingActivity, String questionId) {
+		startActivity(callingActivity, LM2_ACTIVITY_CLASS, "currentQuestionId", questionId);		
 	}
 	
-	public static void startActivityLM3_G(Activity callingActivity) {
-		startActivity(callingActivity, LM3_ACTIVITY_CLASS);		
+	public static void startActivityLM3_G(Activity callingActivity, String questionId) {
+		startActivity(callingActivity, LM3_ACTIVITY_CLASS, "currentQuestionId", questionId);		
 	}
 
 
