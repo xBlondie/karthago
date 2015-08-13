@@ -17,6 +17,7 @@ public class XmlToDbCommunication{
 	ArrayList<String> allCardFileNames;
 	ArrayList<String> list_ids;
 	ArrayList<String> list_cardfile_names;
+	ArrayList<String> list_answer_type;
 	Results result;
 	String user;
 	Timestamp tstamp;
@@ -29,6 +30,7 @@ public class XmlToDbCommunication{
 		result = new Results();
 		list_ids = new ArrayList<String>();
 		list_cardfile_names = new ArrayList<String>();
+		list_answer_type = new ArrayList<String>();
 		user = new String();
 		tstamp = new Timestamp(new Date().getTime()); 
 	}
@@ -45,10 +47,11 @@ public class XmlToDbCommunication{
 		result = xmldomhandler.getAllIDs();
 		list_ids = result.get_list_ids();
 		list_cardfile_names = result.get_list_cardfile_id();
+		list_answer_type = result.get_list_answer_type();
 		user = session.getUserDetails().toString();
 		
 		for(int i = 0; i<list_ids.size(); i++){
-			dbhandler.insertDataFromXMLToDB(Integer.parseInt(list_ids.get(i).toString()), user, tstamp.getTime(), list_cardfile_names.get(i).toString());
+			dbhandler.insertDataFromXMLToDB(Integer.parseInt(list_ids.get(i).toString()), user, tstamp.getTime(), list_cardfile_names.get(i).toString(), list_answer_type.get(i).toString());
 		}
 		
 		
