@@ -4,8 +4,8 @@
  * Diese Klasse dient zur Kommunikation zwischen den einzelnen Activities dieser App.
  * Dazu bietet diese Klasse alle Funktionen, die zur Verwaltung der Datenbank notwendig sind,
  * an. Somit kann die komplette Handler-Klasse privat gehalten werden. Auch die Instanzen
- * der Datenbank werden in der jeweiligen Methode instanziiert, sodass unnötige Parameter-
- * übergaben vermieden werden.
+ * der Datenbank werden in der jeweiligen Methode instanziiert, sodass unnÃ¶tige Parameter-
+ * Ã¼bergaben vermieden werden.
  * 
  * DEKLARIERUNG IN ANDEREN KLASSEN WIE FOLGT:
  * 
@@ -15,9 +15,9 @@
  * - Variablendeklarationen
  * - onCreate der Datenbank
  * - onUpgrade der Datenbank
- * - Methoden für die einzelnen Activities
+ * - Methoden fÃ¼r die einzelnen Activities
  * 
- * Nähere Informationen zu den Methoden finden Sie an der passenden Stelle!
+ * NÃ¤here Informationen zu den Methoden finden Sie an der passenden Stelle!
  * 
  ***********************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago.db;

@@ -2,7 +2,7 @@
  * @author Patrick
  * 
  * Diese Klasse dient zur Verwaltung der Config-Optionen durch den Nutzer. Ebenso kann hier der
- * Nutzer gewechselt werden und ggf. auch gelöscht werden, sofern es der User bestätigt.
+ * Nutzer gewechselt werden und ggf. auch gelÃ¶scht werden, sofern es der User bestÃ¤tigt.
  * 
  ***********************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago;
@@ -173,7 +173,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 				
 					//GET CONFIRMATION OF USER TO DELEATE CHOOSED USER (ONLY IF USERNAME TYPED IN CORRECTLY)
 					AlertDialog.Builder builder = new AlertDialog.Builder(ConfigActivity.this);
-	            	builder.setTitle("Bitte Namen des zu löschenden Users eingeben:");
+	            	builder.setTitle("Bitte Namen des zu lÃ¶schenden Users eingeben:");
 
 	            	// Set up the input
 	            	final EditText input = new EditText(ConfigActivity.this);
@@ -182,17 +182,17 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	            	builder.setView(input);
 
 	            	// Set up the buttons
-	            	builder.setPositiveButton("Löschen", new DialogInterface.OnClickListener() { 
+	            	builder.setPositiveButton("LÃ¶schen", new DialogInterface.OnClickListener() { 
 	            	    @Override
 	            	    public void onClick(DialogInterface dialog, int which) {
 	            	    	if (input.getText().toString().length() > 0) {
 	            	    		if(user.equals("ADMIN")){
-	            					Toast.makeText(getApplicationContext(), "User ADMIN kann nicht gelöscht werden", Toast.LENGTH_LONG).show();
+	            					Toast.makeText(getApplicationContext(), "User ADMIN kann nicht gelÃ¶scht werden", Toast.LENGTH_LONG).show();
 	            				}else{
 		            				if (user.equals(input.getText().toString())){
 		            					//DELEATE ROW IN DATABASE
 		            					dbHelper.deleateUser(user);
-		            					Toast.makeText(getApplicationContext(), "User wurde erfolgreich gelöscht!",
+		            					Toast.makeText(getApplicationContext(), "User wurde erfolgreich gelÃ¶scht!",
 			                                    Toast.LENGTH_SHORT).show();
 		            					if(user.equals(session.getUserDetails())){
 		            						//"LOGOUT" TO DELEATE SESSION AND USER FINALLY
@@ -202,13 +202,13 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 			            					loadUserlistFromDatabase();
 		            					}
 		            				}else{
-		            					Toast.makeText(getApplicationContext(), "Abweichungen im Namen erkannt. User konnte nicht gelöscht werden!",
+		            					Toast.makeText(getApplicationContext(), "Abweichungen im Namen erkannt. User konnte nicht gelÃ¶scht werden!",
 			                                    Toast.LENGTH_SHORT).show();
 		            				}
 	            				}
 	            	    		
 	            	    	}else{
-	            	    		Toast.makeText(getApplicationContext(), "Keinen User eingegeben. Löschvorgang abgebrochen.",
+	            	    		Toast.makeText(getApplicationContext(), "Keinen User eingegeben. LÃ¶schvorgang abgebrochen.",
 	                                    Toast.LENGTH_SHORT).show();
 	            	    	}
 	            	    	
@@ -236,9 +236,9 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 			@Override
 			public void onClick(View v) {
 				AlertDialog.Builder builder = new AlertDialog.Builder(ConfigActivity.this);
-				builder.setTitle("Über diese App");
+				builder.setTitle("Ãœber diese App");
 				TextView myMsg = new TextView(ConfigActivity.this);
-				myMsg.setText("Version 1.0.0 \n \n Diese App wurde programmiert von: \n Leonie Schiburr \n Julia Körvers \n Franziska Plate \n An-Nam Pham \n Vasilij Schneidermann \n Pascal Thronicke \n Fynn-Ole Carlsen \n Patrick Künzl");
+				myMsg.setText("Version 1.0.0 \n \n Diese App wurde programmiert von: \n Leonie Schiburr \n Julia KÃ¶rvers \n Franziska Plate \n An-Nam Pham \n Vasilij Schneidermann \n Pascal Thronicke \n Fynn-Ole Carlsen \n Patrick KÃ¼nzl");
 				myMsg.setGravity(Gravity.CENTER_HORIZONTAL);
 				builder.setView(myMsg);
 				// Add the buttons

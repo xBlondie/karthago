@@ -1,10 +1,10 @@
 /*************************************************************************************************
  * @author Patrick
  * 
- * Diese Klasse dient zur Implementierung des Session-Managements der App. Um die ständige 
- * Verfügbarkeit des eingeloggten Benutzers und der damit verbundenen userspezifischen
- * Appanpassungen sicherzustellen, wird der Benutzer am Anfang der App (nach betätigen des Login-
- * Buttons) in eine temporäre Session gesichert und kann von jeder anderen Activity verwendet
+ * Diese Klasse dient zur Implementierung des Session-Managements der App. Um die stÃ¤ndige 
+ * VerfÃ¼gbarkeit des eingeloggten Benutzers und der damit verbundenen userspezifischen
+ * Appanpassungen sicherzustellen, wird der Benutzer am Anfang der App (nach betÃ¤tigen des Login-
+ * Buttons) in eine temporÃ¤re Session gesichert und kann von jeder anderen Activity verwendet
  * werden.
  * 
  ************************************************************************************************/

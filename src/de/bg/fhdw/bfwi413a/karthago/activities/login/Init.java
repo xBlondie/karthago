@@ -142,7 +142,7 @@ OnItemSelectedListener {
             	builder.setView(input);
 
             	// Set up the buttons
-            	builder.setPositiveButton("Hinzufügen", new DialogInterface.OnClickListener() { 
+            	builder.setPositiveButton("HinzufÃ¼gen", new DialogInterface.OnClickListener() { 
             	    @Override
             	    public void onClick(DialogInterface dialog, int which) {
             	    	if (input.getText().toString().length() > 0) {

@@ -1,4 +1,4 @@
-//Gui wird benötigt, damit die Gui geladen werden kann und funktioniert
+//Gui wird benÃ¶tigt, damit die Gui geladen werden kann und funktioniert
 
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
 
@@ -35,7 +35,7 @@ public class Gui {
 	}
 
 	
-	//getter und setter (werden benötigt, um Informationen von woanders zu holen oder zu schicken)
+	//getter und setter (werden benÃ¶tigt, um Informationen von woanders zu holen oder zu schicken)
 	public Button getmButtonCardfile1() {
 		return mButtonCardfile1;
 	}
