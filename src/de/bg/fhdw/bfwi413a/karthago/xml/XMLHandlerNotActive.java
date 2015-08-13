@@ -5,20 +5,20 @@ import java.util.List;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import de.bg.fhdw.bfwi413a.karthago.xml.Card;
+import de.bg.fhdw.bfwi413a.karthago.xml.CardNotActive;
 
-public class XMLHandler extends DefaultHandler{
+public class XMLHandlerNotActive extends DefaultHandler{
 	
-	private List<Card> cards;
+	private List<CardNotActive> cardNotActives;
     private String tempVal;
-    private Card tempCard;
+    private CardNotActive tempCard;
  
-    public XMLHandler() {
-        cards = new ArrayList<Card>();
+    public XMLHandlerNotActive() {
+        cardNotActives = new ArrayList<CardNotActive>();
     }
  
-    public List<Card> getCards() {
-        return cards;
+    public List<CardNotActive> getCards() {
+        return cardNotActives;
     }
  
     // Event Handlers
@@ -28,7 +28,7 @@ public class XMLHandler extends DefaultHandler{
         tempVal = "";
         if (qName.equalsIgnoreCase("employee")) {
             // create a new instance of employee
-            tempCard = new Card();
+            tempCard = new CardNotActive();
         }
     }
  
@@ -41,7 +41,7 @@ public class XMLHandler extends DefaultHandler{
             throws SAXException {
         if (qName.equalsIgnoreCase("employee")) {
             // add it to the list
-            cards.add(tempCard);
+            cardNotActives.add(tempCard);
         } else if (qName.equalsIgnoreCase("id")) {
             tempCard.setQuestionId(Integer.parseInt(tempVal));
         } else if (qName.equalsIgnoreCase("name")) {

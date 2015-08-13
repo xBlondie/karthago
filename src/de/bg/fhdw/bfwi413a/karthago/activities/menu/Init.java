@@ -2,6 +2,8 @@ package de.bg.fhdw.bfwi413a.karthago.activities.menu;
 
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
+import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
+import de.bg.fhdw.bfwi413a.karthago.xml.XmlToDbCommunication;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,6 +17,8 @@ public class Init extends Activity{
 	//@ author Patrick
 	TextView set_username;
 	SessionManagement session;
+	XMLDomParserAndHandler xmlhandler;
+	XmlToDbCommunication xmldb;
 			
 	// ---- END @ author Patrick ----
 	
@@ -30,6 +34,9 @@ public class Init extends Activity{
 		set_username = (TextView) findViewById(R.id.set_salutations);
 		session = new SessionManagement(getApplicationContext());
 		setUsername();
+		xmlhandler = new XMLDomParserAndHandler(Init.this);
+		xmldb = new XmlToDbCommunication(Init.this);
+		xmldb.initializeAtFirstStart();
 		// ---- END @author Patrick ----
 	}
 	

@@ -1,13 +1,13 @@
 package de.bg.fhdw.bfwi413a.karthago.xml;
 
-public class Card {
+public class CardNotActive {
 	
 	private String questionText;
     private int questionId;
     private String answerType;
     private String answerText;
     
-    public Card (){
+    public CardNotActive (){
     	
     }
     
