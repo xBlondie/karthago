@@ -19,6 +19,7 @@ import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
+import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
 public class Init extends Activity implements
 OnItemSelectedListener {
@@ -33,6 +34,7 @@ OnItemSelectedListener {
 	Button new_user;
 	Button mButtonLogin;
 	SessionManagement session;
+	XMLDomParserAndHandler xmlhandler;
 	
 	// ----END @author Patrick ----
 	
@@ -174,7 +176,6 @@ OnItemSelectedListener {
 			@Override
 			public void onClick(View v) {
 				session.createLoginSession((String) userlist.getSelectedItem().toString());
-				
 				Navigation.startActivityMenu(mData.getmActivity());
 				
 			}

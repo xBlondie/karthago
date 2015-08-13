@@ -43,24 +43,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String KEY = "KEY";
 	public static final String VALUE = "VALUE";
 	
-	//DECLARE COLUMNS-XML
-	public static final String TB_NAME_XML ="cards";
-	private static final String CARD_DECK = "CARD_DECK";
-	private static final String QUESTION_ID = "QUESTION_ID";
-	private static final String ANSWER_TYPE = "ANSWER_TYPE";
-	private static final String RIGHT_ANSWER = "RIGHT_ANSWER";
-	private static final String TIMESTAMP = "TIMESTAMP";
-	private static final String COUNT_OF_RIGHT_ANSWER = "COUNT_OF_RIGHT_ANSWER";
+	//DECLARE COLUMNS-CARDFILE NAMES
+	public static final String TB_NAME_CARDFILE_NAMES ="cardfiles";
+	private static final String CARDFILE_NAME = "NAME";
 	
 	//DECLARE COLUMNS-USER
 	public static final String TB_NAME_USER ="user";
 	private static final String USER = "USER";
+	private static final String FIRST_START = "FIRST_START";
 	
 	//DECLARE COLUMNS-TIMESTAMP
 	public static final String TB_NAME_TIMESTAMP = "timestamp";
 	private static final String LEVEL = "LEVEL";
 	private static final String INCREASED_TIME_FOR_LEVEL = "INCREASED_TIME_FOR_LEVEL_IN_SECONDS";
 	
+	//DECLARE COLUMNS-CARDS
+	public static final String TB_NAME_CARDS = "cards";
+	private static final String QUESTION_ID = "QUESTION_ID";
+	private static final String EVALUATION_TIMESTAMP = "EVALUATION_TIMESTAMP";
 	
 	//CONSTRUCTOR TO INITIALIZE THE DATABASE IF NOT EXISTS
 	public DatabaseHandler(Context context) {
@@ -78,23 +78,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ VALUE + " INTEGER"
 				+ ");";
 		
-		//CREATE XML-TABLE
-		String CREATE_XML_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_XML
+		//CREATE CARDFILE_NAMES_TABLE
+		String CREATE_CARDFILE_NAMES_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_CARDFILE_NAMES
 				+ " (" 
 				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
-				+ CARD_DECK + " INTEGER,"
-				+ TIMESTAMP + " TEXT,"
-				+ QUESTION_ID + " INTEGER,"
-				+ ANSWER_TYPE + " TEXT,"
-				+ RIGHT_ANSWER + " INTEGR,"
-				+ COUNT_OF_RIGHT_ANSWER + " INTEGER"
+				+ CARDFILE_NAME + " TEXT"
 				+ ");";
 		
 		//CREATE USER-TABLE
 		String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_USER
 				+ " (" 
 				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
-				+ USER + " TEXT"
+				+ USER + " TEXT,"
+				+ FIRST_START + " INTEGER"
+				+ ");";
+		
+		//CREATE CARDS-TABLE
+		String CREATE_CARDS_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_CARDS
+				+ " (" 
+				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+				+ QUESTION_ID + " INTEGER,"
+				+ USER + " TEXT,"
+				+ EVALUATION_TIMESTAMP + " INTEGER,"
+				+ CARDFILE_NAME + " TEXT"
 				+ ");";
 		
 		//CREATE TIMESTAMP-TABLE
@@ -108,9 +114,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		
 		//EXECUTE THE SQL-STATEMENTS
 		db.execSQL(CREATE_CONFIG_TABLE);
-		db.execSQL(CREATE_XML_TABLE);
+		db.execSQL(CREATE_CARDFILE_NAMES_TABLE);
 		db.execSQL(CREATE_USER_TABLE);
 		db.execSQL(CREATE_TIMESTAMP_TABLE);
+		db.execSQL(CREATE_CARDS_TABLE);
 		
 		//INITIALIZE TABLES FOR USING FIRST TIME
 		initializeTablesForFirstStart(db);
@@ -122,8 +129,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		//DROP ALL OLD TABLES IF EXISTED
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CONFIG);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_USER);
-        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_XML);
+        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CARDFILE_NAMES);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_TIMESTAMP);
+        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CARDS);
   
         //RESTART THE CREATE PROCESS
         onCreate(db);
@@ -136,7 +144,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String initializeLearnmode = "INSERT INTO " + TB_NAME_CONFIG +" VALUES (1, 'Option2', 0);";
 		
 		//ADMIN USER HAS TO EXIST EVERYTIME, SO HE IS NOT DELETEABLE (NO INFLUENCE ON SYSTEM)
-		String SET_FIRST_USER = "INSERT INTO " + TB_NAME_USER +" VALUES (0, 'ADMIN');";
+		String SET_FIRST_USER = "INSERT INTO " + TB_NAME_USER +" VALUES (0, 'ADMIN', 0);";
 		
 		//SET THE LEVELS AND TIMES FOR TIMESTAMPS
 		String LEVEL_1 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (0,1,60)";
@@ -259,6 +267,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //PREPARE SQL
         ContentValues values = new ContentValues();
         values.put(USER, user);
+        values.put(FIRST_START, 0);
           
         //INSERT ROW
         db.insert(TB_NAME_USER, null, values);
@@ -273,5 +282,73 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		 db.delete(TB_NAME_USER, USER + " = '" + user +"'", null);
 		 db.close();
 	 }
+
+	
+	public boolean FirstStart(String user){
+		//CREATE VARIABLE TO STORE DATA
+		boolean first_start_boolean = true;
+		//CREATE DATABASE-INSTANCE
+		SQLiteDatabase db = this.getReadableDatabase();
+		
+		String selectQuery = "SELECT " + FIRST_START + " FROM " + TB_NAME_USER + " WHERE " + USER + " = '" + user +"'";
+		Cursor cursor = db.rawQuery(selectQuery, null);
+	      
+        //LOOPING THROUGH ALLS ROWS AND ADD TO LIST
+		if (null != cursor && cursor.moveToFirst()) {
+			if(Integer.parseInt(cursor.getString(0)) == 0){
+				first_start_boolean = true;}
+			else{
+				first_start_boolean = false;
+			}
+		}
+         
+        cursor.close();
+        db.close();
+		
+		return first_start_boolean;
+	}
+	
+	public void updateFirstStart(String user){
+		//CREATE DATABASE-INSTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		//PUT FIRST-START VALUE
+		ContentValues newValues = new ContentValues();
+		newValues.put(FIRST_START, 1);
+		
+		//UPDATE-DATA IN SQLITE
+		db.update(TB_NAME_USER, newValues, USER + " = '" + user + "'", null);
+		db.close();
+		
+	}
+	
+
+	public void insertCardFileNames(String string) {
+		//CREATE DATABASE-INSTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		//PREPARE SQL
+		ContentValues values = new ContentValues();
+        values.put(CARDFILE_NAME, string);
+        
+        //INSERT ROW
+        db.insert(TB_NAME_CARDFILE_NAMES, null, values);
+        db.close();
+	}
+	
+	public void insertDataFromXMLToDB(Integer question_id, String user, Long timestamp, String cardfile_name) {
+		//CREATE DATABASE-INSTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		//PREPARE SQL
+		ContentValues values = new ContentValues();
+        values.put(QUESTION_ID, question_id);
+        values.put(USER, user);
+        values.put(EVALUATION_TIMESTAMP, timestamp);
+        values.put(CARDFILE_NAME, cardfile_name);
+        
+        //INSERT ROW
+        db.insert(TB_NAME_CARDS, null, values);
+        db.close();
+	}
 	 
 }

@@ -38,8 +38,8 @@ public class SessionManagement {
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
     }
-    
-    public void createLoginSession(String username){
+
+	public void createLoginSession(String username){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
          

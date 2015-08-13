@@ -5,8 +5,8 @@ import java.util.List;
 
 
 import de.bg.fhdw.bfwi413a.karthago.R;
-import de.bg.fhdw.bfwi413a.karthago.xml.Card;
-import de.bg.fhdw.bfwi413a.karthago.xml.XMLParser;
+import de.bg.fhdw.bfwi413a.karthago.xml.CardNotActive;
+import de.bg.fhdw.bfwi413a.karthago.xml.XMLParserNotActive;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -18,12 +18,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class XMLActivity extends Activity implements
+public class XMLActivityNotActive extends Activity implements
 OnClickListener, OnItemSelectedListener{
 	
 	Button button;
     Spinner spinner;
-    List<Card> cards = null;
+    List<CardNotActive> cardNotActives = null;
  
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,9 @@ OnClickListener, OnItemSelectedListener{
  
     public void onClick(View v) {
         try {
-            cards = XMLParser.parse(getAssets().open("FrageXML2.xml"));
-            ArrayAdapter<Card> adapter = new ArrayAdapter<Card>(this,
-                    R.layout.list_item, cards);
+            cardNotActives = XMLParserNotActive.parse(getAssets().open("FrageXML2.xml"));
+            ArrayAdapter<CardNotActive> adapter = new ArrayAdapter<CardNotActive>(this,
+                    R.layout.list_item, cardNotActives);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(this);
         } catch (IOException e) {
@@ -54,8 +54,8 @@ OnClickListener, OnItemSelectedListener{
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos,
             long id) {
-        Card card = (Card) parent.getItemAtPosition(pos);
-        Toast.makeText(parent.getContext(), card.getDetails(),
+        CardNotActive cardNotActive = (CardNotActive) parent.getItemAtPosition(pos);
+        Toast.makeText(parent.getContext(), cardNotActive.getDetails(),
                 Toast.LENGTH_LONG).show();
     }
  
