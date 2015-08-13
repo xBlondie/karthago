@@ -15,7 +15,7 @@ public class Gui {
 	
 	public Gui(Activity activity){
 		activity.setContentView(R.layout.activity_menu);
-		this.mTextviewLogo = (TextView) activity.findViewById(R.id.textview_logo);
+		//this.mTextviewLogo = (TextView) activity.findViewById(R.id.textview_logo);
 		this.mButtonStartSelection = (Button) activity.findViewById(R.id.btn_start_selection);
 		this.mButtonStartConfig = (Button) activity.findViewById(R.id.btn_start_config);
 		this.mButtonStartStatistics = (Button) activity.findViewById(R.id.btn_start_statistics);
