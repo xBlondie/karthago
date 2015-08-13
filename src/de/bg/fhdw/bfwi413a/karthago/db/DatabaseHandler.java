@@ -45,7 +45,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	//DECLARE COLUMNS-CARDFILE NAMES
 	public static final String TB_NAME_CARDFILE_NAMES ="cardfiles";
-	private static final String CARDFILE_NAME = "NAME";
+	private static final String CARDFILE_NAME = "CARDFILE_NAME";
 	
 	//DECLARE COLUMNS-USER
 	public static final String TB_NAME_USER ="user";
@@ -60,7 +60,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	//DECLARE COLUMNS-CARDS
 	public static final String TB_NAME_CARDS = "cards";
 	private static final String QUESTION_ID = "QUESTION_ID";
+	private static final String ANSWER_TYPE = "ANSWER_TYPE";
 	private static final String EVALUATION_TIMESTAMP = "EVALUATION_TIMESTAMP";
+	
+	//DECLARE COULUMNS-EVENTS
+	public static final String TB_NAME_EVENTS ="events";
+	public static final String NAME = "EVENT_NAME";
+	
 	
 	//CONSTRUCTOR TO INITIALIZE THE DATABASE IF NOT EXISTS
 	public DatabaseHandler(Context context) {
@@ -100,6 +106,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ QUESTION_ID + " INTEGER,"
 				+ USER + " TEXT,"
 				+ EVALUATION_TIMESTAMP + " INTEGER,"
+				+ ANSWER_TYPE + " TEXT,"
 				+ CARDFILE_NAME + " TEXT"
 				+ ");";
 		
@@ -111,6 +118,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ INCREASED_TIME_FOR_LEVEL + " INTEGER"
 				+ ");";
 		
+		//CREATE EVENTS-TABLE
+		String CREATE_EVENTS_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_EVENTS
+				+ " (" 
+				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+				+ NAME + " TEXT,"
+				+ EVALUATION_TIMESTAMP + " INTEGER,"
+				+ USER + " TEXT,"
+				+ CARDFILE_NAME + " TEXT"
+				+ ");";
+		
 		
 		//EXECUTE THE SQL-STATEMENTS
 		db.execSQL(CREATE_CONFIG_TABLE);
@@ -118,6 +135,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(CREATE_USER_TABLE);
 		db.execSQL(CREATE_TIMESTAMP_TABLE);
 		db.execSQL(CREATE_CARDS_TABLE);
+		db.execSQL(CREATE_EVENTS_TABLE);
 		
 		//INITIALIZE TABLES FOR USING FIRST TIME
 		initializeTablesForFirstStart(db);
@@ -132,6 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CARDFILE_NAMES);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_TIMESTAMP);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CARDS);
+        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_EVENTS);
   
         //RESTART THE CREATE PROCESS
         onCreate(db);
@@ -335,7 +354,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
 	}
 	
-	public void insertDataFromXMLToDB(Integer question_id, String user, Long timestamp, String cardfile_name) {
+	public void insertDataFromXMLToDB(Integer question_id, String user, Long timestamp, String cardfile_name, String answer_type) {
 		//CREATE DATABASE-INSTANCE
 		SQLiteDatabase db = this.getWritableDatabase();
 		
@@ -345,10 +364,60 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(USER, user);
         values.put(EVALUATION_TIMESTAMP, timestamp);
         values.put(CARDFILE_NAME, cardfile_name);
+        values.put(ANSWER_TYPE, answer_type);
         
         //INSERT ROW
         db.insert(TB_NAME_CARDS, null, values);
         db.close();
+	}
+	
+	public ArrayList<String> getRequiredQuestionIDs(Long timestamp, String cardfile_name, String user){
+		//ARRAY TO STORE REQUIRED IDs
+        ArrayList<String> required_ids = new ArrayList<String>();
+         
+        //SELECT QUESTION_ID FROM CARDs
+        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user +"'";
+      
+        //CREATE DATABASE-INSTANCE AND FETCH DATA
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+      
+        //LOOPING THROUGH ALLS ROWS AND ADD TO LIST
+        if (cursor.moveToFirst()) {
+            do {
+                required_ids.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+         
+        cursor.close();
+        db.close();
+         
+        return required_ids;
+		
+	}
+
+	public String getAnswerTypeForCertainQuestionID(String questionID) {
+		//ARRAY TO STORE REQUIRED IDs
+        String answer_type = new String();
+         
+        //SELECT QUESTION_ID FROM CARDs
+        String selectQuery = "SELECT " + ANSWER_TYPE +" FROM " + TB_NAME_CARDS + " WHERE " + QUESTION_ID + " = " + questionID;
+      
+        //CREATE DATABASE-INSTANCE AND FETCH DATA
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+      
+        //LOOPING THROUGH ALLS ROWS AND ADD TO LIST
+        if (cursor.moveToFirst()) {
+            do {
+                answer_type = cursor.getString(0);
+            } while (cursor.moveToNext());
+        }
+         
+        cursor.close();
+        db.close();
+        
+		return answer_type;
 	}
 	 
 }

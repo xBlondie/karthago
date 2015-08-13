@@ -9,7 +9,7 @@
     tools:context="de.bg.fhdw.bfwi413a.karthago.activities.config.ConfigActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textview_question_mc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,34 +20,34 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RadioGroup
-        android:id="@+id/radioGroup1"
+        android:id="@+id/radiogroup_mc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/textview_question_mc"
+        android:layout_below="@+id/textview_question_mc"
         android:layout_marginTop="78dp" >
 
         <RadioButton
-            android:id="@+id/radio0"
+            android:id="@+id/radio_answer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/radio1"
+            android:id="@+id/radio_answer2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/radio2"
+            android:id="@+id/radio_answer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/radio3"
+            android:id="@+id/radio_answer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
@@ -55,7 +55,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_send_mc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
