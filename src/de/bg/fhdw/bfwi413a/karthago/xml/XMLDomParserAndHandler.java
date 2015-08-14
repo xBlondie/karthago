@@ -126,7 +126,7 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		return questionTypes;
 	}
 	
-	public ArrayList<String> getRequiredQuestionAnswersAndCorrectAnswers(String questionID) {
+	public Results getRequiredQuestionAnswersAndCorrectAnswers(String questionID) {
 		ArrayList<String> QuestionAndAnswers = new ArrayList<String>();
 		ArrayList<String> CorrectAnswers = new ArrayList<String>();
 		
@@ -154,8 +154,32 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 	         
 	         }
 	     }
+		 //author: Leonie
+		 //Da wir die Kindsknoten(Answer1 usw) von Answers brauchen wird ein Knoten mit der
+		 //ersten Frage erzeugt
+		 // über getNextSibling wird über alle Antwortmöglichkeiten iteriert
+		 // bevor wir mit dem Kindsknoten weiterarbeiten können, müssen wir prüfen, ob es sich wirklich um
+		 // ein ELEMENT_NODE handelt
+		 // danach kann die richtige Antwort über das Attribut "correct" ermittelt und zugewiesen
+		 NodeList nListAnswers = mDoc.getElementsByTagName("Answers");
+		 Node nNodePossible = nListAnswers.item(0);
+		 Element e_possible = (Element) nNodePossible;
+		 Node childNode = e_possible.getFirstChild();       
+		        
+		 while(childNode.getNextSibling()!=null ){          
+		        childNode = childNode.getNextSibling();         
+		        if (childNode.getNodeType() == Node.ELEMENT_NODE) {
+		        	int k = 0;
+		            Element childElement = (Element) childNode;             
+		            if(childElement.hasAttribute("correct")){
+		            	CorrectAnswers.add(childElement.getTextContent());
+		            	k++;
+		            	System.out.println("Durchlauf IF-Bedingung: " + k);
+		            }
+		     }       
+		 }
 		 
-		return QuestionAndAnswers;
+		return new Results(QuestionAndAnswers, CorrectAnswers);
 	}
 	
 	// ---- END @author Patrick ----

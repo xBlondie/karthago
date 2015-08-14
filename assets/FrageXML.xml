@@ -5,11 +5,12 @@
       <QuestionId>1</QuestionId>
       <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
       <AnswerType>MC</AnswerType>
-      <Answer1>7</Answer1>
-      <Answer2>8</Answer2>
-      <Answer3>9</Answer3>
-      <Answer4>10</Answer4>
-      <correct>9</correct> <!-- Das entspricht dem Wert der 3. Antwortmöglichkeit -->
+      <Answers>
+	      <Answer1>7</Answer1>
+	      <Answer2>8</Answer2>
+	      <Answer3 correct="true">9</Answer3>
+	      <Answer4>10</Answer4>
+      </Answers>
     </Question>
     <Question>
       <QuestionId>2</QuestionId>

@@ -105,6 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
 				+ QUESTION_ID + " INTEGER,"
 				+ USER + " TEXT,"
+				+ LEVEL + " INTEGER,"
 				+ EVALUATION_TIMESTAMP + " INTEGER,"
 				+ ANSWER_TYPE + " TEXT,"
 				+ CARDFILE_NAME + " TEXT"
@@ -362,6 +363,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
         values.put(QUESTION_ID, question_id);
         values.put(USER, user);
+        values.put(LEVEL, 1);
         values.put(EVALUATION_TIMESTAMP, timestamp);
         values.put(CARDFILE_NAME, cardfile_name);
         values.put(ANSWER_TYPE, answer_type);
@@ -419,5 +421,47 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         
 		return answer_type;
 	}
+	
+	public void IncreaseOrDecreaseLevelAndSetNewTimestamp(boolean isRight, String questionID, Long ActualTime){
 	 
+		//CREATE DATABASE-INSCTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		int level = 0;
+		int timeToIncrease = 0;
+		
+		//PREPARE SQL-STATEMENT
+		String sqlStatement = "SELECT " + LEVEL + " FROM " + TB_NAME_CARDS + " WHERE " + QUESTION_ID + " = " + questionID;
+		Cursor cursor = db.rawQuery(sqlStatement, null);
+		
+		//GET DATA AND WRITE IT INTO VALUE
+		if (null != cursor && cursor.moveToFirst()) {
+		    level = Integer.parseInt(cursor.getString(0));
+		}
+		
+		if(level >= 1 && isRight == true){
+			level++;
+		}else if(level == 1 && isRight == false){
+			
+		}else if(level == 7 && isRight == true){
+			
+		}else if(level > 1 && isRight == false){
+			level--;
+		}
+		
+		String selectIncreaseTime = "SELECT " + INCREASED_TIME_FOR_LEVEL + " FROM " + TB_NAME_TIMESTAMP + " WHERE " + LEVEL + " = " + level;
+		Cursor cursor2 = db.rawQuery(selectIncreaseTime, null);
+		
+		//GET DATA AND WRITE IT INTO VALUE
+		if (null != cursor2 && cursor2.moveToFirst()) {
+		    timeToIncrease = Integer.parseInt(cursor2.getString(0))*1000;
+		}
+		
+		ContentValues newValues = new ContentValues();
+		newValues.put(EVALUATION_TIMESTAMP, timeToIncrease + ActualTime);
+		
+		//UPDATE-DATA IN SQLITE
+		db.update(TB_NAME_CARDS, newValues, QUESTION_ID + " = " + questionID + "", null);
+		db.close();
+		
+	}
 }
