@@ -2,7 +2,6 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
 
-import de.bg.fhdw.bfwi413a.karthago.activities.selection.Data;
 import android.app.Activity;
 import android.os.Bundle;
 
