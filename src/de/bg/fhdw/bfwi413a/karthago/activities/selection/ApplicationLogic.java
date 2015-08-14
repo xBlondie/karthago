@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
-import de.bg.fhdw.bfwi413a.karthago.SelectionToLearnmodeHandler;
+import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
@@ -22,6 +22,7 @@ public class ApplicationLogic {
 	private SessionManagement session;
 	ArrayList<String> requiredIDs;
 	Context mContext;
+	String answer_type;
 	// ---- END @author Patrick
 	
 	public ApplicationLogic(Gui gui, Data data, Context context) {
@@ -50,25 +51,27 @@ public class ApplicationLogic {
 	public void onButtonClicked(int i) {
 		switch ( i ) {
 		case 1:   // Call CardFile1
-			//Navigation.startActivityLMode(CardFileID);
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Allgemeinwissen", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			for(int j = 0; j < requiredIDs.size(); j++){
+				answer_type = dbhandler.getAnswerTypeForCertainQuestionID(requiredIDs.get(j).toString());
+				if(answer_type.equals("MC")){
+				Navigation.startActivityLM1_MC(mData.getmActivity(), requiredIDs.get(j).toString());}
+				if(answer_type.equals("FT")){
+				Navigation.startActivityLM2_FT(mData.getmActivity(), requiredIDs.get(j).toString());}
+				if(answer_type.equals("G")){
+				Navigation.startActivityLM3_G(mData.getmActivity(), requiredIDs.get(j).toString());}
+			}
 			// ---- END @author Patrick ----
-			//if(answertype = "MC"){
-			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
-			//if(answertype = "FT"){
-			//Navigation.startActivityLM2_FT(mData.getmActivity(), questionId);}
-			//if(answertype = "G"){
-			//Navigation.startActivityLM3_G(mData.getmActivity(), questionId);}
+			
 			break;
 		case 2:   // Call CardFile2
 			//Navigation.startActivityLMode(CardFileID);
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Fitness", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){
 			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
@@ -82,7 +85,7 @@ public class ApplicationLogic {
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Musik", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){
 			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
@@ -96,7 +99,7 @@ public class ApplicationLogic {
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Architektur", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){
 			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
@@ -110,7 +113,7 @@ public class ApplicationLogic {
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Filme", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){
 			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
@@ -124,7 +127,7 @@ public class ApplicationLogic {
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Kunst", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){
 			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
@@ -138,7 +141,7 @@ public class ApplicationLogic {
 			//@author Patrick
 			tstamp = new Timestamp(new Date().getTime());
 			requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Geschichte", session.getUserDetails().toString());
-			new SelectionToLearnmodeHandler(requiredIDs, mContext);
+			
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){
 			//Navigation.startActivityLM1_MC(mData.getmActivity(), questionId);}
@@ -151,7 +154,7 @@ public class ApplicationLogic {
 			//Navigation.startActivityLMode(CardFileID);
 			//@author Patrick
 			//tstamp = new Timestamp(new Date().getTime());
-			//requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Allgemeinwissen", session.getUserDetails().toString());
+			//requiredIDs = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), "Fotografie", session.getUserDetails().toString());
 			//new SelectionToLearnmodeHandler(requiredIDs, mContext);
 			// ---- END @author Patrick ----
 			//if(answertype = "MC"){

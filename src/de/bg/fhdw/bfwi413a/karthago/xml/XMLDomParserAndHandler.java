@@ -125,5 +125,40 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		
 		return questionTypes;
 	}
+	
+	public ArrayList<String> getRequiredQuestionAnswersAndCorrectAnswers(String questionID) {
+		ArrayList<String> QuestionAndAnswers = new ArrayList<String>();
+		ArrayList<String> CorrectAnswers = new ArrayList<String>();
+		
+		mDoc.getDocumentElement().normalize();
+		
+		NodeList nList = mDoc.getElementsByTagName("Question");
+		
+		 for (int j = 0; j < nList.getLength(); j++) {
+	         Node nNode = nList.item(j);
+	         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	        	 Element el = (Element) nNode;
+	         
+		         if (el.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
+		        	 
+		        	 Node nNodeParent = el.getParentNode();
+		        	 Element el_new = (Element) nNodeParent;
+		        	 
+		              QuestionAndAnswers.add(el_new.getElementsByTagName("QuestionText").item(0).getTextContent());
+		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer1").item(0).getTextContent());
+		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer2").item(0).getTextContent());
+		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer3").item(0).getTextContent());
+		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer4").item(0).getTextContent());
+		              
+		         }
+	         
+	         }
+	     }
+		 
+		return QuestionAndAnswers;
+	}
+	
 	// ---- END @author Patrick ----
+
+	
 }
