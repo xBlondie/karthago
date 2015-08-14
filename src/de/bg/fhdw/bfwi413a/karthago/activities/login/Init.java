@@ -103,7 +103,7 @@ OnItemSelectedListener {
         //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
         //        android.R.layout.simple_spinner_item, users);
         
-        //An-Nam's Version f�r Textgröße vom Spinner
+        //An-Nam's Version für Textgröße vom Spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_item, users);
  
