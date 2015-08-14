@@ -6,9 +6,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
+import de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc.Data;
 
 public class Init extends Activity{
 	//@author Patrick
@@ -31,4 +34,5 @@ public class Init extends Activity{
 	
 	
 	// ---- END @author Patrick ----
+
 }

@@ -2,6 +2,8 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import de.bg.fhdw.bfwi413a.karthago.Navigation;
 
 public class Init extends Activity{
 	
@@ -39,5 +41,12 @@ public class Init extends Activity{
 	private void initEventToListenerMapping() {
 		new EventToListenerMapping(mGui, mApplicationLogic);
 	}
+	
+	public boolean onKeyDown(int keycode, KeyEvent event){
+		  if(keycode==KeyEvent.KEYCODE_BACK){
+		   Navigation.startActivityMenu(mData.getmActivity());
+		  }
+		 return false;
+		 }
 	
 }
