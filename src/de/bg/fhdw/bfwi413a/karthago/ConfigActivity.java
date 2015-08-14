@@ -31,7 +31,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	//DECLARATION OF SPINNERS AND ADAPTERS(STRINGS.XML)
 	Spinner spn_sorttyper;
     ArrayAdapter<CharSequence> adapter_sort;
-    Spinner spn_lernmode;
+    //Spinner spn_lernmode;
     ArrayAdapter<CharSequence> adapter_learn;
     Spinner userlist;
     //DECLARATION OF DATABASE-INSTANCE
@@ -51,7 +51,10 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 		
 		//INITIALIZE SPINNER ONE (SORT) AND IMPLEMENT LISTENER
 		 	spn_sorttyper = (Spinner) findViewById(R.id.spn_sort);
-	        adapter_sort = ArrayAdapter.createFromResource(this, R.array.spn_sort, android.R.layout.simple_spinner_item);
+	        //adapter_sort = ArrayAdapter.createFromResource(this, R.array.spn_sort, android.R.layout.simple_spinner_item);
+		 	
+		 	// changed for spinner layout
+		 	adapter_sort = ArrayAdapter.createFromResource(this, R.array.spn_sort, R.layout.spinner_item);
 	        adapter_sort.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	        spn_sorttyper.setAdapter(adapter_sort);
 	        spn_sorttyper.setSelection(dbHelper.readConfigOption1());
@@ -69,24 +72,24 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	        });
 	        
 	        //INITIALIZE SPINNER TWO (LEARNMODE) AND IMPLEMENT LISTENER
-	        spn_lernmode = (Spinner) findViewById(R.id.spn_learn);
-	        adapter_learn = ArrayAdapter.createFromResource(this, R.array.spn_learn, android.R.layout.simple_spinner_item);
-	        adapter_learn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	        spn_lernmode.setAdapter(adapter_learn);
-	        spn_lernmode.setSelection(dbHelper.readConfigOption2());
-	        spn_lernmode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-	            @Override
-	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-	            	//UPDATE SELECTED OPTION IN DATABASE
-	            	dbHelper.updateConfigOption2((int) parent.getItemIdAtPosition(position));
-	            }
-
-	            @Override
-	            public void onNothingSelected(AdapterView<?> parent) {
-
-	            }
-	        });
+//	        spn_lernmode = (Spinner) findViewById(R.id.spn_learn);
+//	        adapter_learn = ArrayAdapter.createFromResource(this, R.array.spn_learn, android.R.layout.simple_spinner_item);
+//	        adapter_learn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//	        spn_lernmode.setAdapter(adapter_learn);
+//	        spn_lernmode.setSelection(dbHelper.readConfigOption2());
+//	        spn_lernmode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//
+//	            @Override
+//	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//	            	//UPDATE SELECTED OPTION IN DATABASE
+//	            	dbHelper.updateConfigOption2((int) parent.getItemIdAtPosition(position));
+//	            }
+//
+//	            @Override
+//	            public void onNothingSelected(AdapterView<?> parent) {
+//
+//	            }
+//	        });
 	       
 	     initSpinner();
 	     initDatabaseHandler();
@@ -139,9 +142,13 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
         // Spinner Drop down elements
         List<String> users = dbHelper.getUserList();
  
-        // Creating adapter for spinner
+//        // Creating adapter for spinner
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, users);
+        
+     // Creating adapter for spinner (layout for spinner)
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, users);
+                R.layout.spinner_item, users);
  
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
