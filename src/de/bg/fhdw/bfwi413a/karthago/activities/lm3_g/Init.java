@@ -4,8 +4,10 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.TextView;
+import de.bg.fhdw.bfwi413a.karthago.Navigation;
 
 public class Init extends Activity{
 	
@@ -44,4 +46,10 @@ public class Init extends Activity{
 		new EventToListenerMapping(mGui, mApplicationLogic);
 	}
 	
+	public boolean onKeyDown(int keycode, KeyEvent event){
+		  if(keycode==KeyEvent.KEYCODE_BACK){
+		   Navigation.startActivityMenu(mData.getmActivity());
+		  }
+		 return false;
+		 }
 }
