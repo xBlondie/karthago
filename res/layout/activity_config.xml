@@ -17,17 +17,28 @@
         android:layout_marginTop="15dp"
         android:textColor="#296E87"
         android:textSize="40sp" />
-
-    <Spinner
+    
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spn_sort"
+        android:text="@string/config_text1"
+        android:id="@+id/title2"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="80dp"
+        android:textColor="#296E87"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spn_sort"
+        android:layout_below="@+id/title2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:spinnerMode="dropdown" />
 
+<!--     
     <Spinner
         android:id="@+id/spn_learn"
         android:layout_width="wrap_content"
@@ -39,7 +50,28 @@
         android:layout_below="@+id/title"
         android:layout_marginTop="119dp"
         android:spinnerMode="dropdown" />
+-->
 
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_text2"
+        android:id="@+id/title3"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/spn_sort"
+        android:layout_marginTop="60dp"
+        android:textColor="#296E87"
+        android:textSize="30sp" />
+ 
+     <Spinner
+        android:id="@+id/spn_userlist_config"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/title3"
+        android:layout_marginTop="30dp" />
+
+     <!--  
     <TextView
         android:id="@+id/textview_question_mc"
         android:layout_width="wrap_content"
@@ -48,41 +80,58 @@
         android:layout_below="@+id/spn_learn"
         android:layout_marginTop="38dp"
         android:text="User wechseln / löschen" />
+        
+        -->
 
-    
-     <Button
-        android:id="@+id/btn_changeUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/spn_userlist_config"
-        android:layout_alignTop="@+id/spn_userlist_config"
-        android:layout_marginTop="33dp"
-        android:text="@string/changeUser" />
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="30dp"
+         android:layout_centerHorizontal="true"
+         android:layout_below="@+id/spn_userlist_config" >
 
-    <Spinner
-        android:id="@+id/spn_userlist_config"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textview_question_mc"
-        android:layout_below="@+id/textview_question_mc"
-        android:layout_marginTop="20dp" />
+         <Button
+             android:id="@+id/btn_changeUser"
+             android:layout_width="200dp"
+             android:layout_height="50dp"
+             android:background="@drawable/buttonshape_login"
+             android:layout_marginRight="20dp"
+             android:text="@string/changeUser"
+             android:textColor="#FFFFFF"
+             android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btn_deleateUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spn_userlist_config"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="18dp"
-        android:text="@string/deleateUser" />
+         <Button
+             android:id="@+id/btn_deleateUser"
+            android:layout_width="200dp"
+             android:layout_height="50dp"             
+             android:background="@drawable/buttonshape_login"
+             android:textColor="#FFFFFF"
+             android:textSize="24sp"
+             android:layout_marginBottom="18dp"
+             android:text="@string/deleateUser" />
+
+     </LinearLayout>
 
     <Button
         android:id="@+id/info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/title"
-        android:layout_toRightOf="@+id/spn_sort"
-        android:src="@drawable/info"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/spn_userlist_config"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/buttonshape_link"
+        android:textColor="#296E87"
+        android:textSize="22sp"
         android:text="@string/info" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:src="@drawable/logo_glasses2" />
 
 </RelativeLayout>

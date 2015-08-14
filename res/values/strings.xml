@@ -8,6 +8,8 @@
     <!-- @author Patrick -->
 
     <string name="config">Konfiguration</string>
+    <string name="config_text1">Wie sollen die Fragen sortiert werden?</string>
+    <string name="config_text2">User wechseln oder löschen</string>
     <string name="sorttyp">Sortierreihenfolge</string>
     <string name="learntyp">Lernmodus</string>
     <string name="send">Abschicken</string>
