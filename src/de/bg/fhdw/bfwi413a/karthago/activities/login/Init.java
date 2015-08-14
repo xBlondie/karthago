@@ -98,8 +98,12 @@ OnItemSelectedListener {
         List<String> users = mdbHandler.getUserList();
  
         // Creating adapter for spinner
+        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+        //        android.R.layout.simple_spinner_item, users);
+        
+        //An-Nam's Version für Textgröße vom Spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, users);
+                R.layout.spinner_item, users);
  
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

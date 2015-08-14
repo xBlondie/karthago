@@ -13,9 +13,10 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="350dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
         android:src="@drawable/logo_full2" />
 
     <Button
@@ -40,15 +41,14 @@
 
     <Button
         android:id="@+id/btn_login_start"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/spn_userlist"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/buttonshape_login"
         android:text="@string/login"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textColor="#FFFFFF" />
 
 		<!-- Der Login-Button muss ein marginLeft von 4dp haben, weil der Spinner "weiter links" anfängt -->

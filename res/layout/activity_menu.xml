@@ -10,14 +10,14 @@
 
     <Button
         android:id="@+id/btn_start_config"
-        android:layout_marginTop="20dp"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/btn_start_selection"
         android:layout_centerHorizontal="true"
         android:text="@string/start_config"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:background="@drawable/buttonshape_login" />
 
     <Button
@@ -34,50 +34,58 @@
 
     <Button
         android:id="@+id/btn_start_statistics"
-        android:layout_marginTop="20dp"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/btn_start_config"
         android:layout_centerHorizontal="true"
         android:text="@string/statistics"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:background="@drawable/buttonshape_login" />
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
         android:src="@drawable/logo_full2" />
 
     <Button
         android:id="@+id/btn_start_selection"
-        android:layout_marginTop="20dp"
-		android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="55dp"
+		android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/salutations1"
         android:layout_centerHorizontal="true"
         android:text="@string/start_selection"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:background="@drawable/buttonshape_login" />
 
     <TextView
         android:id="@+id/salutations1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_start_selection"
-        android:layout_toLeftOf="@+id/btn_start_selection"
+        android:textColor="#296E87"
+        android:textSize="30sp"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="112dp"
         android:text="@string/hello" />
 
     <TextView
         android:id="@+id/set_salutations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_start_selection"
+        android:textColor="#296E87"
+        android:textSize="30sp"
         android:layout_alignLeft="@+id/btn_start_selection"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginLeft="30dp"
         android:text="" />
 
 </RelativeLayout>
