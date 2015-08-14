@@ -27,8 +27,6 @@ public class Init extends Activity{
         result = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
         QuestionAndAnswers = result.get_list_Question_and_Answers();
         CorrectAnswers = result.get_list_correct_answers();
-        System.out.println(QuestionAndAnswers.get(0).toString());
-        System.out.println(CorrectAnswers.get(0).toString());
 	}
 	
 	
