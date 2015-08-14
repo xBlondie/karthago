@@ -126,7 +126,7 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		return questionTypes;
 	}
 	
-	public ArrayList<String> getRequiredQuestionAnswersAndCorrectAnswers(String questionID) {
+	public Results getRequiredQuestionAnswersAndCorrectAnswers(String questionID) {
 		ArrayList<String> QuestionAndAnswers = new ArrayList<String>();
 		ArrayList<String> CorrectAnswers = new ArrayList<String>();
 		
@@ -150,12 +150,26 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer3").item(0).getTextContent());
 		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer4").item(0).getTextContent());
 		              
+		              
+		              NodeList nListCorrectAnswers = mDoc.getElementsByTagName("Answers");
+		              
+		              for(int k = 0; k < nListCorrectAnswers.getLength(); k++){
+		            	 Node nNodeCor = nListCorrectAnswers.item(k);
+		     	         
+		     	        	 Element el_cor = (Element) nNodeCor;
+		     	        	 if(el_cor.hasAttribute("correct")){
+//		     	        		 CorrectAnswers.add(el_cor.);
+		     	        		 System.out.println("Durchlauf IF-Bedingung: " + k);
+		     	        	 }
+		     	         
+		     	      System.out.println("Durchlauf: " + k);
+		              }
 		         }
 	         
 	         }
 	     }
 		 
-		return QuestionAndAnswers;
+		return new Results(QuestionAndAnswers, CorrectAnswers);
 	}
 	
 	// ---- END @author Patrick ----
