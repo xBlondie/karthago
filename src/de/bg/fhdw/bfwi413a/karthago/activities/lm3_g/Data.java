@@ -2,10 +2,15 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
 //author: Leonie
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
+import de.bg.fhdw.bfwi413a.karthago.xml.Results;
+import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
 public class Data {
 	
@@ -16,7 +21,12 @@ public class Data {
 	
 	private final int DEFAULT_LM3_ID = 0;
 	
-	public Data(Activity activity, Bundle savedInstanceState){
+	XMLDomParserAndHandler xmlhandler;
+	ArrayList<String> QuestionAndAnswers;
+	ArrayList<String> CorrectAnswers;
+	Results result = new Results();
+	
+	public Data(Activity activity, Bundle savedInstanceState, Context context){
 		Intent intent;
 		
 		mActivity = activity;
@@ -27,6 +37,11 @@ public class Data {
 		else {
 			restoreDataFromBundle(savedInstanceState);
 		}
+		xmlhandler = new XMLDomParserAndHandler(context);
+	    String questionID = mActivity.getIntent().getExtras().getString("currentQuestionId");
+	    QuestionAndAnswers = new ArrayList<String>();
+	    result = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
+	    QuestionAndAnswers = result.get_list_Question_and_Answers();
 	}
 
 	public int getmMenuId() {
@@ -37,8 +52,24 @@ public class Data {
 		return mActivity;
 	}
 	
-	// save and restore data
+	public XMLDomParserAndHandler getXmlhandler() {
+		return xmlhandler;
+	}
+
+	public ArrayList<String> getQuestionAndAnswers() {
+		return QuestionAndAnswers;
+	}
+
+	public ArrayList<String> getCorrectAnswers() {
+		return CorrectAnswers;
+	}
+
+	public Results getResult() {
+		return result;
+	}
 	
+	// save and restore data
+
 	public void saveDataInBundle(Bundle bundle) {
 		bundle.putInt(KEY_LM3_ID, mLM3Id);
 	}

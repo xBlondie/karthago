@@ -22,16 +22,16 @@ public class Gui {
 		return mTextviewQuestionG;
 	}
 
-	public void setmTextviewQuestionG(TextView mTextviewQuestionG) {
-		this.mTextviewQuestionG = mTextviewQuestionG;
+	public void setmTextviewQuestionG(String text) {
+		mTextviewQuestionG.setText(text);
 	}
 
 	public Button getmButtonShowG() {
 		return mButtonShowG;
 	}
 
-	public void setmButtonShowG(Button mButtonShowG) {
-		this.mButtonShowG = mButtonShowG;
+	public void setmButtonShowG(String text) {
+		mButtonShowG.setText(text);
 	}
 	
 }
