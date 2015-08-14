@@ -1,12 +1,12 @@
 package de.bg.fhdw.bfwi413a.karthago.activities.menu;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.XmlToDbCommunication;
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
 
 public class Init extends Activity{
 	
@@ -29,6 +29,10 @@ public class Init extends Activity{
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
+		
+		//Custom font by An-nam and Fanziska
+		//TextView textViewCustom = (TextView) findViewById (R.id.textViewCustomFont);
+		
 		
 		//@author Patrick
 		set_username = (TextView) findViewById(R.id.set_salutations);
