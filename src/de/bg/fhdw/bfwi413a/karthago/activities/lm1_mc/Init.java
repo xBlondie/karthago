@@ -7,12 +7,15 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
 public class Init extends Activity{
 	//@author Patrick
 	XMLDomParserAndHandler xmlhandler;
 	ArrayList<String> QuestionAndAnswers;
+	ArrayList<String> CorrectAnswers;
+	Results result = new Results();
 	
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -21,8 +24,11 @@ public class Init extends Activity{
         xmlhandler = new XMLDomParserAndHandler(getApplicationContext());
         String questionID = getIntent().getExtras().getString("currentQuestionId");
         QuestionAndAnswers = new ArrayList<String>();
-        QuestionAndAnswers = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
+        result = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
+        QuestionAndAnswers = result.get_list_Question_and_Answers();
+        CorrectAnswers = result.get_list_correct_answers();
         System.out.println(QuestionAndAnswers.get(0).toString());
+        System.out.println(CorrectAnswers.get(0).toString());
 	}
 	
 	
