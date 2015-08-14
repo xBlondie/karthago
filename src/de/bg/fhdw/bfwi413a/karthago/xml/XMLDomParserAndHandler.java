@@ -150,24 +150,34 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer3").item(0).getTextContent());
 		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer4").item(0).getTextContent());
 		              
-		              
-		              NodeList nListCorrectAnswers = mDoc.getElementsByTagName("Answers");
-		              
-		              for(int k = 0; k < nListCorrectAnswers.getLength(); k++){
-		            	 Node nNodeCor = nListCorrectAnswers.item(k);
-		     	         
-		     	        	 Element el_cor = (Element) nNodeCor;
-		     	        	 if(el_cor.hasAttribute("correct")){
-//		     	        		 CorrectAnswers.add(el_cor.);
-		     	        		 System.out.println("Durchlauf IF-Bedingung: " + k);
-		     	        	 }
-		     	         
-		     	      System.out.println("Durchlauf: " + k);
-		              }
 		         }
 	         
 	         }
 	     }
+		 //author: Leonie
+		 //Da wir die Kindsknoten(Answer1 usw) von Answers brauchen wird ein Knoten mit der
+		 //ersten Frage erzeugt
+		 // über getNextSibling wird über alle Antwortmöglichkeiten iteriert
+		 // bevor wir mit dem Kindsknoten weiterarbeiten können, müssen wir prüfen, ob es sich wirklich um
+		 // ein ELEMENT_NODE handelt
+		 // danach kann die richtige Antwort über das Attribut "correct" ermittelt und zugewiesen
+		 NodeList nListAnswers = mDoc.getElementsByTagName("Answers");
+		 Node nNodePossible = nListAnswers.item(0);
+		 Element e_possible = (Element) nNodePossible;
+		 Node childNode = e_possible.getFirstChild();       
+		        
+		 while(childNode.getNextSibling()!=null ){          
+		        childNode = childNode.getNextSibling();         
+		        if (childNode.getNodeType() == Node.ELEMENT_NODE) {
+		        	int k = 0;
+		            Element childElement = (Element) childNode;             
+		            if(childElement.hasAttribute("correct")){
+		            	CorrectAnswers.add(childElement.getTextContent());
+		            	k++;
+		            	System.out.println("Durchlauf IF-Bedingung: " + k);
+		            }
+		     }       
+		 }
 		 
 		return new Results(QuestionAndAnswers, CorrectAnswers);
 	}
