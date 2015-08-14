@@ -2,6 +2,11 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
 //author: Leonie
 
+import java.util.ArrayList;
+
+import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.xml.Results;
+import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,6 +18,11 @@ public class Init extends Activity{
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	
+	XMLDomParserAndHandler xmlhandler;
+	ArrayList<String> QuestionAndAnswers;
+	ArrayList<String> CorrectAnswers;
+	Results result = new Results();
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +31,12 @@ public class Init extends Activity{
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
+		
+        xmlhandler = new XMLDomParserAndHandler(getApplicationContext());
+        String questionID = getIntent().getExtras().getString("currentQuestionId");
+        QuestionAndAnswers = new ArrayList<String>();
+        result = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
+        QuestionAndAnswers = result.get_list_Question_and_Answers();
 	}
 
 	@Override
