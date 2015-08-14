@@ -17,7 +17,6 @@ import de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.EventToListenerMapping;
 import de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.Gui;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
-import de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc.Data;
 
 public class Init extends Activity{
 	
