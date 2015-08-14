@@ -23,8 +23,8 @@
     <string name="cardfile4">Architektur</string>
     <string name="cardfile5">Filme</string>
     <string name="cardfile6">Kunst</string>
-    <string name="cardfile7">Kartei 7</string>
-    <string name="cardfile8">Kartei 8</string>
+    <string name="cardfile7">Geschichte</string>
+    <string name="cardfile8">Fotografie</string>
     <string name="changeUser">User wechseln</string>
     <string name="deleateUser">User löschen</string>
     <string name="info">Über diese App</string>
@@ -39,7 +39,7 @@
     </string-array>
 
     <string name="login">Login</string>
-    <string name="new_user">Neuen Benutzer erstellen</string>
+    <string name="new_user">Neuen Benutzer anlegen</string>
 
     <!-- END @author Patrick -->
 
