@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import de.bg.fhdw.bfwi413a.karthago.R;
-import de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.ApplicationLogic;
-import de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.Data;
-import de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.EventToListenerMapping;
-import de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.Gui;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 

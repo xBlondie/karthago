@@ -18,10 +18,7 @@ public class Init extends Activity{
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	
-	XMLDomParserAndHandler xmlhandler;
-	ArrayList<String> QuestionAndAnswers;
-	ArrayList<String> CorrectAnswers;
-	Results result = new Results();
+	
 	
 	
 	@Override
@@ -32,11 +29,6 @@ public class Init extends Activity{
 		initApplicationLogic();
 		initEventToListenerMapping();
 		
-        xmlhandler = new XMLDomParserAndHandler(getApplicationContext());
-        String questionID = getIntent().getExtras().getString("currentQuestionId");
-        QuestionAndAnswers = new ArrayList<String>();
-        result = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
-        QuestionAndAnswers = result.get_list_Question_and_Answers();
 	}
 
 	@Override
@@ -45,7 +37,7 @@ public class Init extends Activity{
 	}
 	
 	private void initData(Bundle savedInstanceState) {
-		mData = new Data(this, savedInstanceState);
+		mData = new Data(this, savedInstanceState, Init.this);
 	}
 	
 	private void initGui() {
@@ -53,7 +45,7 @@ public class Init extends Activity{
 	}
 	
 	private void initApplicationLogic() {
-		mApplicationLogic = new ApplicationLogic(mGui, mData);
+		mApplicationLogic = new ApplicationLogic(mGui, mData, Init.this);
 	}
 	
 	private void initEventToListenerMapping() {
