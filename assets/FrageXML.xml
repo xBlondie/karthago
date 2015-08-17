@@ -16,117 +16,70 @@
       <QuestionId>2</QuestionId>
       <QuestionText>Welcher ist der höchste Berg der Welt?</QuestionText>
       <AnswerType>MC</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1" correct="false">
-            <AnswerText>Mount St.Helens</AnswerText>
-          </Answer>
-          <Answer id="2" correct="false">
-            <AnswerText>K2</AnswerText>
-          </Answer>
-          <Answer id="3" correct="false">
-            <AnswerText>Matternhorn</AnswerText>
-          </Answer>
-          <Answer id="4" correct="true">
-            <AnswerText>Mount Everest</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>Mount Everest</correct>
+      <Answers>
+          <Answer1>Mount St.Helens</Answer1>
+          <Answer2>K2</Answer2>
+          <Answer3>Matternhorn</Answer3>
+          <Answer4 correct="true">Mount Everest</Answer4>
+      </Answers>
     </Question>
     <Question>
       <QuestionId>3</QuestionId>
       <QuestionText>In welchem Jahr endete der zweite Weltkrieg?(Bitte Ganzzahl angeben)</QuestionText>
       <AnswerType>FT</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1">
-            <AnswerText>1945</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>1945</correct>
+        <Answers>
+          <Answer>1945</Answer>
+        </Answers>
     </Question>
     <Question>
       <QuestionId>4</QuestionId>
       <QuestionText>Wieviele Menschen gibt es auf der Welt?</QuestionText>
       <AnswerType>MC</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1" correct="true">
-            <AnswerText>Über 5 Milliarden Menschen</AnswerText>
-          </Answer>
-          <Answer id="2" correct="true">
-            <AnswerText>Über 7 Milliarden Menschen</AnswerText>
-          </Answer>
-          <Answer id="3" correct="false">
-            <AnswerText>700 Millionen Menschen</AnswerText>
-          </Answer>
-          <Answer id="4" correct="false">
-            <AnswerText>Über 8 Milliarden Menschen</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>Über 7 Milliarden Menschen</correct>
+        <Answers>
+          <Answer1 correct="true">Über 5 Milliarden Menschen</Answer1>
+          <Answer2 correct="true">Über 7 Milliarden Menschen</Answer2>
+          <Answer3>700 Millionen Menschen</Answer3>
+          <Answer4>Über 8 Milliarden Menschen</Answer4>
+        </Answers>
     </Question>
     <Question>
       <QuestionId>5</QuestionId>
       <QuestionText>Was ist die Antwort auf alle Fragen?</QuestionText>
       <AnswerType>FT</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1">
-            <AnswerText>42</AnswerText>
-          </Answer>
-          <Answer id="2">
-            <AnswerText>Zweiunvierzig</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>42</correct>
+      <Answers>
+          <Answer>42</Answer>
+          <Answer>Zweiunvierzig</Answer>
+      </Answers>
     </Question>
     <Question>
       <QuestionId>6</QuestionId>
       <QuestionText>Welche dieser Vokabeln ist ein sog. "false friend"?</QuestionText>
       <AnswerType>FT</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1" correct="true">
-            <AnswerText>hardly = härter</AnswerText>
-          </Answer>
-          <Answer id="2" correct="false">
-            <AnswerText>mostly = meistens</AnswerText>
-          </Answer>
-          <Answer id="3" correct="false">
-            <AnswerText>barely = kaum</AnswerText>
-          </Answer>
-          <Answer id="4" correct="true">
-            <AnswerText>actual = aktuell</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>actual = aktuell</correct>
+        <Answers>
+          <Answer1 correct="true">hardly = härter</Answer1>
+          <Answer2>mostly = meistens</Answer2>
+          <Answer3>barely = kaum</Answer3>
+          <Answer4 correct="true">actual = aktuell</Answer4>
+        </Answers>
     </Question>
     <Question>
       <QuestionId>7</QuestionId>
       <QuestionText>Was ist die Quersumme von 1337? (Bitte Ganzzahl eingeben)</QuestionText>
       <AnswerType>FT</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1">
-            <AnswerText>14</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>14</correct>
+       <Answers>
+          <Answer>14</Answer>
+       </Answers>
     </Question>
     <Question>
       <QuestionId>8</QuestionId>
       <QuestionText>Welches Erkennungssignal benutzt die Feuerwehr?</QuestionText>
       <AnswerType>MC</AnswerType>
-        <AnswerPossibilities>
-          <Answer id="1" correct="true">
-            <AnswerText>Martinshorn</AnswerText>
-          </Answer>
-          <Answer id="2" correct="false">
-            <AnswerText>Jagdhorn</AnswerText>
-          </Answer>
-          <Answer id="3" correct="false">
-            <AnswerText>Alphorn</AnswerText>
-          </Answer>
-          <Answer id="4" correct="false">
-            <AnswerText>Tuba</AnswerText>
-          </Answer>
-        </AnswerPossibilities>
-      <correct>Martinshorn</correct>
+       <Answers>
+          <Answer1 correct="true">Martinshorn</Answer1>
+          <Answer2>Jagdhorn</Answer2>
+          <Answer3>Alphorn</Answer3>
+          <Answer4>Tuba</Answer4>
+     </Answers>
     </Question>
   
 

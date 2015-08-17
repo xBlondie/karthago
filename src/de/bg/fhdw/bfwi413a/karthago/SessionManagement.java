@@ -31,6 +31,7 @@ public class SessionManagement {
      
     // User name (make variable public to access from outside)
     public static final String KEY_NAME = "user";
+    public static final String CARDFILE_ID = "cardfileID";
      
     // Constructor
     public SessionManagement(Context context){
@@ -112,5 +113,19 @@ public class SessionManagement {
          
         // Staring Login Activity
         _context.startActivity(i);
+    }
+    
+    public void writeCardfileID(String cardfileID){
+    	editor.putString(CARDFILE_ID, cardfileID);
+    	editor.commit();
+    }
+    
+    public String getCardfileID(){
+        String cardfile = new String();
+        // user name
+        cardfile = pref.getString(CARDFILE_ID, null);
+         
+        // return user
+        return cardfile;
     }
 }

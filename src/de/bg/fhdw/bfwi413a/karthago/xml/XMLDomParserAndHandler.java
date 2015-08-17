@@ -142,13 +142,12 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		         if (el.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
 		        	 
 		        	 Node nNodeParent = el.getParentNode();
-		        	 Element el_new = (Element) nNodeParent;
 		        	 
-		              QuestionAndAnswers.add(el_new.getElementsByTagName("QuestionText").item(0).getTextContent());
-		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer1").item(0).getTextContent());
-		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer2").item(0).getTextContent());
-		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer3").item(0).getTextContent());
-		              QuestionAndAnswers.add(el_new.getElementsByTagName("Answer4").item(0).getTextContent());
+		              QuestionAndAnswers.add(el.getElementsByTagName("QuestionText").item(0).getTextContent());
+		              QuestionAndAnswers.add(el.getElementsByTagName("Answer1").item(0).getTextContent());
+		              QuestionAndAnswers.add(el.getElementsByTagName("Answer2").item(0).getTextContent());
+		              QuestionAndAnswers.add(el.getElementsByTagName("Answer3").item(0).getTextContent());
+		              QuestionAndAnswers.add(el.getElementsByTagName("Answer4").item(0).getTextContent());
 		              
 		         }
 	         
