@@ -94,6 +94,7 @@ if ((keyCode == KeyEvent.KEYCODE_BACK)) {
     backB.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
 
         public void onClick(DialogInterface dialog, int whichButton) {
+        session.logoutUser();
         finish();
         }
 

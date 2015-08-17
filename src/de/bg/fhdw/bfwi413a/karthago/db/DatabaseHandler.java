@@ -373,12 +373,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
 	}
 	
-	public ArrayList<String> getRequiredQuestionIDs(Long timestamp, String cardfile_name, String user){
+	public String getRequiredQuestionIDs(Long timestamp, String cardfile_name, String user){
 		//ARRAY TO STORE REQUIRED IDs
-        ArrayList<String> required_ids = new ArrayList<String>();
+        String required_id = new String();
          
         //SELECT QUESTION_ID FROM CARDs
-        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user +"'";
+        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user +"' LIMIT 1";
       
         //CREATE DATABASE-INSTANCE AND FETCH DATA
         SQLiteDatabase db = this.getReadableDatabase();
@@ -387,14 +387,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //LOOPING THROUGH ALLS ROWS AND ADD TO LIST
         if (cursor.moveToFirst()) {
             do {
-                required_ids.add(cursor.getString(0));
+                required_id = cursor.getString(0);
             } while (cursor.moveToNext());
         }
          
         cursor.close();
         db.close();
          
-        return required_ids;
+        return required_id;
 		
 	}
 
@@ -458,6 +458,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		
 		ContentValues newValues = new ContentValues();
 		newValues.put(EVALUATION_TIMESTAMP, timeToIncrease + ActualTime);
+		newValues.put(LEVEL, level);
 		
 		//UPDATE-DATA IN SQLITE
 		db.update(TB_NAME_CARDS, newValues, QUESTION_ID + " = " + questionID + "", null);

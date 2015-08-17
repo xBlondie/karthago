@@ -2,9 +2,8 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
 import android.app.Activity;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import de.bg.fhdw.bfwi413a.karthago.R;
 
@@ -12,36 +11,36 @@ import de.bg.fhdw.bfwi413a.karthago.R;
 
 public class Gui {
 	
-	TextView mTextviewQuestionFT;
+	TextView mTextviewQuestionMC;
 	Button mButtonSendMC;
 	EditText mEditTextFT;
-	RadioGroup mRadioGroupMC;
-	RadioButton mRadioAnswer1;
-	RadioButton mRadioAnswer2;
-	RadioButton mRadioAnswer3;
-	RadioButton mRadioAnswer4;
+	CheckBox CheckBox1;
+	CheckBox CheckBox2;
+	CheckBox CheckBox3;
+	CheckBox CheckBox4;
+	
 	
 	public Gui(Activity activity){
 		activity.setContentView(R.layout.activity_lm1_mc);
-		this.mTextviewQuestionFT = (TextView) activity.findViewById(R.id.textview_question_mc);
-		this.mButtonSendMC = (Button) activity.findViewById(R.id.btn_send_mc);
-		this.mRadioGroupMC = (RadioGroup) activity.findViewById(R.id.radiogroup_mc);
-		this.mRadioAnswer1 = (RadioButton) activity.findViewById(R.id.radio_answer1);
-		this.mRadioAnswer2 = (RadioButton) activity.findViewById(R.id.radio_answer2);
-		this.mRadioAnswer3 = (RadioButton) activity.findViewById(R.id.radio_answer3);
-		this.mRadioAnswer4 = (RadioButton) activity.findViewById(R.id.radio_answer4);
+//		this.mTextviewQuestionMC = (TextView) activity.findViewById(R.id.textview_question_mc);
+//		this.mButtonSendMC = (Button) activity.findViewById(R.id.btn_send_mc);
+//		this.CheckBox1 = (CheckBox) activity.findViewById(R.id.checkBox1);
+//		this.CheckBox2 = (CheckBox) activity.findViewById(R.id.checkBox2);
+//		this.CheckBox3 = (CheckBox) activity.findViewById(R.id.checkBox3);
+//		this.CheckBox4 = (CheckBox) activity.findViewById(R.id.checkBox4);
+		
 	}
 
 	public TextView getmTextviewQuestionFT() {
-		return mTextviewQuestionFT;
+		return mTextviewQuestionMC;
 	}
 
-	public void setmTextviewQuestionFT(TextView mTextviewQuestionFT) {
-		this.mTextviewQuestionFT = mTextviewQuestionFT;
+	public void setmTextviewQuestionMC(String text) {
+		this.mTextviewQuestionMC.setText(text);
 	}
 
 	public Button getmButtonSendMC() {
-		return mButtonSendMC;
+		return null;
 	}
 
 	public void setmButtonSendMC(Button mButtonSendMC) {
@@ -56,44 +55,38 @@ public class Gui {
 		this.mEditTextFT = mEditTextFT;
 	}
 
-	public RadioGroup getmRadioGroupMC() {
-		return mRadioGroupMC;
+	public CheckBox getCheckBox1() {
+		return CheckBox1;
 	}
 
-	public void setmRadioGroupMC(RadioGroup mRadioGroupMC) {
-		this.mRadioGroupMC = mRadioGroupMC;
+	public void setCheckBox1(String text) {
+		CheckBox1.setText(text);
 	}
 
-	public RadioButton getmRadioAnswer1() {
-		return mRadioAnswer1;
+	public CheckBox getCheckBox2() {
+		return CheckBox2;
 	}
 
-	public void setmRadioAnswer1(RadioButton mRadioAnswer1) {
-		this.mRadioAnswer1 = mRadioAnswer1;
+	public void setCheckBox2(String text) {
+		CheckBox2.setText(text);
 	}
 
-	public RadioButton getmRadioAnswer2() {
-		return mRadioAnswer2;
+	public CheckBox getCheckBox3() {
+		return CheckBox3;
 	}
 
-	public void setmRadioAnswer2(RadioButton mRadioAnswer2) {
-		this.mRadioAnswer2 = mRadioAnswer2;
+	public void setCheckBox3(String text) {
+		CheckBox3.setText(text);
 	}
 
-	public RadioButton getmRadioAnswer3() {
-		return mRadioAnswer3;
+	public CheckBox getCheckBox4() {
+		return CheckBox4;
 	}
 
-	public void setmRadioAnswer3(RadioButton mRadioAnswer3) {
-		this.mRadioAnswer3 = mRadioAnswer3;
+	public void setCheckBox4(String text) {
+		CheckBox4.setText(text);
 	}
 
-	public RadioButton getmRadioAnswer4() {
-		return mRadioAnswer4;
-	}
-
-	public void setmRadioAnswer4(RadioButton mRadioAnswer4) {
-		this.mRadioAnswer4 = mRadioAnswer4;
-	}
+	
 	
 }
