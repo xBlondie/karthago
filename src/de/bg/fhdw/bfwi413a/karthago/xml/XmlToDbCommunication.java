@@ -1,4 +1,18 @@
-//@author Patrick
+/**********************************************************************************
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: PASCAL THRONICKE        ----------
+ * 
+ * Diese Activity bildet das Bindeglied zwischen der XML-Datei und der Datenbank.
+ * 
+ * Klassen, mit die diese App kommuniziert sind:
+ * 	 - SessionManagement (Hole Username)
+ * 	 - DatabaseHandler (Steuern der Datenbank-Befehle)
+ *   - XMLDomParserundHandler (Auslösen verschiedener Methoden)
+ *   - Results (zur EInholung von mehreren Variablen gleichzeitig)
+ * 
+ * Nähere Informationen zu den Methoden siehe im Quellcode!
+ * 
+ *********************************************************************************/
+
 package de.bg.fhdw.bfwi413a.karthago.xml;
 
 import java.sql.Timestamp;
@@ -11,6 +25,7 @@ import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
 public class XmlToDbCommunication{
 
+	//DECLARE VARIABLES
 	DatabaseHandler dbhandler;
 	SessionManagement session;
 	XMLDomParserAndHandler xmldomhandler;
@@ -23,6 +38,7 @@ public class XmlToDbCommunication{
 	Timestamp tstamp;
 	
 	public XmlToDbCommunication(Context context){
+		//INITIALIZE OBJECTS
 		dbhandler = new DatabaseHandler(context);
 		session = new SessionManagement(context);
 		xmldomhandler = new XMLDomParserAndHandler(context);
@@ -35,6 +51,7 @@ public class XmlToDbCommunication{
 		tstamp = new Timestamp(new Date().getTime()); 
 	}
 	
+	//METHOD TO GET ALL CARDFILE-NAMES AND COPY THEM INTO THE DATABASE
 	private void copyCardFileNamesIntoDB() {
 		allCardFileNames = xmldomhandler.getCardFileNames();
 		for (int i = 0; i < allCardFileNames.size(); i++){
@@ -43,6 +60,7 @@ public class XmlToDbCommunication{
 		
 	}
 	
+	//METHOD TO COPY ALL NECESSARY INFORMATIONS INTO DATABASE-TABLE "CARDS"
 	private void copyIDsOfXMLToDB(){
 		result = xmldomhandler.getAllIDs();
 		list_ids = result.get_list_ids();
@@ -57,16 +75,19 @@ public class XmlToDbCommunication{
 		
 	}
 	
+	//METHOD TO INITIALIZE DATABASE AT FIRST TIME
 	public void initializeAtFirstStart(){
 		boolean first_start;
+		//CHECK IF ITS THE USERS FIRST START
 		first_start = dbhandler.FirstStart(session.getUserDetails().toString());
 		if(first_start == true){
+			//IF YES THEN DO...
 			copyCardFileNamesIntoDB();
 			copyIDsOfXMLToDB();
+			//UPDATE THE FIRST START VALUE
 			dbhandler.updateFirstStart(session.getUserDetails().toString());
 			
 		}
 	}
-	
 	
 }
