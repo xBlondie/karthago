@@ -85,7 +85,7 @@
         android:layout_alignLeft="@+id/btn_start_selection"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/imageView1"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="35dp"
         android:text="" />
 
 </RelativeLayout>
