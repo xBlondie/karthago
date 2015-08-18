@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:text="@string/hello_world" />
+        android:text="" />
 
     <EditText
         android:id="@+id/edittext_ft"
@@ -37,6 +37,6 @@
         android:layout_alignRight="@+id/textview_question_ft"
         android:layout_below="@+id/edittext_ft"
         android:layout_marginTop="120dp"
-        android:text="Button" />
+        android:text="Bestätigen" />
 
 </RelativeLayout>

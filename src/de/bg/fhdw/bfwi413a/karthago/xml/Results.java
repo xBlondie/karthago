@@ -10,6 +10,9 @@ public class Results {
 		private ArrayList<String> list_Question_and_Answers = new ArrayList<String>();
 		private ArrayList<String> list_correct_answers = new ArrayList<String>();
 		
+		private String questionForFT = new String();
+		private ArrayList<String> correctAnswersForFT = new ArrayList<String>();
+		
 		public Results(ArrayList<String> list_ids, ArrayList <String> list_cardfile_id, ArrayList<String> list_answer_type){
 			this.list_ids = list_ids;
 			this.list_cardfile_id = list_cardfile_id;
@@ -25,6 +28,11 @@ public class Results {
 			// TODO Auto-generated constructor stub
 		}
 
+
+		public Results(String question, ArrayList<String> correctAnswers) {
+			this.questionForFT = question;
+			this.correctAnswersForFT = correctAnswers;
+		}
 
 		public ArrayList<String> get_list_ids(){
 			return list_ids;
@@ -45,6 +53,14 @@ public class Results {
 		
 		public ArrayList<String> get_list_correct_answers(){
 			return list_correct_answers;
+		}
+
+		public String getQuestionForFT() {
+			return questionForFT;
+		}
+
+		public ArrayList<String> getCorrectAnswersForFT() {
+			return correctAnswersForFT;
 		}
 	
 }

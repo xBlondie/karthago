@@ -141,8 +141,6 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 	         
 		         if (el.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
 		        	 
-		        	 Node nNodeParent = el.getParentNode();
-		        	 
 		              QuestionAndAnswers.add(el.getElementsByTagName("QuestionText").item(0).getTextContent());
 		              QuestionAndAnswers.add(el.getElementsByTagName("Answer1").item(0).getTextContent());
 		              QuestionAndAnswers.add(el.getElementsByTagName("Answer2").item(0).getTextContent());
@@ -153,35 +151,91 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 	         
 	         }
 	     }
-		 //author: Leonie
-		 //Da wir die Kindsknoten(Answer1 usw) von Answers brauchen wird ein Knoten mit der
-		 //ersten Frage erzeugt
-		 // über getNextSibling wird über alle Antwortmöglichkeiten iteriert
-		 // bevor wir mit dem Kindsknoten weiterarbeiten können, müssen wir prüfen, ob es sich wirklich um
-		 // ein ELEMENT_NODE handelt
-		 // danach kann die richtige Antwort über das Attribut "correct" ermittelt und zugewiesen
+		 
+		 
 		 NodeList nListAnswers = mDoc.getElementsByTagName("Answers");
-		 Node nNodePossible = nListAnswers.item(0);
-		 Element e_possible = (Element) nNodePossible;
-		 Node childNode = e_possible.getFirstChild();       
-		        
-		 while(childNode.getNextSibling()!=null ){          
-		        childNode = childNode.getNextSibling();         
-		        if (childNode.getNodeType() == Node.ELEMENT_NODE) {
-		        	int k = 0;
-		            Element childElement = (Element) childNode;             
-		            if(childElement.hasAttribute("correct")){
-		            	CorrectAnswers.add(childElement.getTextContent());
-		            	k++;
-		            	System.out.println("Durchlauf IF-Bedingung: " + k);
-		            }
-		     }       
+		 for (int k = 0; k < nListAnswers.getLength(); k++) {
+	         Node nNode = nListAnswers.item(k);
+	         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	        	 Element el_answers = (Element) nNode;
+	         
+	        	 Node node_answers_parent = el_answers.getParentNode();
+	        	 
+	        	 Element el_answers_parent = (Element) node_answers_parent;
+	        	 
+		         if (el_answers_parent.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
+		        	 
+		              NodeList ChildAnswers = el_answers.getChildNodes();
+		              for(int l = 0; l < ChildAnswers.getLength(); l++){
+		            	  Node nNodeAnswers = ChildAnswers.item(l);
+		            	  if(nNodeAnswers.getNodeType() == Node.ELEMENT_NODE){
+		            		  Element el_answers_deeper = (Element) nNodeAnswers;
+		            		  if(el_answers_deeper.hasAttribute("correct")){
+		            			  CorrectAnswers.add(el_answers_deeper.getTextContent().toString());
+		            		  }
+		            	  }
+		              
+		              
+		         }
+	         
+	         }
+	     }
 		 }
 		 
 		return new Results(QuestionAndAnswers, CorrectAnswers);
 	}
-	
-	// ---- END @author Patrick ----
 
-	
+	//Return von 1 String und 1 ArrayList -> Konstruktor in Result mit den Argumenten
+	public Results QuestionAndAnswersForFTQuestions(String questionID){
+		String Question = new String();
+		ArrayList<String> CorrectAnswers = new ArrayList<String>();
+		
+		mDoc.getDocumentElement().normalize();
+		
+		NodeList nList = mDoc.getElementsByTagName("Question");
+		
+		for (int j = 0; j < nList.getLength(); j++) {
+	         Node nNode = nList.item(j);
+	         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	        	 Element el = (Element) nNode;
+	         
+		         if (el.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
+		        	 
+		              Question = el.getElementsByTagName("QuestionText").item(0).getTextContent();
+		         }
+	         }
+		}
+		
+		NodeList nListAnswers = mDoc.getElementsByTagName("Answers");
+		 for (int k = 0; k < nListAnswers.getLength(); k++) {
+	         Node nNode = nListAnswers.item(k);
+	         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	        	 Element el_answers = (Element) nNode;
+	         
+	        	 Node node_answers_parent = el_answers.getParentNode();
+	        	 
+	        	 Element el_answers_parent = (Element) node_answers_parent;
+	        	 
+		         if (el_answers_parent.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
+		        	 
+		              NodeList ChildAnswers = el_answers.getChildNodes();
+		              for(int l = 0; l < ChildAnswers.getLength(); l++){
+		            	  Node nNodeAnswers = ChildAnswers.item(l);
+		            	  if(nNodeAnswers.getNodeType() == Node.ELEMENT_NODE){
+		            		  Element el_answers_deeper = (Element) nNodeAnswers;
+		            		  CorrectAnswers.add(el_answers_deeper.getTextContent().toString());
+		            	  }
+		              
+		              
+		         }
+	         
+		         }
+	         }
+		 }
+		
+		
+		
+		return new Results(Question, CorrectAnswers);
+	}
+	// ---- END @author Patrick ----
 }

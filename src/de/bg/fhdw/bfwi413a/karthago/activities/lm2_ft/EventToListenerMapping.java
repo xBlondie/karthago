@@ -13,12 +13,12 @@ public class EventToListenerMapping implements OnClickListener{
 	public EventToListenerMapping (Gui gui, ApplicationLogic applicationLogic) {
 		mApplicationLogic = applicationLogic;
 		mGui = gui;
-		mGui.getmButtonSENDFT().setOnClickListener(this);
+//		mGui.getmButtonSENDFT().setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		mApplicationLogic.onButtonClicked();		
+//		mApplicationLogic.onButtonClicked();		
 	}
 	
 }

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
@@ -39,6 +40,7 @@ public class Init extends Activity{
 	Button confirm;
 	private de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic ApplicationLogicSelection;
 	private DatabaseHandler dbhandler;
+	ArrayList<String> UserAnswers;
 	
 	
 	
@@ -60,6 +62,7 @@ public class Init extends Activity{
         CorrectAnswers = result.get_list_correct_answers();
         dbhandler = new DatabaseHandler(getApplicationContext());
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
+        UserAnswers = new ArrayList<String>();
         
         question = (TextView) findViewById(R.id.question);
 		answer1 = (CheckBox) findViewById(R.id.answer1);
@@ -80,8 +83,48 @@ public class Init extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				boolean rightORwrong = true;
+				
+				if(answer1.isChecked()){
+					UserAnswers.add(answer1.getText().toString());
+				}
+				
+				if(answer2.isChecked()){
+					UserAnswers.add(answer2.getText().toString());
+				}
+				
+				if(answer3.isChecked()){
+					UserAnswers.add(answer3.getText().toString());
+				}
+				
+				if(answer4.isChecked()){
+					UserAnswers.add(answer4.getText().toString());
+				}
+				
+				if(UserAnswers.size() == CorrectAnswers.size()){
+					for(int i = 0; i < CorrectAnswers.size(); i++){
+						if(UserAnswers.get(i).toString().equals(CorrectAnswers.get(i).toString())){
+							
+						}else{
+							rightORwrong = false;
+							break;
+						}
+					}
+				}else{
+					rightORwrong = false;
+				}
+				
+				if(rightORwrong == true){
+					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war richtig!", Toast.LENGTH_LONG);
+					toast.show();
+				}else{
+					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war falsch!", Toast.LENGTH_LONG);
+					toast.show();
+				}
+				
+				
 				Timestamp tstamp = new Timestamp(new Date().getTime());
-				dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(false, questionID, tstamp.getTime());
+				dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
 				finish();
 				ApplicationLogicSelection.startSingleQuestion(Init.this);
 			}

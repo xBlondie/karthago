@@ -16,9 +16,9 @@ public class ApplicationLogic {
 	}
 
 
-	public void onButtonClicked() {
-		//TODO: Read Text from Edit Text and compare to answers
-		//TODO: Logic for Answers
-	}
+//	public void onButtonClicked() {
+//		//TODO: Read Text from Edit Text and compare to answers
+//		//TODO: Logic for Answers
+//	}
 
 }

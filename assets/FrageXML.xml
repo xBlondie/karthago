@@ -39,7 +39,7 @@
           <Answer1 correct="true">Über 5 Milliarden Menschen</Answer1>
           <Answer2 correct="true">Über 7 Milliarden Menschen</Answer2>
           <Answer3>700 Millionen Menschen</Answer3>
-          <Answer4>Über 8 Milliarden Menschen</Answer4>
+          <Answer4 correct="true">Über 8 Milliarden Menschen</Answer4>
         </Answers>
     </Question>
     <Question>
@@ -54,7 +54,7 @@
     <Question>
       <QuestionId>6</QuestionId>
       <QuestionText>Welche dieser Vokabeln ist ein sog. "false friend"?</QuestionText>
-      <AnswerType>FT</AnswerType>
+      <AnswerType>MC</AnswerType>
         <Answers>
           <Answer1 correct="true">hardly = härter</Answer1>
           <Answer2>mostly = meistens</Answer2>
