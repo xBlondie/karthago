@@ -50,7 +50,7 @@ public class Init extends Activity{
 		
 		xmlhandler = new XMLDomParserAndHandler(getApplicationContext());
 		correctAnswers = new ArrayList<String>();
-		result = xmlhandler.QuestionAndAnswersForFTQuestions(questionID);
+		result = xmlhandler.questionAndAnswersForFTAndGQuestions(questionID);
 		questionText = result.getQuestionForFT();
 		correctAnswers = result.getCorrectAnswersForFT();
 		dbhandler = new DatabaseHandler(getApplicationContext());
