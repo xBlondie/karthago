@@ -87,21 +87,31 @@ public class Init extends Activity{
 				
 				if(answer1.isChecked()){
 					UserAnswers.add(answer1.getText().toString());
-				}else if(answer2.isChecked()){
+				}
+				
+				if(answer2.isChecked()){
 					UserAnswers.add(answer2.getText().toString());
-				}else if(answer3.isChecked()){
+				}
+				
+				if(answer3.isChecked()){
 					UserAnswers.add(answer3.getText().toString());
-				}else if(answer4.isChecked()){
+				}
+				
+				if(answer4.isChecked()){
 					UserAnswers.add(answer4.getText().toString());
 				}
 				
-				for(int i = 0; i < CorrectAnswers.size(); i++){
-					if(UserAnswers.get(i).toString().equals(CorrectAnswers.get(i).toString())){
-						
-					}else{
-						rightORwrong = false;
-						break;
+				if(UserAnswers.size() == CorrectAnswers.size()){
+					for(int i = 0; i < CorrectAnswers.size(); i++){
+						if(UserAnswers.get(i).toString().equals(CorrectAnswers.get(i).toString())){
+							
+						}else{
+							rightORwrong = false;
+							break;
+						}
 					}
+				}else{
+					rightORwrong = false;
 				}
 				
 				if(rightORwrong == true){

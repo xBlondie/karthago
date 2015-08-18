@@ -184,8 +184,58 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		 
 		return new Results(QuestionAndAnswers, CorrectAnswers);
 	}
-	
-	// ---- END @author Patrick ----
 
-	
+	//Return von 1 String und 1 ArrayList -> Konstruktor in Result mit den Argumenten
+	public Results QuestionAndAnswersForFTQuestions(String questionID){
+		String Question = new String();
+		ArrayList<String> CorrectAnswers = new ArrayList<String>();
+		
+		mDoc.getDocumentElement().normalize();
+		
+		NodeList nList = mDoc.getElementsByTagName("Question");
+		
+		for (int j = 0; j < nList.getLength(); j++) {
+	         Node nNode = nList.item(j);
+	         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	        	 Element el = (Element) nNode;
+	         
+		         if (el.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
+		        	 
+		              Question = el.getElementsByTagName("QuestionText").item(0).getTextContent();
+		         }
+	         }
+		}
+		
+		NodeList nListAnswers = mDoc.getElementsByTagName("Answers");
+		 for (int k = 0; k < nListAnswers.getLength(); k++) {
+	         Node nNode = nListAnswers.item(k);
+	         if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	        	 Element el_answers = (Element) nNode;
+	         
+	        	 Node node_answers_parent = el_answers.getParentNode();
+	        	 
+	        	 Element el_answers_parent = (Element) node_answers_parent;
+	        	 
+		         if (el_answers_parent.getElementsByTagName("QuestionId").item(0).getTextContent().equals(questionID)) {
+		        	 
+		              NodeList ChildAnswers = el_answers.getChildNodes();
+		              for(int l = 0; l < ChildAnswers.getLength(); l++){
+		            	  Node nNodeAnswers = ChildAnswers.item(l);
+		            	  if(nNodeAnswers.getNodeType() == Node.ELEMENT_NODE){
+		            		  Element el_answers_deeper = (Element) nNodeAnswers;
+		            		  CorrectAnswers.add(el_answers_deeper.getTextContent().toString());
+		            	  }
+		              
+		              
+		         }
+	         
+		         }
+	         }
+		 }
+		
+		
+		
+		return new Results(Question, CorrectAnswers);
+	}
+	// ---- END @author Patrick ----
 }
