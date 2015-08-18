@@ -1,4 +1,14 @@
-//initialisiert die Activity Selection
+/***********************************************************************************
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: AN-NAM PHAM              ----------
+ * 
+ * Diese Activity dient zur Selektion des Karteistapels.
+ * 
+ * Klassen, die diese App benutzt sind:
+ * 		- Navigation (OnBack-Event)
+ * 		- SessionManagement (Auslesen des aktuellen Cardfiles)
+ * 		- DatabaseHandler (Get der ID der zu bearebitenden Frage)
+ * 
+ **********************************************************************************/
 
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
 
@@ -44,8 +54,11 @@ public class Init extends Activity{
 		new EventToListenerMapping(mGui, mApplicationLogic);	
 	}
 	
+	
 	public boolean onKeyDown(int keycode, KeyEvent event){
+		//ABFANGEN DES "ZURÜCK-TASTE" EVENTS
 		  if(keycode==KeyEvent.KEYCODE_BACK){
+			  //RUFE MENÜ-ACTIVITY AUF
 		   Navigation.startActivityMenu(mData.getmActivity());
 		  }
 		 return false;

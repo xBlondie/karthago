@@ -1,3 +1,24 @@
+/**********************************************************************************
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: FYNN-OLE CALLSEN        ----------
+ * 
+ * Diese Activity stellt das Menü der App dar. Von dieser App aus, können folgende
+ * Activities aufgerufen werden:
+ * 		- Selektion
+ * 		- Konfiguration
+ * 		- Statistiken
+ * 
+ * Weiterhin kann sich der User über diese Activity abmelden.
+ * 
+ * Klassen, mit die diese Activity kommuniziert sind:
+ *   - SessionManagement (Erstellung einer Session für den User)
+ *   - XMLDomParserAndHandler (prüft ob XML-File existiert)
+ *   - XMLToDBCommunication (Initialisiere Datenbank mit XML-Daten)
+ * 
+ * Nähere Informationen zu den Methoden siehe im Quellcode!
+ * 
+ *********************************************************************************/
+
+
 package de.bg.fhdw.bfwi413a.karthago.activities.menu;
 
 import android.app.Activity;
@@ -13,38 +34,35 @@ import de.bg.fhdw.bfwi413a.karthago.xml.XmlToDbCommunication;
 
 public class Init extends Activity {
 
+	//DECLARE NECESSARY VARIABLES
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 
-	// @ author Patrick
 	TextView set_username;
 	SessionManagement session;
 	XMLDomParserAndHandler xmlhandler;
 	XmlToDbCommunication xmldb;
 
-	// ---- END @ author Patrick ----
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//INITIALIZE COMPONENTS
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-		
-		//Custom font by An-nam and Fanziska
-		//TextView textViewCustom = (TextView) findViewById (R.id.textViewCustomFont);
-		
-		
-		//@author Patrick
 		set_username = (TextView) findViewById(R.id.set_salutations);
 		session = new SessionManagement(getApplicationContext());
-		setUsername();
 		xmlhandler = new XMLDomParserAndHandler(Init.this);
 		xmldb = new XmlToDbCommunication(Init.this);
+		
+		//CHECK IF IS LOGED IN SET USERNAME IN TEXTVIEW
+		setUsername();
+		//INITIALIZE DATABASE WITH XML-DATA
 		xmldb.initializeAtFirstStart();
-		// ---- END @author Patrick ----
 	}
 
 	@Override
@@ -69,23 +87,20 @@ public class Init extends Activity {
 		new EventToListenerMapping(mGui, mApplicationLogic, this);
 	}
 
-	// @author Patrick
 	private void setUsername() {
+		//CHECK IF USER IS LOGED IN PROPERLY
 		session.checkLogin();
+		//GET USERNAME OF SHARED PREFERENCES
 		String user = session.getUserDetails();
+		//SET USERNAME IN TEXTVIEW
 		set_username.setText(user);
 	}
 
-	// ---- END @author Patrick ----
-
-
+//TODO PASCAL BITTE UNTEN STEHENDEN TEIL KOMMENTIEREN!!!!
 @Override
 public boolean onKeyDown(int keyCode, KeyEvent event) {
 if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-
-//----------------------------------------------------------------
-//erstellt einen Alert Dialog
-//----------------------------------------------------------------        
+       
 
     AlertDialog.Builder backB = new AlertDialog.Builder(Init.this);
     backB.setTitle("Sie haben die Zurück Taste gedrückt");
@@ -106,9 +121,9 @@ if ((keyCode == KeyEvent.KEYCODE_BACK)) {
         }
     });
 
-// Create the AlertDialog
+
 backB.show();
-// ----------------------------------------------------------------
+
 }return true;
 }
 }

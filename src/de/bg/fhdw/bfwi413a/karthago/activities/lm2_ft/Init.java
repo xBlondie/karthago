@@ -1,3 +1,4 @@
+//Patrick
 package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 
 import java.sql.Timestamp;
@@ -66,11 +67,11 @@ public class Init extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				userAnswer = answer.getText().toString();
+				userAnswer = answer.getText().toString().toLowerCase();
 				boolean rightORwrong = false;
 				
 				for(int i = 0; i < correctAnswers.size(); i++){
-					if(correctAnswers.get(i).toString().equals(userAnswer)){
+					if(correctAnswers.get(i).toString().toLowerCase().equals(userAnswer)){
 						rightORwrong = true;
 					}
 				}

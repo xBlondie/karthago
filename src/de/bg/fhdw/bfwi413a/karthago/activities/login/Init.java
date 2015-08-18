@@ -1,3 +1,21 @@
+/**********************************************************************************
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: JULIA KÖRVERS           ----------
+ * 
+ * Diese Activity bildet den Einstiegspunkt der App. Die Hauptfunktionalitäten 
+ * dieser App liegen in der:
+ *   - Bereitstellung des Login-Prozesses für den User
+ *   - Registration neuer User
+ * 
+ * Klassen, mit die diese App kommuniziert sind:
+ * 	 - Navigation (Aufruf der nächsten Activity)
+ *   - SessionManagement (Erstellung einer Session für den User)
+ *   - DatabaseHandler (Erstellung des Users, Initialisierung der Tabellen)
+ * 
+ * Nähere Informationen zu den Methoden siehe im Quellcode!
+ * 
+ *********************************************************************************/
+
+
 package de.bg.fhdw.bfwi413a.karthago.activities.login;
 
 import java.util.List;
@@ -19,41 +37,46 @@ import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
-import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
 public class Init extends Activity implements
 OnItemSelectedListener {
 	
+	//DECLARE MVC-CLASSES
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	
-	//@author Patrick
-	private DatabaseHandler mdbHandler;
-	Spinner userlist;
-	Button new_user;
-	Button mButtonLogin;
-	SessionManagement session;
-	XMLDomParserAndHandler xmlhandler;
+	//DECLARE GUI-ELEMENTS
+	private Spinner userlist;
+	private Button new_user;
+	private Button mButtonLogin;
 	
-	// ----END @author Patrick ----
+	//DECLARE NECESSARY CLASSES
+	private SessionManagement session;
+	private DatabaseHandler mdbHandler;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//INITIALIZE MVC-CLASSES
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
 		initDatabaseHandler();
 		
-		//@author Patrick
+		//INITIALIZE GUI-ELEMENTS
 		initSpinner();
 		initBtnNewUser();
-		loadUserlistFromDatabase();
 		initLoginBtn();
+		
+		//INITIALIZE SESSION-VARIABLE
 		session = new SessionManagement(getApplicationContext());
-		//----END @auhtor Patrick ----
+		
+		//LOAD THE ACTUAL USERLIST FROM DATABASE AND SET TO SPINNER
+		loadUserlistFromDatabase();
+		
 	}
 	
 
@@ -63,11 +86,10 @@ OnItemSelectedListener {
 		super.onSaveInstanceState(outState);
 	}
 	
-	//@author Patrick
+	//METHOD FOR INITIALIZING SPINNER
 	private void initSpinner(){
 		userlist = (Spinner) findViewById(R.id.spn_userlist);
 	}
-	//END @author Patrick
 	
 	private void initData(Bundle savedInstanceState) {
 		mData = new Data(this, savedInstanceState);
@@ -88,29 +110,25 @@ OnItemSelectedListener {
 		
 	}
 	
-	//@author Patrick
-	
+	//INITIALIZE DATABASE-HANDLER
 	private void initDatabaseHandler(){
 		 mdbHandler = new DatabaseHandler(getApplicationContext());
 	}
 	
+	//METHOD FOR LOADING THE ACTUAL USERLIST
 	private void loadUserlistFromDatabase() {
  
-        // Spinner Drop down elements
+        // GET SPINNER DROP DOWN ELEMENTS
         List<String> users = mdbHandler.getUserList();
  
-        // Creating adapter for spinner
-        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-        //        android.R.layout.simple_spinner_item, users);
-        
-        //An-Nam's Version für Textgröße vom Spinner
+        // CREATE ADAPTER OF USERLIST
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_item, users);
  
-        // Drop down layout style - list view with radio button
+        // DROP DOWN LAYOUT STYLE
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
  
-        // attaching data adapter to spinner
+        // ATTACHING DATA TO SPINNER
         userlist.setAdapter(dataAdapter);
 		
 	}
@@ -119,41 +137,50 @@ OnItemSelectedListener {
 
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		// On selecting a spinner item
-//        String user = parent.getItemAtPosition(position).toString();
-        
+		//NOT USED METHOD       
 		
 	}
 
 
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
-		
+		//NOT USED METHOD
 		
 	}
 	
+	//METHOD TO CREATE NEW USER
 	private void initBtnNewUser() {
 		new_user = (Button) findViewById(R.id.new_user);
+		//SET ONCLICKLISTENER
         new_user.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+            	//CREATE ALERT DIALOG FOR INPUT OF NEW USER
             	AlertDialog.Builder builder = new AlertDialog.Builder(Init.this);
+            	//SET TITLE
             	builder.setTitle("Neuen Benutzer erstellen");
 
-            	// Set up the input
+            	// SET UP THE INPUT
             	final EditText input = new EditText(Init.this);
-            	// Specify the type of input expected; in this case as text
+            	// SPECIFY THE INPUT TYPE; IN THIS CASE ITS TEXT
             	input.setInputType(InputType.TYPE_CLASS_TEXT);
             	builder.setView(input);
 
-            	// Set up the buttons
+            	// SET UP THE BUTTONS
             	builder.setPositiveButton("Hinzufügen", new DialogInterface.OnClickListener() { 
             	    @Override
+            	    //SET UP ONCLICKLISTENER FOR CREATE-BUTTON
             	    public void onClick(DialogInterface dialog, int which) {
+            	    	//CHECK IF SOME TEXT WAS PUT IN
             	    	if (input.getText().toString().length() > 0) {
+            	    		//INSERT USER IN DATABASE-TABLE
             	    		mdbHandler.insertUser(input.getText().toString());
+            	    		//REFRESH THE USER LIST
             	    		loadUserlistFromDatabase();
-            	    		
+            	    		//SHOW TOAST FOR USER-NOTIFICATION
+            	    		Toast.makeText(getApplicationContext(), "Neuer User wurde erstellt",
+                                    Toast.LENGTH_SHORT).show();
             	    	}else{
+            	    		//SHOW TOAST THAT SOME TEXT IS MISSING
             	    		Toast.makeText(getApplicationContext(), "Bitte gebe einen Namen ein",
                                     Toast.LENGTH_SHORT).show();
             	    	}
@@ -162,32 +189,34 @@ OnItemSelectedListener {
             	});
             	builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
             	    @Override
+            	    //SET ONCLICKLISTENER FOR "CANCEL"-CASE
             	    public void onClick(DialogInterface dialog, int which) {
-            	        dialog.cancel();
+            	        //CANCEL ALERT-DIALOG
+            	    	dialog.cancel();
             	    }
             	});
 
+            	//SHOW THE ALERT-DIALOG
             	builder.show();
             }
         });
 		
 	}
 	
+	//METHOD WHEN CLICKING THE LOGIN-BUTTON
 	private void initLoginBtn(){
 		mButtonLogin = (Button) findViewById(R.id.btn_login_start);
 		mButtonLogin.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
+				//CREATE SESSION WITH THE USERNAME WHICH WAS SELECTED ABOVE
 				session.createLoginSession((String) userlist.getSelectedItem().toString());
+				// START NEXT ACTIVITY; IN THIS CASE THE MENU ACTIVITY
 				Navigation.startActivityMenu(mData.getmActivity());
 				
 			}
 		});
 	}
-	
-	
-
-	//----END @author Patrick ----
 
 }

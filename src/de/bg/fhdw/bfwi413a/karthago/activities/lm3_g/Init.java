@@ -1,3 +1,4 @@
+//Leonie
 package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
 import java.sql.Timestamp;
