@@ -186,7 +186,7 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 	}
 
 	//Return von 1 String und 1 ArrayList -> Konstruktor in Result mit den Argumenten
-	public Results QuestionAndAnswersForFTQuestions(String questionID){
+	public Results questionAndAnswersForFTAndGQuestions(String questionID){
 		String Question = new String();
 		ArrayList<String> CorrectAnswers = new ArrayList<String>();
 		
@@ -237,5 +237,6 @@ public class XMLDomParserAndHandler{ //SCHAUEN OB ES AUCH OHNE EXTENDS GEHT!!!! 
 		
 		return new Results(Question, CorrectAnswers);
 	}
+	
 	// ---- END @author Patrick ----
 }

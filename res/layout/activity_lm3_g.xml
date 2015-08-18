@@ -15,7 +15,7 @@
         android:layout_below="@+id/textview_question_g"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Button" />
+        android:text="Ich weiß es" />
 
     <TextView
         android:id="@+id/textview_question_g"
@@ -24,6 +24,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="@string/hello_world" />
+        android:text="" />
 
 </RelativeLayout>
