@@ -89,9 +89,83 @@
       <AnswerType>MC</AnswerType>
       <Answers>
 	      <Answer1>Training an frischer Meeresluft</Answer1>
-	      <Answer2 correct="true">Langsames Training, niedrige Frequenz. Der Körper hat ausreichend Sauerstoff zur Verfügung</Answer2>
+	      <Answer2 correct="true">Langsames Training, niedrige Frequenz.</Answer2>
 	      <Answer3>1000-Meter-Lauf in einem Sauerstoffzelt</Answer3>
 	      <Answer4>Intervalltraining mit Maximalsprints</Answer4>
+      </Answers>
+    </Question>
+    <Question>
+      <QuestionId>10</QuestionId>
+      <QuestionText>Das Zusammenspiel von Nerven und Muskeln nennt man ...</QuestionText>
+      <AnswerType>FT</AnswerType>
+       <Answers>
+          <Answer>Koordination</Answer>
+       </Answers>
+    </Question>
+    <Question>
+      <QuestionId>11</QuestionId>
+      <QuestionText>Durch regelmäßiges Joggen kommt es zu folgenden Anpassungserscheinungen:</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1>Die Knochen werden brüchig</Answer1>
+	      <Answer2 correct="true">Der Ruhepuls wird niedriger</Answer2>
+	      <Answer3>Der Ruhepuls wird höher</Answer3>
+	      <Answer4>Die Muskelmasse verringert sich</Answer4>
+      </Answers>
+    </Question>
+    <Question>
+      <QuestionId>12</QuestionId>
+      <QuestionText>Bei welcher Übung verbrennt man am meisten Kalorien?</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1>60 min Hausputz</Answer1>
+	      <Answer2>20 min Joggen</Answer2>
+	      <Answer3 correct="true">20 min Skilanglauf</Answer3>
+	      <Answer4>30 Minuten Fahrrad fahren</Answer4>
+      </Answers>
+    </Question>
+    <Question>
+      <QuestionId>13</QuestionId>
+      <QuestionText>Was ist der Body-Mass-Index (BMI)?</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1 correct="true">Relation von Körpergewicht zur Körpergröße</Answer1>
+	      <Answer2>Die maximale Kleidergröße von Models</Answer2>
+	      <Answer3>Das Gesamtkörpergewicht des Landes</Answer3>
+	      <Answer4>Der Maximalumfang des Bauches eines Mannes</Answer4>
+      </Answers>
+    </Question>
+    <Question>
+      <QuestionId>14</QuestionId>
+      <QuestionText>Was ist EPO?</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1>Nachtisch für Profiradsportler bei der Tour de France</Answer1>
+	      <Answer2 correct="true">Blutdopingmittel, das die Ausdauerleistungsfähigkeit steigert</Answer2>
+	      <Answer3>Elektronische Positions-Optimierung</Answer3>
+	      <Answer4>"Endlich-Post-wOrkout"-Shake</Answer4>
+      </Answers>
+    </Question>
+    <Question>
+      <QuestionId>15</QuestionId>
+      <QuestionText>Was ist Softball?</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1>Ein weicher Ball, der beim Frauenfußball eingesetzt wird</Answer1>
+	      <Answer2>Fitness-Gerät aus den USA fürs Bauch-, Beine- und Po-Training</Answer2>
+	      <Answer3 correct="true">Variante des Baseballs, die offiziell von Frauen gespielt wird</Answer3>
+	      <Answer4>Dodgeball für Frauen</Answer4>
+      </Answers>
+    </Question>
+    <Question>
+      <QuestionId>16</QuestionId>
+      <QuestionText>Welchen Sinn haben Kompressionsstrümpfe?</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1 correct="true">Unterstützen die Durchblutung</Answer1>
+	      <Answer2>Bringen Sportartikelherstellern mehr Werbefäche</Answer2>
+	      <Answer3>Verwirren den Gegner</Answer3>
+	      <Answer4>Zeitvorteil aufgrund besserer Aerodynamik</Answer4>
       </Answers>
     </Question>
 </CardFile>

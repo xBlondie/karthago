@@ -65,16 +65,52 @@ public class ApplicationLogic {
 			startSingleQuestion(mContext);
 			break;
 		case 3:   
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id3 = "Musik";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id3);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		case 4:   
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id4 = "Architektur";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id4);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		case 5:   
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id5 = "Filme";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id5);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		case 6:   
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id6 = "Kunst";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id6);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		case 7:   
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id7 = "Geschichte";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id7);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		case 8:   
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id8 = "Fotografie";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id8);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		}
 	}
