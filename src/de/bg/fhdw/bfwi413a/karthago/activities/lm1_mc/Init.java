@@ -9,6 +9,9 @@ import java.util.Date;
 
 
 
+
+
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +36,7 @@ public class Init extends Activity{
 	ArrayList<String> CorrectAnswers;
 	Results result = new Results();
 	TextView question;
+	TextView leveltext;
 	CheckBox answer1;
 	CheckBox answer2;
 	CheckBox answer3;
@@ -66,6 +70,7 @@ public class Init extends Activity{
         UserAnswers = new ArrayList<String>();
         
         question = (TextView) findViewById(R.id.question);
+        leveltext = (TextView) findViewById(R.id.textview_level_mc);
 		answer1 = (CheckBox) findViewById(R.id.answer1);
 		answer2 = (CheckBox) findViewById(R.id.answer2);
 		answer3 = (CheckBox) findViewById(R.id.answer3);
@@ -73,6 +78,9 @@ public class Init extends Activity{
 		confirm = (Button) findViewById(R.id.confirm);
 		
 		question.setText(QuestionAndAnswers.get(0).toString());
+		String textForLevel = new String();
+        textForLevel = "Level: " + dbhandler.getCurrentLevelForQuestionId(questionID);
+        leveltext.setText(textForLevel);
 		answer1.setText(QuestionAndAnswers.get(1).toString());
 		answer2.setText(QuestionAndAnswers.get(2).toString());
 		answer3.setText(QuestionAndAnswers.get(3).toString());
@@ -119,7 +127,14 @@ public class Init extends Activity{
 					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war richtig!", Toast.LENGTH_LONG);
 					toast.show();
 				}else{
-					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war falsch!", Toast.LENGTH_LONG);
+					String corAns = new String();
+					for(int i = 0; i < CorrectAnswers.size(); i++){
+						corAns = corAns + ", " + (CorrectAnswers.get(i).toString());
+					}
+					StringBuilder sb = new StringBuilder(corAns);
+					sb.deleteCharAt(0);
+					String corAnsClean = sb.toString();
+					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war falsch!\nRichtige Antworten: " + corAnsClean, Toast.LENGTH_LONG);
 					toast.show();
 				}
 				

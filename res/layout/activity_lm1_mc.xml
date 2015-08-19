@@ -79,4 +79,12 @@
         android:textSize="24sp"
         android:text="Bestätigen" />
 
+    <TextView
+        android:id="@+id/textview_level_mc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/question"
+        android:layout_toLeftOf="@+id/answer2"
+        android:text="TextView" />
+
 </RelativeLayout>

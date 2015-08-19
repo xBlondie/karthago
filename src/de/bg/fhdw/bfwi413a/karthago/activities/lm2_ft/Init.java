@@ -25,6 +25,7 @@ public class Init extends Activity{
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	TextView question;
+	TextView leveltext;
 	EditText answer;
 	Button commiting;
 	XMLDomParserAndHandler xmlhandler;
@@ -58,10 +59,14 @@ public class Init extends Activity{
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
         
         question = (TextView) findViewById(R.id.textview_question_ft);
+        leveltext = (TextView) findViewById(R.id.textview_level_ft);
         answer = (EditText) findViewById(R.id.edittext_ft);
         commiting = (Button) findViewById(R.id.btn_send_ft);
 
         question.setText(questionText);
+        String textForLevel = new String();
+        textForLevel = "Level: " + dbhandler.getCurrentLevelForQuestionId(questionID);
+        leveltext.setText(textForLevel);
         
         commiting.setOnClickListener(new View.OnClickListener() {
 			
@@ -80,7 +85,14 @@ public class Init extends Activity{
 					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war richtig!", Toast.LENGTH_LONG);
 					toast.show();
 				}else{
-					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war falsch!", Toast.LENGTH_LONG);
+					String corAns = new String();
+					for(int i = 0; i < correctAnswers.size(); i++){
+						corAns = corAns + ", " + (correctAnswers.get(i).toString());
+					}
+					StringBuilder sb = new StringBuilder(corAns);
+					sb.deleteCharAt(0);
+					String corAnsClean = sb.toString();
+					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war falsch!\nRichtige Antworten: " + corAnsClean, Toast.LENGTH_LONG);
 					toast.show();
 				}
 				

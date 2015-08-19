@@ -31,4 +31,12 @@
         android:textSize="24sp"
         android:text="Ich weiß es" />
 
+    <TextView
+        android:id="@+id/textview_level_g"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btn_show_g"
+        android:text="TextView" />
+
 </RelativeLayout>
