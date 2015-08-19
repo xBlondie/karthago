@@ -50,13 +50,19 @@ public class ApplicationLogic {
 		switch ( i ) {
 		case 1:
 			//DECLARE THE NAME OF THE CARDFILE
-			String cardfile_id = "Allgemeinwissen";
+			String cardfile_id1 = "Allgemeinwissen";
 			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
-			session.writeCardfileID(cardfile_id);
+			session.writeCardfileID(cardfile_id1);
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
-		case 2:   
+		case 2:
+			//DECLARE THE NAME OF THE CARDFILE
+			String cardfile_id2 = "Fitness";
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			session.writeCardfileID(cardfile_id2);
+			//START THE QUESTION
+			startSingleQuestion(mContext);
 			break;
 		case 3:   
 			break;

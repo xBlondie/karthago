@@ -1,5 +1,5 @@
 /**********************************************************************************
- * ----------       LOGIN-ACTIVITY - WRITTEN BY: FRANZISKA PLATE         ----------
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: PASCAL THRONICKE        ----------
  * 
  * Diese Activity bildet das Bindeglied zwischen der XML-Datei und der Applikation.
  * Diese Klasse ist dafür zuständig die wichtigsten Elemente wie Karteiname,
@@ -83,7 +83,7 @@ public class XMLDomParserAndHandler{
 		mDoc.getDocumentElement().normalize();
 		
 		//GET NODELIST WITH ELEMENTS TAGGED CARDS
-		NodeList nList = mDoc.getElementsByTagName("Cards");
+		NodeList nList = mDoc.getElementsByTagName("CardFile");
 		
 		//LOOP THROUGH NODELIST
 		for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -93,7 +93,7 @@ public class XMLDomParserAndHandler{
 
 				Element eElement = (Element) nNode;
 				//ADD CARDFILE-NAME TO ARRAYLIST
-				cardfile_names.add(eElement.getElementsByTagName("CardFile").item(0).getTextContent());
+				cardfile_names.add(eElement.getAttribute("name").toString());
 			}
 		}
 		
@@ -118,7 +118,7 @@ public class XMLDomParserAndHandler{
 				list_answer_type.add(eElement.getElementsByTagName("AnswerType").item(0).getTextContent());
 				
 				Element eElementParent = (Element) nNode.getParentNode();
-				list_cardfile_id.add(eElementParent.getElementsByTagName("CardFile").item(0).getTextContent());
+				list_cardfile_id.add(eElementParent.getAttribute("name").toString());
 				
 			}
 		}

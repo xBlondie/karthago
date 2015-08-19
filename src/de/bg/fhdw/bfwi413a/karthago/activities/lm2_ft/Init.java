@@ -1,9 +1,24 @@
-//Patrick
+/**********************************************************************************
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: FRANZISKA PLATE         ----------
+ * 
+ * Diese Activity hat die Funktion zur Darstellung der Freitext-Fragen der App.
+ * 
+ * Klassen, mit die diese App kommuniziert sind:
+ * 	- Navigation (Get aktuelle QuestioID)
+ *  - DatabaseHandler (Einpflegen des richtigen Ereignisses)
+ *  - Results (Einholen der Variablen)
+ *  - XMLDomParserAndHandler (Auslösen von Events)
+ * 
+ * Nähere Informationen zu den Methoden siehe im Quellcode!
+ * 
+ *********************************************************************************/
+
 package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -24,17 +39,17 @@ public class Init extends Activity{
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
-	TextView question;
-	EditText answer;
-	Button commiting;
-	XMLDomParserAndHandler xmlhandler;
-	Results result = new Results();
-	String questionText;
-	ArrayList<String> correctAnswers;
-	String questionID;
+	private TextView question;
+	private EditText answer;
+	private Button commiting;
+	private XMLDomParserAndHandler xmlhandler;
+	private Results result = new Results();
+	private String questionText;
+	private ArrayList<String> correctAnswers;
+	private String questionID;
 	private de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic ApplicationLogicSelection;
 	private DatabaseHandler dbhandler;
-	String userAnswer;
+	private String userAnswer;
 	
 	
 	@Override
@@ -67,12 +82,13 @@ public class Init extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				userAnswer = answer.getText().toString().toLowerCase();
+				userAnswer = answer.getText().toString();
 				boolean rightORwrong = false;
 				
 				for(int i = 0; i < correctAnswers.size(); i++){
-					if(correctAnswers.get(i).toString().toLowerCase().equals(userAnswer)){
+					if(correctAnswers.get(i).toString().equalsIgnoreCase(userAnswer)){
 						rightORwrong = true;
+						break;
 					}
 				}
 				

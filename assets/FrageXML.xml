@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Cards>
-<CardFile>Allgemeinwissen</CardFile>
+<CardFile name="Allgemeinwissen">
     <Question>
       <QuestionId>1</QuestionId>
       <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
@@ -48,7 +48,7 @@
       <AnswerType>FT</AnswerType>
       <Answers>
           <Answer>42</Answer>
-          <Answer>Zweiunvierzig</Answer>
+          <Answer>Zweiundvierzig</Answer>
       </Answers>
     </Question>
     <Question>
@@ -81,6 +81,18 @@
           <Answer4>Tuba</Answer4>
      </Answers>
     </Question>
-  
-
+</CardFile>
+<CardFile name="Fitness">
+    <Question>
+      <QuestionId>9</QuestionId>
+      <QuestionText>Was versteht man unter aeroben Training?</QuestionText>
+      <AnswerType>MC</AnswerType>
+      <Answers>
+	      <Answer1>Training an frischer Meeresluft</Answer1>
+	      <Answer2 correct="true">Langsames Training, niedrige Frequenz. Der Körper hat ausreichend Sauerstoff zur Verfügung</Answer2>
+	      <Answer3>1000-Meter-Lauf in einem Sauerstoffzelt</Answer3>
+	      <Answer4>Intervalltraining mit Maximalsprints</Answer4>
+      </Answers>
+    </Question>
+</CardFile>
 </Cards>

@@ -376,9 +376,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public String getRequiredQuestionIDs(Long timestamp, String cardfile_name, String user){
 		//ARRAY TO STORE REQUIRED IDs
         String required_id = new String();
+        
+        //SORTORDER
+        String sort = new String();
+        if(readConfigOption1() == 0){ //Ältestes zuerst
+        	sort = "ASC";
+        }else if(readConfigOption1() == 1){ //Neustes zuerst
+        	sort = "DESC";
+        }else{
+        	sort = "ASC";
+        }
          
         //SELECT QUESTION_ID FROM CARDs
-        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user +"' LIMIT 1";
+        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user +"' ORDER BY " + EVALUATION_TIMESTAMP + " " + sort + " LIMIT 1";
       
         //CREATE DATABASE-INSTANCE AND FETCH DATA
         SQLiteDatabase db = this.getReadableDatabase();
