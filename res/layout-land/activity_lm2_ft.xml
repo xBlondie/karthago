@@ -1,5 +1,6 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -8,35 +9,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="de.bg.fhdw.bfwi413a.karthago.ConfigActivity" >
 
-    <TextView
-        android:id="@+id/textview_question_ft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:text="@string/hello_world" />
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="1" >
 
-    <EditText
-        android:id="@+id/edittext_ft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview_question_ft"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:ems="10"
-        android:inputType="textMultiLine" >
+        <TextView
+            android:id="@+id/textview_question_ft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+            android:textColor="#296E87"
+        	android:textSize="30sp"
+        	android:gravity="center" />
 
-        <requestFocus />
-    </EditText>
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_send_ft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textview_question_ft"
-        android:layout_below="@+id/edittext_ft"
-        android:layout_marginTop="120dp"
-        android:text="Button" />
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.75" >
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/edittext_ft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:ems="20"
+            android:inputType="textMultiLine"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_send_ft"
+            android:layout_width="200dp"
+	        android:layout_height="50dp"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/edittext_ft"
+	        android:layout_marginTop="40dp"
+	        android:background="@drawable/buttonshape_login"
+	        android:textColor="#FFFFFF"
+	        android:textSize="24sp"
+            android:text="Bestätigen" />
+    </RelativeLayout>
+
+</LinearLayout>

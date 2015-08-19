@@ -10,14 +10,16 @@
 
     <TextView
         android:id="@+id/textview_question_ft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#296E87"
+        android:textSize="40sp"
+        android:gravity="center"
         android:text="" />
 
-    <EditText
+   <EditText
         android:id="@+id/edittext_ft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,18 +27,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:ems="10"
+        android:textSize="30dp"
+        android:gravity="center"
         android:inputType="textMultiLine" >
-
-        <requestFocus />
     </EditText>
 
     <Button
         android:id="@+id/btn_send_ft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textview_question_ft"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/edittext_ft"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/buttonshape_login"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         android:text="Bestätigen" />
 
 </RelativeLayout>
