@@ -10,57 +10,73 @@
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="#296E87"
+        android:textSize="40sp"
+        android:gravity="center"
         android:text="TextView" />
 
     <CheckBox
         android:id="@+id/answer1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/question"
         android:layout_below="@+id/question"
-        android:layout_marginTop="25dp"
-        android:text="CheckBox" />
+        android:layout_marginLeft="75dp"
+		android:gravity="center"
+        android:text="CheckBox"
+        android:textSize="25sp"
+        android:button="@drawable/custom_checkbox_design" />
 
     <CheckBox
         android:id="@+id/answer2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/answer1"
         android:layout_below="@+id/answer1"
         android:layout_marginTop="10dp"
-        android:text="CheckBox" />
+        android:gravity="center"
+        android:text="CheckBox"
+        android:textSize="25sp"
+        android:button="@drawable/custom_checkbox_design" />
 
     <CheckBox
         android:id="@+id/answer3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/answer2"
         android:layout_below="@+id/answer2"
         android:layout_marginTop="10dp"
-        android:text="CheckBox" />
+        android:gravity="center"
+        android:text="CheckBox"
+        android:textSize="25sp"
+        android:button="@drawable/custom_checkbox_design" />
 
     <CheckBox
         android:id="@+id/answer4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/answer3"
+        android:layout_alignLeft="@+id/answer3"
         android:layout_below="@+id/answer3"
         android:layout_marginTop="10dp"
-        android:text="CheckBox" />
+        android:gravity="center"
+        android:text="CheckBox"
+        android:textSize="25sp"
+        android:button="@drawable/custom_checkbox_design" />
 
     <Button
         android:id="@+id/confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/answer4"
-        android:layout_below="@+id/answer4"
-        android:layout_marginTop="35dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/buttonshape_login"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         android:text="Bestätigen" />
 
 </RelativeLayout>
