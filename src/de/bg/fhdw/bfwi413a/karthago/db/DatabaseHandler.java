@@ -465,4 +465,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();
 		
 	}
+	
+	public int getCurrentLevelForQuestionId (String questionID){
+		//CREATE DATABASE-INSCTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		int level = 0;
+		
+		//PREPARE SQL-STATEMENT
+		String sqlStatement = "SELECT " + LEVEL + " FROM " + TB_NAME_CARDS + " WHERE " + QUESTION_ID + " = " + questionID;
+		Cursor cursor = db.rawQuery(sqlStatement, null);
+		
+		//GET DATA AND WRITE IT INTO VALUE
+		if (null != cursor && cursor.moveToFirst()) {
+		    level = Integer.parseInt(cursor.getString(0));
+		}
+		return level;	
+	}
 }

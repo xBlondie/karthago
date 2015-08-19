@@ -30,6 +30,7 @@ public class Init extends Activity{
 	private ApplicationLogic mApplicationLogic;
 	
 	TextView question;
+	TextView leveltext;
 	Button confirm;
 	
 	XMLDomParserAndHandler xmlhandler;
@@ -60,9 +61,13 @@ public class Init extends Activity{
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
 		
 		question = (TextView) findViewById(R.id.textview_question_g);
+		leveltext = (TextView) findViewById(R.id.textview_level_g);
 		confirm = (Button) findViewById(R.id.btn_show_g);
 		
 		question.setText(questionText);
+		String textForLevel = new String();
+        textForLevel = "Level: " + dbhandler.getCurrentLevelForQuestionId(questionID);
+        leveltext.setText(textForLevel);
 		
 		confirm.setOnClickListener(new View.OnClickListener() {
 			

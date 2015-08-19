@@ -24,6 +24,15 @@
         	android:textSize="30sp"
         	android:gravity="center" />
 
+        <TextView
+            android:id="@+id/textview_level_ft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="22dp"
+            android:layout_toRightOf="@+id/textview_question_ft"
+            android:text="TextView" />
+
     </RelativeLayout>
 
     <RelativeLayout

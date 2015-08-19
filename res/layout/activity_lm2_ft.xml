@@ -44,4 +44,12 @@
         android:textSize="24sp"
         android:text="Bestätigen" />
 
+    <TextView
+        android:id="@+id/textview_level_ft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btn_send_ft"
+        android:text="TextView" />
+
 </RelativeLayout>
