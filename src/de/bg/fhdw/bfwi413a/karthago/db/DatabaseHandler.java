@@ -62,6 +62,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String QUESTION_ID = "QUESTION_ID";
 	private static final String ANSWER_TYPE = "ANSWER_TYPE";
 	private static final String EVALUATION_TIMESTAMP = "EVALUATION_TIMESTAMP";
+	private static final String ACTIVE_FLAG = "ACTIVE_FLAG";
 	
 	//DECLARE COULUMNS-EVENTS
 	public static final String TB_NAME_EVENTS ="events";
@@ -108,7 +109,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ LEVEL + " INTEGER,"
 				+ EVALUATION_TIMESTAMP + " INTEGER,"
 				+ ANSWER_TYPE + " TEXT,"
-				+ CARDFILE_NAME + " TEXT"
+				+ CARDFILE_NAME + " TEXT,"
+				+ ACTIVE_FLAG + " INTEGER" // 0 = active; 1 = not active
 				+ ");";
 		
 		//CREATE TIMESTAMP-TABLE
@@ -367,6 +369,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(EVALUATION_TIMESTAMP, timestamp);
         values.put(CARDFILE_NAME, cardfile_name);
         values.put(ANSWER_TYPE, answer_type);
+        values.put(ACTIVE_FLAG, 0);
         
         //INSERT ROW
         db.insert(TB_NAME_CARDS, null, values);
@@ -376,9 +379,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public String getRequiredQuestionIDs(Long timestamp, String cardfile_name, String user){
 		//ARRAY TO STORE REQUIRED IDs
         String required_id = new String();
+        
+        //SORTORDER
+        String sort = new String();
+        if(readConfigOption1() == 0){ //Ältestes zuerst
+        	sort = "ASC";
+        }else if(readConfigOption1() == 1){ //Neustes zuerst
+        	sort = "DESC";
+        }else{
+        	sort = "ASC";
+        }
          
         //SELECT QUESTION_ID FROM CARDs
-        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user +"' LIMIT 1";
+        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + EVALUATION_TIMESTAMP + " < " + timestamp + " AND " + CARDFILE_NAME + " = '" + cardfile_name +"' AND " + USER + " = '" + user + "' AND " + ACTIVE_FLAG + " = 0" + " ORDER BY " + EVALUATION_TIMESTAMP + " " + sort + " LIMIT 1";
       
         //CREATE DATABASE-INSTANCE AND FETCH DATA
         SQLiteDatabase db = this.getReadableDatabase();
@@ -480,5 +493,52 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		    level = Integer.parseInt(cursor.getString(0));
 		}
 		return level;	
+	}
+}
+	public ArrayList<String> getAllQuestionIDsOfUser(String user){
+		//ARRAY TO STORE ALL IDs
+        ArrayList<String> ids = new ArrayList<String>();
+         
+        //SELECT QUESTION_ID FROM CARDs
+        String selectQuery = "SELECT " + QUESTION_ID +" FROM " + TB_NAME_CARDS + " WHERE " + USER + " = '" + user +"'";
+      
+        //CREATE DATABASE-INSTANCE AND FETCH DATA
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        
+      //LOOPING THROUGH ALLS ROWS AND ADD TO LIST
+        if (cursor.moveToFirst()) {
+            do {
+                ids.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        
+        return ids;
+	}
+
+	public void setCardAsNotActive(Integer questionID, String user) {
+			//CREATE DATABASE-INSTANCE
+			SQLiteDatabase db = this.getWritableDatabase();
+			//PUT FIRST-START VALUE
+			ContentValues newValues = new ContentValues();
+			newValues.put(ACTIVE_FLAG, 1);
+			
+			//UPDATE-DATA IN SQLITE
+			db.update(TB_NAME_CARDS, newValues, USER + " = '" + user + "' AND " + QUESTION_ID + " = " + questionID + "", null);
+			db.close();
+			
+		}
+	
+	public void setCardAsActive(Integer questionID, String user) {
+		//CREATE DATABASE-INSTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		//PUT FIRST-START VALUE
+		ContentValues newValues = new ContentValues();
+		newValues.put(ACTIVE_FLAG, 0);
+		
+		//UPDATE-DATA IN SQLITE
+		db.update(TB_NAME_CARDS, newValues, USER + " = '" + user + "' AND " + QUESTION_ID + " = " + questionID + "", null);
+		db.close();
+		
 	}
 }

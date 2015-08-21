@@ -70,26 +70,6 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 
 	            }
 	        });
-	        
-	        //INITIALIZE SPINNER TWO (LEARNMODE) AND IMPLEMENT LISTENER
-//	        spn_lernmode = (Spinner) findViewById(R.id.spn_learn);
-//	        adapter_learn = ArrayAdapter.createFromResource(this, R.array.spn_learn, android.R.layout.simple_spinner_item);
-//	        adapter_learn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//	        spn_lernmode.setAdapter(adapter_learn);
-//	        spn_lernmode.setSelection(dbHelper.readConfigOption2());
-//	        spn_lernmode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//
-//	            @Override
-//	            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//	            	//UPDATE SELECTED OPTION IN DATABASE
-//	            	dbHelper.updateConfigOption2((int) parent.getItemIdAtPosition(position));
-//	            }
-//
-//	            @Override
-//	            public void onNothingSelected(AdapterView<?> parent) {
-//
-//	            }
-//	        });
 	       
 	     initSpinner();
 	     initDatabaseHandler();

@@ -1,5 +1,5 @@
 /**********************************************************************************
- * ----------       LOGIN-ACTIVITY - WRITTEN BY: FRANZISKA PLATE         ----------
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: PASCAL THRONICKE        ----------
  * 
  * Diese Activity dient als Helferklasse zur Rückgabe von mehreren Variablen. Sie 
  * bietet dafür verschiedene Konstruktoren, die meist nur aus der XMLDomParserAnd-

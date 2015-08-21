@@ -99,5 +99,16 @@ public class Gui {
 	public void setmButtonCardfile8(Button mButtonCardfile8) {
 		this.mButtonCardfile8 = mButtonCardfile8;
 	}
-
+	
+	public void diasableButtons(){
+		mButtonCardfile1.setEnabled(false);
+		mButtonCardfile2.setEnabled(false);
+		mButtonCardfile3.setEnabled(false);
+		mButtonCardfile4.setEnabled(false);
+		mButtonCardfile5.setEnabled(false);
+		mButtonCardfile6.setEnabled(false);
+		mButtonCardfile7.setEnabled(false);
+		mButtonCardfile8.setEnabled(false);
+		
+	}
 }
