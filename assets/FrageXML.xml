@@ -2,15 +2,15 @@
 <Cards>
 <CardFile name="Allgemeinwissen">
     <Question>
-      <QuestionId>1</QuestionId>
-      <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
-      <AnswerType>MC</AnswerType>
-      <Answers>
-	      <Answer1>7</Answer1>
-	      <Answer2>8</Answer2>
-	      <Answer3 correct="true">9</Answer3>
-	      <Answer4>10</Answer4>
-      </Answers>
+        <QuestionId>1</QuestionId>
+        <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
+        <AnswerType>MC</AnswerType>
+        <Answers>
+            <Answer1>7</Answer1>
+            <Answer2>8</Answer2>
+            <Answer3 correct="true">9</Answer3>
+            <Answer4>10</Answer4>
+        </Answers>
     </Question>
     <Question>
       <QuestionId>2</QuestionId>
@@ -39,7 +39,7 @@
           <Answer1 correct="true">Über 5 Milliarden Menschen</Answer1>
           <Answer2 correct="true">Über 7 Milliarden Menschen</Answer2>
           <Answer3>700 Millionen Menschen</Answer3>
-          <Answer4 correct="true">Über 8 Milliarden Menschen</Answer4>
+          <Answer4>Über 8 Milliarden Menschen</Answer4>
         </Answers>
     </Question>
     <Question>

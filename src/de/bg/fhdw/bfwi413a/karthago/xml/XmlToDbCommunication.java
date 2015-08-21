@@ -85,9 +85,76 @@ public class XmlToDbCommunication{
 			copyCardFileNamesIntoDB();
 			copyIDsOfXMLToDB();
 			//UPDATE THE FIRST START VALUE
-			dbhandler.updateFirstStart(session.getUserDetails().toString());
-			
+			dbhandler.updateFirstStart(session.getUserDetails().toString());	
+		}else{
+			updateDatabase(session.getUserDetails().toString());
 		}
 	}
+
+	private void updateDatabase(String user) {
+		//DECLARE ARRAYLISTS ANd HELPERVARIABLE RESULTS
+		ArrayList<String> questionIDsDB = new ArrayList<String>();
+		ArrayList<String> questionIDsXML = new ArrayList<String>();
+		Results results = new Results();
+		
+		questionIDsDB = dbhandler.getAllQuestionIDsOfUser(user);
+		results = xmldomhandler.getAllIDs();
+		questionIDsXML = results.get_list_ids();
+		
+		setQuestionsInactive(questionIDsDB, questionIDsXML, user);
+		updateQuestionIDsDB(questionIDsXML, questionIDsDB, user);
+	}
+
+	private void updateQuestionIDsDB(ArrayList<String> questionIDsXML, ArrayList<String> questionIDsDB, String user) {
+		Results result = new Results();
+		result = xmldomhandler.getAllIDs(); //TODO ARRAY QUESTIONIDsXML verdoppelt sich!!
+		Integer size = questionIDsXML.size() / 2;
+		ArrayList<String> arrayXMLnew = new ArrayList<String>();
+		for(int k = 0; k < size; k++){
+			arrayXMLnew.add(questionIDsXML.get(k).toString());
+		}
+		Timestamp tstamp1 = new Timestamp(new Date().getTime());
+		for(int i = 0; i < arrayXMLnew.size(); i++){
+			boolean exist = false;
+			for(int j = 0; j < questionIDsDB.size(); j++){
+					
+					if(arrayXMLnew.get(i).toString().equals(questionIDsDB.get(j).toString())){
+						exist = true;
+					}else{
+						
+					}
+			}
+			if(exist == false){
+				String cardfile_name = result.get_list_cardfile_id().get(i).toString();
+				String answer_type = result.get_list_answer_type().get(i).toString();
+				dbhandler.insertDataFromXMLToDB(Integer.parseInt(arrayXMLnew.get(i).toString()), user, tstamp1.getTime(), cardfile_name, answer_type);
+			}
+		
+		}
+	}
+
+	private void setQuestionsInactive(ArrayList<String> questionIDsDB, ArrayList<String> questionIDsXML, String user2) {
+		for(int i = 0; i < questionIDsDB.size(); i++){
+			boolean exist = false;
+			for(int j = 0; j < questionIDsXML.size(); j++){
+				if(exist == true){
+					break;
+				}else{
+					if(questionIDsDB.get(i).toString().equals(questionIDsXML.get(j).toString())){
+						dbhandler.setCardAsActive(Integer.parseInt(questionIDsDB.get(i).toString()), user2);
+						exist = true;
+					}
+				}
+			}
+			if(exist == false){
+				dbhandler.setCardAsNotActive(Integer.parseInt(questionIDsDB.get(i).toString()), user2);
+				System.out.println(questionIDsDB.get(i).toString());
+			}
+			
+		}
+		
+	}
+
+
 	
 }
