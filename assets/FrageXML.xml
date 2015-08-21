@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Cards>
-  <CardFile>Allgemeinwissen</CardFile>
+  <CardFile name="Allgemeinwissen">
   <Question>
     <QuestionId>1</QuestionId>
     <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
@@ -81,8 +81,8 @@
       <Answer4>Tuba</Answer4>
     </Answers>
   </Question>
-
-  <CardFile>Fitness</CardFile>
+</CardFile>
+  <CardFile name="Fitness">
   <Question>
     <QuestionId>9</QuestionId>
     <QuestionText>Was versteht man unter aerobem Training?</QuestionText>
@@ -168,8 +168,8 @@
       <Answer4>Zeitvorteil aufgrund besserer Aerodynamik</Answer4>
     </Answers>
   </Question>
-
-  <CardFile>Musik</CardFile>
+</CardFile>
+  <CardFile name="Musik">
   <Question>
     <QuestionId>17</QuestionId>
     <QuestionText>Welcher schwer klingende Akkord wird mit der Tonika aufgelöst?</QuestionText>
@@ -258,8 +258,8 @@
       <Answer4>Die Skulptur von Thomas Seifert</Answer4>
     </Answers>
   </Question>
-
-  <CardFile>Architektur</CardFile>
+</CardFile>
+  <CardFile name="Architektur">
   <Question>
     <QuestionId>25</QuestionId>
     <QuestionText>Was gilt als ein typisches Kennzeichen romanischer Bauten?</QuestionText>
@@ -381,8 +381,8 @@
       <Answer4>Die Alcaiceria</Answer4>
     </Answers>
   </Question>
-
-  <CardFile>Filme</CardFile>
+</CardFile>
+  <CardFile name="Filme">
   <Question>
     <QuestionId>36</QuestionId>
     <QuestionText>Wie viel Oscars gewann "Titanic"? (Bitte Ganzzahl angeben)</QuestionText>
@@ -462,8 +462,8 @@
       <Answer4>Peter Pan</Answer4>
     </Answers>
   </Question>
-
-  <CardFile>Kunst</CardFile>
+</CardFile>
+  <CardFile name="Kunst">
   <Question>
     <QuestionId>44</QuestionId>
     <QuestionText>Für wie viel Dollar wurde das teuerste Gemälde der Welt verkauft?</QuestionText>
@@ -544,8 +544,8 @@
       <Answer4 correct="true">Gelb - Lila</Answer4>
     </Answers>
   </Question>
-
-  <CardFile>Geschichte</CardFile>
+</CardFile>
+  <CardFile name="Geschichte">
   <Question>
     <QuestionId>52</QuestionId>
     <QuestionText>Wann begann der 1.Weltkrieg? (Bitte Jahreszahl angeben)</QuestionText>
@@ -626,8 +626,8 @@
       <Answer>Neil Armstrong, Buzz Aldrin</Answer>
     </Answers>
   </Question>
-
-  <CardFile>Fotografie</CardFile>
+</CardFile>
+  <CardFile name="Fotografie">
   <Question>
     <QuestionId>60</QuestionId>
     <QuestionText>Unter welchem Namen ist das DSLR-Format bekannt welches ermöglicht Fotos in Software wie Adobe Lightroom zu entwickeln?</QuestionText>
@@ -701,4 +701,5 @@
       <Answer4>Keines der Gennanten</Answer4>
     </Answers>
   </Question>
+</CardFile>
 </Cards>

@@ -18,7 +18,6 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -50,6 +49,7 @@ public class Init extends Activity{
 	private de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic ApplicationLogicSelection;
 	private DatabaseHandler dbhandler;
 	private String userAnswer;
+	private TextView leveltext;
 	
 	
 	@Override
