@@ -494,7 +494,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		return level;	
 	}
-}
+
 	public ArrayList<String> getAllQuestionIDsOfUser(String user){
 		//ARRAY TO STORE ALL IDs
         ArrayList<String> ids = new ArrayList<String>();
