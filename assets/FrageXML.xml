@@ -115,7 +115,7 @@
   </Question>
   <Question>
     <QuestionId>12</QuestionId>
-    <QuestionText>Bei welcher Übung verbrennen man am meisten Kalorien?</QuestionText>
+    <QuestionText>Bei welcher Übung verbrennt man am meisten Kalorien?</QuestionText>
     <AnswerType>MC</AnswerType>
     <Answers>
       <Answer1>60 min Hausputz</Answer1>
