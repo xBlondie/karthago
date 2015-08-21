@@ -2,7 +2,7 @@
 <Cards>
   <CardFile name="Allgemeinwissen">
   <Question>
-    <QuestionId>99</QuestionId>
+    <QuestionId>1</QuestionId>
     <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
     <AnswerType>MC</AnswerType>
     <Answers>
