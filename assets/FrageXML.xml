@@ -1,86 +1,704 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Cards>
-<CardFile>Allgemeinwissen</CardFile>
-    <Question>
-      <QuestionId>1</QuestionId>
-      <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
-      <AnswerType>MC</AnswerType>
-      <Answers>
-	      <Answer1>7</Answer1>
-	      <Answer2>8</Answer2>
-	      <Answer3 correct="true">9</Answer3>
-	      <Answer4>10</Answer4>
-      </Answers>
-    </Question>
-    <Question>
-      <QuestionId>2</QuestionId>
-      <QuestionText>Welcher ist der höchste Berg der Welt?</QuestionText>
-      <AnswerType>MC</AnswerType>
-      <Answers>
-          <Answer1>Mount St.Helens</Answer1>
-          <Answer2>K2</Answer2>
-          <Answer3>Matternhorn</Answer3>
-          <Answer4 correct="true">Mount Everest</Answer4>
-      </Answers>
-    </Question>
-    <Question>
-      <QuestionId>3</QuestionId>
-      <QuestionText>In welchem Jahr endete der zweite Weltkrieg?</QuestionText>
-      <AnswerType>G</AnswerType>
-        <Answers>
-          <Answer>1945</Answer>
-        </Answers>
-    </Question>
-    <Question>
-      <QuestionId>4</QuestionId>
-      <QuestionText>Wieviele Menschen gibt es auf der Welt?</QuestionText>
-      <AnswerType>MC</AnswerType>
-        <Answers>
-          <Answer1 correct="true">Über 5 Milliarden Menschen</Answer1>
-          <Answer2 correct="true">Über 7 Milliarden Menschen</Answer2>
-          <Answer3>700 Millionen Menschen</Answer3>
-          <Answer4 correct="true">Über 8 Milliarden Menschen</Answer4>
-        </Answers>
-    </Question>
-    <Question>
-      <QuestionId>5</QuestionId>
-      <QuestionText>Was ist die Antwort auf alle Fragen?</QuestionText>
-      <AnswerType>FT</AnswerType>
-      <Answers>
-          <Answer>42</Answer>
-          <Answer>Zweiundvierzig</Answer>
-      </Answers>
-    </Question>
-    <Question>
-      <QuestionId>6</QuestionId>
-      <QuestionText>Welche dieser Vokabeln ist ein sog. "false friend"?</QuestionText>
-      <AnswerType>MC</AnswerType>
-        <Answers>
-          <Answer1 correct="true">hardly = härter</Answer1>
-          <Answer2>mostly = meistens</Answer2>
-          <Answer3>barely = kaum</Answer3>
-          <Answer4 correct="true">actual = aktuell</Answer4>
-        </Answers>
-    </Question>
-    <Question>
-      <QuestionId>7</QuestionId>
-      <QuestionText>Was ist die Quersumme von 1337? (Bitte Ganzzahl eingeben)</QuestionText>
-      <AnswerType>FT</AnswerType>
-       <Answers>
-          <Answer>14</Answer>
-       </Answers>
-    </Question>
-    <Question>
-      <QuestionId>8</QuestionId>
-      <QuestionText>Welches Erkennungssignal benutzt die Feuerwehr?</QuestionText>
-      <AnswerType>MC</AnswerType>
-       <Answers>
-          <Answer1 correct="true">Martinshorn</Answer1>
-          <Answer2>Jagdhorn</Answer2>
-          <Answer3>Alphorn</Answer3>
-          <Answer4>Tuba</Answer4>
-     </Answers>
-    </Question>
-  
+  <CardFile>Allgemeinwissen</CardFile>
+  <Question>
+    <QuestionId>1</QuestionId>
+    <QuestionText>Wie viele Länder grenzen an Deutschland?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>7</Answer1>
+      <Answer2>8</Answer2>
+      <Answer3 correct="true">9</Answer3>
+      <Answer4>10</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>2</QuestionId>
+    <QuestionText>Welcher ist der höchste Berg der Welt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Mount St.Helens</Answer1>
+      <Answer2>K2</Answer2>
+      <Answer3>Matternhorn</Answer3>
+      <Answer4 correct="true">Mount Everest</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>3</QuestionId>
+    <QuestionText>In welchem Jahr endete der zweite Weltkrieg?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>1945</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>4</QuestionId>
+    <QuestionText>Wieviele Menschen gibt es auf der Welt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Über 5 Milliarden Menschen</Answer1>
+      <Answer2 correct="true">Über 7 Milliarden Menschen</Answer2>
+      <Answer3>700 Millionen Menschen</Answer3>
+      <Answer4>Über 8 Milliarden Menschen</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>5</QuestionId>
+    <QuestionText>Was ist die Antwort auf alle Fragen?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>42</Answer>
+      <Answer>Zweiundvierzig</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>6</QuestionId>
+    <QuestionText>Welche dieser Vokabeln ist ein sog. "false friend"?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">hardly = härter</Answer1>
+      <Answer2>mostly = meistens</Answer2>
+      <Answer3>barely = kaum</Answer3>
+      <Answer4 correct="true">actual = aktuell</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>7</QuestionId>
+    <QuestionText>Was ist die Quersumme von 1337? (Bitte Ganzzahl eingeben)</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>14</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>8</QuestionId>
+    <QuestionText>Welches Erkennungssignal benutzt die Feuerwehr?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Martinshorn</Answer1>
+      <Answer2>Jagdhorn</Answer2>
+      <Answer3>Alphorn</Answer3>
+      <Answer4>Tuba</Answer4>
+    </Answers>
+  </Question>
 
+  <CardFile>Fitness</CardFile>
+  <Question>
+    <QuestionId>9</QuestionId>
+    <QuestionText>Was versteht man unter aerobem Training?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Training an frischer Meeresluft</Answer1>
+      <Answer2 correct="true">Langsames Training, niedrige Frequenz. Der Körper hat ausreichend Sauerstoff zur Verfügung</Answer2>
+      <Answer3>1000-Meter-Lauf in einem Sauerstoffzelt</Answer3>
+      <Answer4>Intervalltraining mit Maximalsprints</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>10</QuestionId>
+    <QuestionText>Das Zusammenspiel von Nerven und Muskeln nennt man ...</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer1>Koordination</Answer1>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>11</QuestionId>
+    <QuestionText>Durch regelmäßiges Joggen kommt es zu folgenden Anpassungserscheinungen:</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Die Knochen werden brüchig</Answer1>
+      <Answer2 correct="true">Der Ruhepuls wird niedriger</Answer2>
+      <Answer3>Der Ruhepuls wird höher</Answer3>
+      <Answer4>Die Muskelmasse verringert sich</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>12</QuestionId>
+    <QuestionText>Bei welcher Übung verbrennen Sie am meisten Kalorien?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>60 min Hausputz</Answer1>
+      <Answer2>20 min Joggen</Answer2>
+      <Answer3 correct="true">20 min Skilanglauf</Answer3>
+      <Answer4>180 min Fernsehen</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>13</QuestionId>
+    <QuestionText>Was ist der Body-Mass-Index (BMI)?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Maßzahl zur Relation von Körpergewicht zur Körpergröße</Answer1>
+      <Answer2>Die maximale Kleidergröße von Models</Answer2>
+      <Answer3>Das Gesamtkörpergewicht des Landes</Answer3>
+      <Answer4>Der Maximalumfang des Bauches eines Mannes</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>14</QuestionId>
+    <QuestionText>Was ist EPO?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Der tägliche Nachtisch für Profiradsportler bei der Tour de France</Answer1>
+      <Answer2 correct="true">Blutdopingmittel, das die Ausdauerleistungsfähigkeit steigert</Answer2>
+      <Answer3>Elektronische Positions-Optimierung für Teilnehmer bei Abenteuerrennen</Answer3>
+      <Answer4>Der "Endlich-Post-wOrkout"-Shake von Bodybuildern</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>15</QuestionId>
+    <QuestionText>Was ist Softball?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Ein weicher Ball, der beim Frauenfußball eingesetzt wird</Answer1>
+      <Answer2>Ein neues Fitness-Gerät aus den USA fürs Bauch-, Beine- und Po-Training</Answer2>
+      <Answer3 correct="true">Eine Variante des Baseballs, die offiziell von Frauen gespielt wird</Answer3>
+      <Answer4>Dodgeball für Frauen</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>16</QuestionId>
+    <QuestionText>Welchen Sinn haben Kompressionsstrümpfe?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Verhindern Wassereinlagerungen in den Beinen und unterstützen die Durchblutung</Answer1>
+      <Answer2>Bringen Sportartikelherrstellern mehr Werbefäche</Answer2>
+      <Answer3>Verwirren den Gegner</Answer3>
+      <Answer4>Zeitvorteil aufgrund besserer Aerodynamik</Answer4>
+    </Answers>
+  </Question>
+
+  <CardFile>Musik</CardFile>
+  <Question>
+    <QuestionId>17</QuestionId>
+    <QuestionText>Welcher schwer klingende Akkord wird mit der Tonika aufgelöst?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Subdominante</Answer1>
+      <Answer2>Subdominante + Septe</Answer2>
+      <Answer3>Dominante</Answer3>
+      <Answer4 correct="true">Dominante + Septe</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>18</QuestionId>
+    <QuestionText>Welche Tonart wird mit drei Kreuzchen dargestellt</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">A-Dur</Answer1>
+      <Answer2>E-Dur</Answer2>
+      <Answer3>cis-moll</Answer3>
+      <Answer4 correct="true">fis-moll</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>19</QuestionId>
+    <QuestionText>Welches der folgenden Intervalle ist rein?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Prime</Answer1>
+      <Answer2>Sekunde</Answer2>
+      <Answer3>Terz</Answer3>
+      <Answer4 correct="true">Quarte</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>20</QuestionId>
+    <QuestionText>Welche der Kirchentonleitern existiert wirklich?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Phrygisch</Answer1>
+      <Answer2 correct="true">Ionisch</Answer2>
+      <Answer3>Krystisch</Answer3>
+      <Answer4 correct="true">Dorisch</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>21</QuestionId>
+    <QuestionText>Wer schriebt den Kanon "Leck mir den Arsch fein recht schön sauber"?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Johann Sebastian Bach</Answer1>
+      <Answer2 correct="true">Wolfgang Amadeus Mozart</Answer2>
+      <Answer3>Sido</Answer3>
+      <Answer4>Kanye West</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>22</QuestionId>
+    <QuestionText>Der bekannte Nokia-Klingelton wurde im Jahre 1902 von Francisco Tárrega geschrieben. Für welches Instrument wurde es komponiert?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Gitarre</Answer1>
+      <Answer2>Flöte</Answer2>
+      <Answer3>Xylophon</Answer3>
+      <Answer4>Klavier</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>23</QuestionId>
+    <QuestionText>Welches Lied wird in Shazam angezeigt, wenn man eine Toilettenspülung aufnimmt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Cheerleader von Omi/Felix Jaehn</Answer1>
+      <Answer2>Ein neues FitFriday von Rebecca Black</Answer2>
+      <Answer3 correct="true">Baby von Justin Bieber</Answer3>
+      <Answer4>Wreckingball von Miley Cyrus</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>24</QuestionId>
+    <QuestionText>Auf welchem Stück basiert "All by myself" (Eric Carmen), das durch Celine Dion und Frank Sinatra bekannt wurde?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Zweiter Satz des Klavierkonzerts Nr. 2 von Sergej Rachmaninov</Answer1>
+      <Answer2>Für Elise von Ludwig van Beethoven</Answer2>
+      <Answer3>Die Zauberflöte von Wolfgang Amadeus Mozart</Answer3>
+      <Answer4>Die Skulptur von Thomas Seifert</Answer4>
+    </Answers>
+  </Question>
+
+  <CardFile>Architektur</CardFile>
+  <Question>
+    <QuestionId>25</QuestionId>
+    <QuestionText>Was gilt als ein typisches Kennzeichen romanischer Bauten?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Flachdächer</Answer1>
+      <Answer2 correct="true">Rundbögen</Answer2>
+      <Answer3>Volutengiebel</Answer3>
+      <Answer4>Spitzbögen</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>26</QuestionId>
+    <QuestionText>Aus welcher Architekturepoche stammt der Kölner Dom?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Gotik</Answer1>
+      <Answer2>Biedermeier</Answer2>
+      <Answer3>Rokoko</Answer3>
+      <Answer4>Romantik</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>27</QuestionId>
+    <QuestionText>Die Pyramide des Kukulcán ist ein Beispiel für die Architektur der…</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Maya</Answer1>
+      <Answer2>Azteken</Answer2>
+      <Answer3>Inka</Answer3>
+      <Answer4>Indianer</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>28</QuestionId>
+    <QuestionText>Wie nennt man den spanischen Baustil, in dem Charakteristika islamischer Architektur mit solchen der Gotik und Renaissance verbunden wurden?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Arte Mezcla</Answer1>
+      <Answer2>Arte Conmixtión</Answer2>
+      <Answer3 correct="true">Arte Mudéjar</Answer3>
+      <Answer4>Arte Culón</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>29</QuestionId>
+    <QuestionText>Welchen Begriff prägte der schwedische Architekt Asplund für einen Baustil des 20. Jahrhunderts, der sich vor allem durch die Verwendung von Sichtbeton, Stahl und Glas auszeichnet?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Funktionalismus</Answer1>
+      <Answer2>Strukturalismus</Answer2>
+      <Answer3>Bauhausstil</Answer3>
+      <Answer4 correct="true">Brutalismus</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>30</QuestionId>
+    <QuestionText>Wonach ist die kunstgeschichtliche Epoche des Jugendstils benannt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Nach dem Titel einer Zeitschrift</Answer1>
+      <Answer2>Nach dem Namen eines Architekten</Answer2>
+      <Answer3>Nach der Bezeichnung einer Ortschaft</Answer3>
+      <Answer4>Nach dem Namen eines Cafés</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>31</QuestionId>
+    <QuestionText>Wie bezeichnet man in der Architekturtheorie einen selektiven Rückgriff auf bereits dagewesene Stil- und Ausdrucksformen?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Fragmentarismus</Answer1>
+      <Answer2>Atavismus</Answer2>
+      <Answer3 correct="true">Eklektizismus</Answer3>
+      <Answer4>Recurismus</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>32</QuestionId>
+    <QuestionText>Für welchen Baustil ist die Stadt Napier (Neuseeland) weltberühmt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Jugendstil</Answer1>
+      <Answer2>Federal Style</Answer2>
+      <Answer3 correct="true">Art Decó</Answer3>
+      <Answer4>Neobarock</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>33</QuestionId>
+    <QuestionText>Welche architektonische Stilepoche folgte auf die Renaissance?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Barock</Answer1>
+      <Answer2>Rokoko</Answer2>
+      <Answer3>Historismus</Answer3>
+      <Answer4>Klassiszismus</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>34</QuestionId>
+    <QuestionText>Von wem stammt folgendes Zitat: "Das Endziel aller bildnerischen Tätigkeit ist der Bau"?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Gustave Eiffel</Answer1>
+      <Answer2>Frank Lloyd Wright</Answer2>
+      <Answer3>Jean Nouvel</Answer3>
+      <Answer4 correct="true">Walter Gropius</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>35</QuestionId>
+    <QuestionText>Welches bekannte Gebäude maurischen Baustils befindet sich in der spanischen Stadt Granada?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Die Alhambra</Answer1>
+      <Answer2>Die Kaaba</Answer2>
+      <Answer3>Die Giralda</Answer3>
+      <Answer4>Die Alcaiceria</Answer4>
+    </Answers>
+  </Question>
+
+  <CardFile>Filme</CardFile>
+  <Question>
+    <QuestionId>36</QuestionId>
+    <QuestionText>Wie viel Oscars gewann "Titanic"? (Bitte Ganzzahl angeben)</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>11</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>37</QuestionId>
+    <QuestionText>Welcher der folgenden Filme kam NICHT 2014 ins Kino</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Guardians of the Galaxy</Answer1>
+      <Answer2>The LEGO Movie</Answer2>
+      <Answer3 correct="true">Fast &amp; Furious 7</Answer3>
+      <Answer4>Die Pinguine aus Madakaskar</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>38</QuestionId>
+    <QuestionText>Wann kam der 1. Spielfilm mit Ton zur Aufführung in den neu gebauten Kinopalästen?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">1926</Answer1>
+      <Answer2>1937</Answer2>
+      <Answer3>1954</Answer3>
+      <Answer4>1962</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>39</QuestionId>
+    <QuestionText>Wer moderierte die 87. Verleihung der Oscars (2015)?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>Neil Patrick Harris</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>40</QuestionId>
+    <QuestionText>Bei wem wohnen "Bob, Kevin und Stuart"?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Dr. Nefario</Answer1>
+      <Answer2 correct="true">Gru</Answer2>
+      <Answer3>Vector</Answer3>
+      <Answer4>Silas Ramspopo</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>41</QuestionId>
+    <QuestionText>Durch welche Rolle wurde Rowan Atkinson bekannt?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>Mr.Bean</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>42</QuestionId>
+    <QuestionText>In welchem Jahr kam "Harry Potter und der Stein der Weisen" in die deutschen Kinos?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>1999</Answer1>
+      <Answer2>2000</Answer2>
+      <Answer3 correct="true">2001</Answer3>
+      <Answer4>2002</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>43</QuestionId>
+    <QuestionText>In welchem Disney Film kommt das Lied "Verbannung" vor?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Das Dschungelbuch 2</Answer1>
+      <Answer2 correct="true">König der Löwen 2</Answer2>
+      <Answer3>Cinderella</Answer3>
+      <Answer4>Peter Pan</Answer4>
+    </Answers>
+  </Question>
+
+  <CardFile>Kunst</CardFile>
+  <Question>
+    <QuestionId>44</QuestionId>
+    <QuestionText>Für wie viel Dollar wurde das teuerste Gemälde der Welt verkauft?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>175 Millionen Dollar</Answer1>
+      <Answer2>185 Millionen Dollar</Answer2>
+      <Answer3>160 Millionen Dollar</Answer3>
+      <Answer4 correct="true">179 Millionen Dollar</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>45</QuestionId>
+    <QuestionText>Welcher Künstler malte „Les femmes d’Alger“, das teuerste Gemälde der Welt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Bacon</Answer1>
+      <Answer2 correct="true">Picasso</Answer2>
+      <Answer3>Pollock</Answer3>
+      <Answer4>Munch</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>46</QuestionId>
+    <QuestionText>Welcher Kunstepoche entstammen Werke, wie die „Pietà“, „David“ oder die "Mona Lisa"?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Manierismus</Answer1>
+      <Answer2>Expressionismus</Answer2>
+      <Answer3>Impressionismus</Answer3>
+      <Answer4 correct="true">Renaissance</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>47</QuestionId>
+    <QuestionText>Welcher Kunstepoche entstammt der Maler Monet mit seinem berühmten Werk "Seerosen"?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>Impressionismus</Answer>
+      <Answer>impressionismus</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>48</QuestionId>
+    <QuestionText>Welche Kunstform wurde besonders von Andy Warhol geprägt?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Pop Art</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>49</QuestionId>
+    <QuestionText>Wie bezeichnet man die bildnerische Darstellung eines unbekleideten Menschen in der Kunst?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Nacktzeichnen</Answer1>
+      <Answer2>Adam-/Eva-Portrait</Answer2>
+      <Answer3 correct="true">Aktzeichnen</Answer3>
+      <Answer4>Nudismus</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>50</QuestionId>
+    <QuestionText>Wer entwarf das Südquerhausfenster des Kölner Dom?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Gerhard Richter</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>51</QuestionId>
+    <QuestionText>Welche dieser Farbpaare bilden einen Komplementärkontrast (Farbmodell nach Goethe)?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Blau - Orange</Answer1>
+      <Answer2>Rot - Gelb</Answer2>
+      <Answer3>Grün - Braun</Answer3>
+      <Answer4 correct="true">Gelb - Lila</Answer4>
+    </Answers>
+  </Question>
+
+  <CardFile>Geschichte</CardFile>
+  <Question>
+    <QuestionId>52</QuestionId>
+    <QuestionText>Wann begann der 1.Weltkrieg? (Bitte Jahreszahl angeben)</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>1914</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>53</QuestionId>
+    <QuestionText>Aufgrund wessen Ermordung wurde der 1.Weltkrieg ausgelöst?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">Franz Ferdinand</Answer1>
+      <Answer2>Wilhelm II.</Answer2>
+      <Answer3>Otto von Bismarck</Answer3>
+      <Answer4>Adolf Hitler</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>54</QuestionId>
+    <QuestionText>Wann wurde die Bundesrepublik Deutschland gegründet?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1 correct="true">23.Mai 1949</Answer1>
+      <Answer2>9.November 1918</Answer2>
+      <Answer3>24.Mai 1618</Answer3>
+      <Answer4>28.November 1957</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>55</QuestionId>
+    <QuestionText>Auf welche Insel wurde Napoleon Bonaparte nach seinem Sturz 1812 verbannt?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Hawaii</Answer1>
+      <Answer2 correct="true">Elba</Answer2>
+      <Answer3>Kuba</Answer3>
+      <Answer4>Island</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>56</QuestionId>
+    <QuestionText>In welchen 2 japanischen Städten wurden 1945 Atombomben abgeworfen?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Nagasaki und Hiroshima</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>57</QuestionId>
+    <QuestionText>Wer war der Hauptverdächtige bei dem Attentat auf John F. Kennedy?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>Lee Harvey Oswald</Answer>
+      <Answer>Lee Oswald</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>58</QuestionId>
+    <QuestionText>Wann war der erste Mensch auf dem Mond?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>13.April 1950</Answer1>
+      <Answer2>5.Dezember 1973</Answer2>
+      <Answer3 correct="true">21.Juli 1969</Answer3>
+      <Answer4>13.Dezember 1933</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>59</QuestionId>
+    <QuestionText>Wer waren die ersten Menschen auf dem Mond?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>Neil Armstrong und Buzz Aldrin</Answer>
+      <Answer>Buzz Aldrin und Neil Armstrong</Answer>
+      <Answer>Buzz Aldrin, Neil Armstrong</Answer>
+      <Answer>Neil Armstrong, Buzz Aldrin</Answer>
+    </Answers>
+  </Question>
+
+  <CardFile>Fotografie</CardFile>
+  <Question>
+    <QuestionId>60</QuestionId>
+    <QuestionText>Unter welchem Namen ist das DSLR-Format bekannt welches ermöglicht Fotos in Software wie Adobe Lightroom zu entwickeln?</QuestionText>
+    <AnswerType>FT</AnswerType>
+    <Answers>
+      <Answer>RAW</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>61</QuestionId>
+    <QuestionText>Welche drei Kamera-Einstellungen tragen zur Ausleuchtung eines Fotos bei?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Blende, Verschlusszeit, ISO-Zahl</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>62</QuestionId>
+    <QuestionText>Welcher anderer Faktor außer der Ausleuchtung wird von der Blende beeinflusst?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Tiefenschärfe</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>63</QuestionId>
+    <QuestionText>Welcher anderer Faktor außer der Ausleuchtung wird von der Verschlusszeit beeinflusst?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Bewegungsschärfe</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>64</QuestionId>
+    <QuestionText>Welcher anderer Faktor außer der Ausleuchtung wird von der ISO-Zahl beeinflusst?</QuestionText>
+    <AnswerType>G</AnswerType>
+    <Answers>
+      <Answer>Sensorrauschen</Answer>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>65</QuestionId>
+    <QuestionText>Erhöht eine kleinere oder größere Blende die Ausleuchtung eines Fotos?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Kleinere Blende</Answer1>
+      <Answer2 correct="true">Größere Blende</Answer2>
+      <Answer3>Sowohl als auch</Answer3>
+      <Answer4>Keines der Genannten</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>66</QuestionId>
+    <QuestionText>Erhöht eine kleinere oder größere Verschlusszeit die Ausleuchtung eines Fotos?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Kleinere Verschlusszeit</Answer1>
+      <Answer2 correct="true">Größere Verschlusszeit</Answer2>
+      <Answer3>Sowohl als auch</Answer3>
+      <Answer4>Keines der Gennanten</Answer4>
+    </Answers>
+  </Question>
+  <Question>
+    <QuestionId>67</QuestionId>
+    <QuestionText> Erhöht eine kleinere oder größere ISO-Zahl die Ausleuchtung eines Fotos?</QuestionText>
+    <AnswerType>MC</AnswerType>
+    <Answers>
+      <Answer1>Kleinere ISO-Zahl</Answer1>
+      <Answer2 correct="true">Größere ISO-Zahl</Answer2>
+      <Answer3>Sowohl als auch</Answer3>
+      <Answer4>Keines der Gennanten</Answer4>
+    </Answers>
+  </Question>
 </Cards>
