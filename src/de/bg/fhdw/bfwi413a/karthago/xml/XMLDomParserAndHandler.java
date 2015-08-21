@@ -44,7 +44,7 @@ public class XMLDomParserAndHandler{
 	private ArrayList<String> list_ids;
 	private ArrayList<String> list_cardfile_id;
 	private ArrayList<String> list_answer_type;
-	
+	private de.bg.fhdw.bfwi413a.karthago.activities.selection.Init init;	
 	
 	public XMLDomParserAndHandler (Context context){
 		//INITIALIZE OBJECTS
@@ -64,12 +64,15 @@ public class XMLDomParserAndHandler{
 		}catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			init.disableAllButtons();
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			init.disableAllButtons();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			init.disableAllButtons();
 		}
 	}
 	

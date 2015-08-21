@@ -148,7 +148,6 @@ public class XmlToDbCommunication{
 			}
 			if(exist == false){
 				dbhandler.setCardAsNotActive(Integer.parseInt(questionIDsDB.get(i).toString()), user2);
-				System.out.println(questionIDsDB.get(i).toString());
 			}
 			
 		}

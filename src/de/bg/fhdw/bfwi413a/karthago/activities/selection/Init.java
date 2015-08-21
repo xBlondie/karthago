@@ -64,4 +64,8 @@ public class Init extends Activity{
 		 return false;
 		 }
 	
+	public void disableAllButtons(){
+		mGui.diasableButtons();
+	}
+	
 }
