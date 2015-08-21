@@ -25,7 +25,7 @@
     </Question>
     <Question>
       <QuestionId>3</QuestionId>
-      <QuestionText>In welchem Jahr endete der zweite Weltkrieg? (Bitte Ganzzahl angeben)</QuestionText>
+      <QuestionText>In welchem Jahr endete der zweite Weltkrieg?</QuestionText>
       <AnswerType>G</AnswerType>
         <Answers>
           <Answer>1945</Answer>
@@ -48,7 +48,7 @@
       <AnswerType>FT</AnswerType>
       <Answers>
           <Answer>42</Answer>
-          <Answer>Zweiunvierzig</Answer>
+          <Answer>Zweiundvierzig</Answer>
       </Answers>
     </Question>
     <Question>
