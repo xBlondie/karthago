@@ -89,7 +89,7 @@
     <AnswerType>MC</AnswerType>
     <Answers>
       <Answer1>Training an frischer Meeresluft</Answer1>
-      <Answer2 correct="true">Langsames Training, niedrige Frequenz. Der Körper hat ausreichend Sauerstoff zur Verfügung</Answer2>
+      <Answer2 correct="true">Langsames Training, niedrige Frequenz.</Answer2>
       <Answer3>1000-Meter-Lauf in einem Sauerstoffzelt</Answer3>
       <Answer4>Intervalltraining mit Maximalsprints</Answer4>
     </Answers>
@@ -115,7 +115,7 @@
   </Question>
   <Question>
     <QuestionId>12</QuestionId>
-    <QuestionText>Bei welcher Übung verbrennen Sie am meisten Kalorien?</QuestionText>
+    <QuestionText>Bei welcher Übung verbrennen man am meisten Kalorien?</QuestionText>
     <AnswerType>MC</AnswerType>
     <Answers>
       <Answer1>60 min Hausputz</Answer1>
@@ -129,7 +129,7 @@
     <QuestionText>Was ist der Body-Mass-Index (BMI)?</QuestionText>
     <AnswerType>MC</AnswerType>
     <Answers>
-      <Answer1 correct="true">Maßzahl zur Relation von Körpergewicht zur Körpergröße</Answer1>
+      <Answer1 correct="true">Relation von Körpergewicht zur Körpergröße</Answer1>
       <Answer2>Die maximale Kleidergröße von Models</Answer2>
       <Answer3>Das Gesamtkörpergewicht des Landes</Answer3>
       <Answer4>Der Maximalumfang des Bauches eines Mannes</Answer4>
@@ -140,10 +140,10 @@
     <QuestionText>Was ist EPO?</QuestionText>
     <AnswerType>MC</AnswerType>
     <Answers>
-      <Answer1>Der tägliche Nachtisch für Profiradsportler bei der Tour de France</Answer1>
+      <Answer1>Nachtisch für Profiradsportler bei der Tour de France</Answer1>
       <Answer2 correct="true">Blutdopingmittel, das die Ausdauerleistungsfähigkeit steigert</Answer2>
-      <Answer3>Elektronische Positions-Optimierung für Teilnehmer bei Abenteuerrennen</Answer3>
-      <Answer4>Der "Endlich-Post-wOrkout"-Shake von Bodybuildern</Answer4>
+      <Answer3>Elektronische Positions-Optimierung</Answer3>
+      <Answer4>"Endlich-Post-wOrkout"-Shake</Answer4>
     </Answers>
   </Question>
   <Question>
