@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|center_horizontal|center_vertical"
+    android:background="#F2F2F2"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-45dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="117dp"
+            android:text="Erstelle Dir Deinen ersten Benutzer:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#296E87"
+            android:textSize="30sp"
+            android:gravity="center" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="91dp"
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/Button01"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttonshape_login"
+            android:text="Benutzer anlegen"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <ImageView
+     android:id="@+id/imageView1"
+     android:layout_width="100dp"
+     android:layout_height="100dp"
+     android:layout_alignParentBottom="true"
+     android:layout_centerHorizontal="true"
+     android:src="@drawable/logo_full2" />
+    
+</RelativeLayout>

@@ -68,6 +68,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String TB_NAME_EVENTS ="events";
 	public static final String NAME = "EVENT_NAME";
 	
+	//DECLARE FIRST APP-START
+	public static final String TB_NAME_APP_FIRST_START = "first_start_app";
+	public static final String APP_FIRST_START = "APP_FIRST_START";
+	
 	
 	//CONSTRUCTOR TO INITIALIZE THE DATABASE IF NOT EXISTS
 	public DatabaseHandler(Context context) {
@@ -131,6 +135,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ CARDFILE_NAME + " TEXT"
 				+ ");";
 		
+		//CREATE FIRST_START_APP-Table
+		String CREATE_FIRST_START_APP_TABLE = "CREATE TABLE IF NOT EXISTS " + TB_NAME_APP_FIRST_START
+				+ " (" 
+				+ ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+				+ APP_FIRST_START + " INTEGER"
+				+ ");";
+		
 		
 		//EXECUTE THE SQL-STATEMENTS
 		db.execSQL(CREATE_CONFIG_TABLE);
@@ -139,6 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(CREATE_TIMESTAMP_TABLE);
 		db.execSQL(CREATE_CARDS_TABLE);
 		db.execSQL(CREATE_EVENTS_TABLE);
+		db.execSQL(CREATE_FIRST_START_APP_TABLE);
 		
 		//INITIALIZE TABLES FOR USING FIRST TIME
 		initializeTablesForFirstStart(db);
@@ -154,6 +166,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_TIMESTAMP);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_CARDS);
         db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_EVENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME_APP_FIRST_START);
   
         //RESTART THE CREATE PROCESS
         onCreate(db);
@@ -177,6 +190,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String LEVEL_6 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (5,6,172800)";
 		String LEVEL_7 = "INSERT INTO " + TB_NAME_TIMESTAMP +" VALUES (6,7,604800)";
 		
+		//SET THE FIRST APP-START TO 1 - ANOTHER VALUE CAN'T BE POSSIBLE
+		String APP_FIRST_START = "INSERT INTO " + TB_NAME_APP_FIRST_START + " VALUES (0,0)";
+		
 		//EXCECUTE SQL-STATEMENTS
 		db.execSQL(initializeSorttyp);
 		db.execSQL(initializeLearnmode);
@@ -188,6 +204,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(LEVEL_5);
 		db.execSQL(LEVEL_6);
 		db.execSQL(LEVEL_7);
+		db.execSQL(APP_FIRST_START);
 	}
 	
 	public void updateConfigOption1(int value){
@@ -540,5 +557,28 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.update(TB_NAME_CARDS, newValues, USER + " = '" + user + "' AND " + QUESTION_ID + " = " + questionID + "", null);
 		db.close();
 		
+	}
+	
+	public boolean getAppStartFlag(){
+		//CREATE DATABASE-INSCTANCE
+		SQLiteDatabase db = this.getWritableDatabase();
+		boolean flag = false;
+		
+		//PREPARE SQL-STATEMENT
+		String sqlStatement = "SELECT " + APP_FIRST_START + " FROM " + TB_NAME_APP_FIRST_START;
+		Cursor cursor = db.rawQuery(sqlStatement, null);
+		
+		//GET DATA AND WRITE IT INTO VALUE
+		if (null != cursor && cursor.moveToFirst()) {
+			int iflag = Integer.parseInt(cursor.getString(0)); 
+			if( iflag == 0){
+				flag = true;
+				String UPDATE_FIRST_START = "UPDATE " + TB_NAME_APP_FIRST_START + " SET " + APP_FIRST_START + " = 1";
+				db.execSQL(UPDATE_FIRST_START);
+			}else{
+				flag = false;
+			}
+		}
+		return flag;	
 	}
 }
