@@ -23,6 +23,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -37,6 +38,7 @@ import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
+import de.bg.fhdw.bfwi413a.karthago.onboarding.StartOnboarding;
 
 public class Init extends Activity implements
 OnItemSelectedListener {
@@ -54,17 +56,26 @@ OnItemSelectedListener {
 	//DECLARE NECESSARY CLASSES
 	private SessionManagement session;
 	private DatabaseHandler mdbHandler;
+	private boolean first_app_start;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		initDatabaseHandler();
+		first_app_start = false;
+		first_app_start = mdbHandler.getAppStartFlag();
+		if(first_app_start == true){ //TODO auf TRUE zurückändern!
+			Intent i = new Intent(Init.this, StartOnboarding.class);
+			finish();
+			startActivity(i);
+		}
+		
 		//INITIALIZE MVC-CLASSES
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-		initDatabaseHandler();
 		
 		//INITIALIZE GUI-ELEMENTS
 		initSpinner();
