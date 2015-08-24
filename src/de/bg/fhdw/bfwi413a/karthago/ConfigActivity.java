@@ -15,6 +15,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -241,6 +242,14 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 			}
 		});
 	}
+	public boolean onKeyDown(int keycode, KeyEvent event){
+		//ABFANGEN DES "ZURÜCK-TASTE" EVENTS
+		  if(keycode==KeyEvent.KEYCODE_BACK){
+			  //RUFE MENÜ-ACTIVITY AUF
+		   Navigation.startActivityMenu(this);
+		  }
+		 return false;
+		 }
 	
 	
 	

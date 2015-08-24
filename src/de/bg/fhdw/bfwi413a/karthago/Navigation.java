@@ -84,7 +84,7 @@ public class Navigation {
 	}
 
 	public static void startActivityStatistics(Activity callingActivity) {
-		startActivity(callingActivity, MENU_ACTIVITY_CLASS);		
+		startActivity(callingActivity, STATISTICS_ACTIVITY_CLASS);		
 	}
 	
 	public static void startActivityLM1_MC(Activity callingActivity, String questionId) {

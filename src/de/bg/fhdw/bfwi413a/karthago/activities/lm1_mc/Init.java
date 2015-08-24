@@ -12,13 +12,16 @@ import java.util.Date;
 
 
 
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
@@ -172,6 +175,16 @@ public class Init extends Activity{
 	private void initEventToListenerMapping() {
 		new EventToListenerMapping(mGui, mApplicationLogic);
 	}
+	
+	public boolean onKeyDown(int keycode, KeyEvent event){
+		//ABFANGEN DES "ZURÜCK-TASTE" EVENTS
+		  if(keycode==KeyEvent.KEYCODE_BACK){
+			  //RUFE MENÜ-ACTIVITY AUF
+		   Navigation.startActivityMenu(mData.getmActivity());
+		  }
+		 return false;
+		 }
+	
 	//@end author Leonie
 
 }
