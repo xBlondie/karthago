@@ -126,7 +126,7 @@ public class ApplicationLogic {
 		//CHECK IF A ANSWER HAS TO BE ANSWERED
 		if(requiredID.equals("")){
 		//IF NOT
-		Toast toast = Toast.makeText(context, "Es müssen keine weiteren Fragen bearbeitet werden oder die Kartei ist nicht verfügbar!", Toast.LENGTH_LONG);
+		Toast toast = Toast.makeText(context, "Es müssen keine weiteren Fragen der Kartei " + cardfile_id + " bearbeitet werden oder die Kartei ist nicht verfügbar!", Toast.LENGTH_LONG);
 		toast.show();
 		Intent nextScreen = new Intent(context, de.bg.fhdw.bfwi413a.karthago.activities.selection.Init.class);
         nextScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

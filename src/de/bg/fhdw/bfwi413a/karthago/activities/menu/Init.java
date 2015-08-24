@@ -109,8 +109,8 @@ if ((keyCode == KeyEvent.KEYCODE_BACK)) {
     backB.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
 
         public void onClick(DialogInterface dialog, int whichButton) {
-        session.logoutUser();
-        finish();
+        session.logoutUserWithoutRedirect();
+        android.os.Process.killProcess(android.os.Process.myPid());
         }
 
     });

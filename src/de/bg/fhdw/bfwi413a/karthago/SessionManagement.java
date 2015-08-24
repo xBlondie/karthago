@@ -141,4 +141,10 @@ public class SessionManagement {
         // return cardfile
         return cardfile;
     }
+    
+    public void logoutUserWithoutRedirect(){
+        // Clearing all data from Shared Preferences
+        editor.clear();
+        editor.commit();
+    }
 }
