@@ -224,8 +224,7 @@ OnItemSelectedListener {
 				//CREATE SESSION WITH THE USERNAME WHICH WAS SELECTED ABOVE
 				session.createLoginSession((String) userlist.getSelectedItem().toString());
 				// START NEXT ACTIVITY; IN THIS CASE THE MENU ACTIVITY
-				Navigation.startActivityMenu(mData.getmActivity());
-				
+				Navigation.startActivityMenu(mData.getmActivity());				
 			}
 		});
 	}
