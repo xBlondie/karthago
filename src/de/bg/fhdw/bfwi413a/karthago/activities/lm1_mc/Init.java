@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
@@ -70,6 +71,9 @@ public class Init extends Activity{
         CorrectAnswers = result.get_list_correct_answers();
         dbhandler = new DatabaseHandler(getApplicationContext());
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
+        SessionManagement session = new SessionManagement(getApplicationContext());
+        final String user = session.getUserDetails();
+        final String cardfile = session.getCardfileID();
         UserAnswers = new ArrayList<String>();
         
         question = (TextView) findViewById(R.id.question);
@@ -96,6 +100,7 @@ public class Init extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				boolean rightORwrong = true;
+				String event_name = "correct";
 				
 				if(answer1.isChecked()){
 					UserAnswers.add(answer1.getText().toString());
@@ -119,11 +124,13 @@ public class Init extends Activity{
 							
 						}else{
 							rightORwrong = false;
+							event_name = "incorrect";
 							break;
 						}
 					}
 				}else{
 					rightORwrong = false;
+					event_name = "incorrect";
 				}
 				
 				if(rightORwrong == true){
@@ -144,6 +151,7 @@ public class Init extends Activity{
 				
 				Timestamp tstamp = new Timestamp(new Date().getTime());
 				dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
+				dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
 				finish();
 				ApplicationLogicSelection.startSingleQuestion(Init.this);
 			}

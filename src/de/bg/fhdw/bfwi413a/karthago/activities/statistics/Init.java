@@ -1,15 +1,16 @@
 //Vasilij
 package de.bg.fhdw.bfwi413a.karthago.activities.statistics;
 
+import java.util.ArrayList;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.activities.statistics.Data;
+import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 import de.bg.fhdw.bfwi413a.karthago.Util;
@@ -37,8 +38,18 @@ public class Init extends Activity {
 		int cardAmount = results.get_list_ids().size();
 		state.append("Questions: " + cardAmount + "\n");
 
-		Map<String, Integer> frequencies = Util.frequencies(results.get_list_answer_type());
-		for (Map.Entry<String, Integer> item: frequencies.entrySet()) {
+		Map<String, Integer> question_type_frequencies = Util.frequencies(results.get_list_answer_type());
+		for (Map.Entry<String, Integer> item : question_type_frequencies.entrySet()) {
+			state.append(item.getKey() + ": " + item.getValue() + "\n");
+		}
+
+		SessionManagement session = new SessionManagement(getApplicationContext());
+		DatabaseHandler db_handler = new DatabaseHandler(getApplicationContext());
+		String current_user = session.getUserDetails();
+                ArrayList<String> answer_types = db_handler.getEventsByAnswer(current_user);
+		Map<String, Integer> answer_frequencies = Util.frequencies(answer_types);
+                state.append("Answered: " + answer_types.size() + "\n");
+		for (Map.Entry<String, Integer> item : answer_frequencies.entrySet()) {
 			state.append(item.getKey() + ": " + item.getValue() + "\n");
 		}
 		

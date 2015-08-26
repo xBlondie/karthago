@@ -581,4 +581,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		return flag;	
 	}
+
+    public void insertEvent(String name, Long timestamp, String user, String cardfile_name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(NAME, name);
+        values.put(EVALUATION_TIMESTAMP, timestamp);
+        values.put(USER, user);
+        values.put(CARDFILE_NAME, cardfile_name);
+
+        db.insert(TB_NAME_EVENTS, null, values);
+        db.close();
+    }
+
+    public ArrayList<String> getEventsByAnswer(String user) {
+        ArrayList<String> answers = new ArrayList<String>();
+        String select_query = "SELECT " + NAME + " FROM " + TB_NAME_EVENTS + " WHERE " + USER + " = '" + user + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(select_query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                answers.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        return answers;
+    }
 }

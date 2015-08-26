@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
@@ -59,7 +60,10 @@ public class Init extends Activity{
 		correctAnswers = result.getCorrectAnswersForFT();
 		dbhandler = new DatabaseHandler(getApplicationContext());
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
-		
+		SessionManagement session = new SessionManagement(getApplicationContext());
+        final String user = session.getUserDetails();
+        final String cardfile = session.getCardfileID();
+        
 		question = (TextView) findViewById(R.id.textview_question_g);
 		leveltext = (TextView) findViewById(R.id.textview_level_g);
 		confirm = (Button) findViewById(R.id.btn_show_g);
@@ -86,10 +90,11 @@ public class Init extends Activity{
 				// Add the buttons
 				builder.setPositiveButton("Habs gewusst!", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
-			        	boolean rightORwrong;
+			        	boolean rightORwrong = true;
+			        	String event_name = "correct";
 			        	Timestamp tstamp = new Timestamp(new Date().getTime());
-			        	rightORwrong = true;
 						dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
+						dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
 						dialog.cancel();
 						finish();
 						ApplicationLogicSelection.startSingleQuestion(Init.this);
@@ -97,10 +102,11 @@ public class Init extends Activity{
 			       });
 				builder.setNegativeButton("Falsche Antwort!", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
-			        	   boolean rightORwrong;
+			        	   boolean rightORwrong = false;
+			        	   String event_name = "incorrect";
 				        	Timestamp tstamp = new Timestamp(new Date().getTime());
-				        	rightORwrong = false;
 							dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
+							dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
 							dialog.cancel();
 							finish();
 							ApplicationLogicSelection.startSingleQuestion(Init.this);
