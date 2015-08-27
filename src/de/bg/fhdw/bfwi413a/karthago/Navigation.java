@@ -20,7 +20,7 @@ public class Navigation {
 	public static final String KEY_LOGIN_ID = "de.bg.fhdw.bfwis413a.karthago.KEY_LOGIN_VALUE";
 	
 	public static final Class<?> CONFIG_ACTIVITY_CLASS =
-			de.bg.fhdw.bfwi413a.karthago.ConfigActivity.class;
+			de.bg.fhdw.bfwi413a.karthago.config.Init.class;
 	public static final String KEY_CONFIG_ID = "de.bg.fhdw.bfwi413a.karthago.KEY_CONFIG_VALUE";
 	
 	public static final Class<?> SELECTION_ACTIVITY_CLASS =

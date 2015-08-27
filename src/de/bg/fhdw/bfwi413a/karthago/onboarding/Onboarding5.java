@@ -12,6 +12,7 @@ public class Onboarding5 extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//SET LAYOUT
 		setContentView(R.layout.onboarding_5);
 	}
 	
@@ -21,7 +22,7 @@ public class Onboarding5 extends Activity{
 		    int maskedAction = event.getActionMasked();
 
 		    switch (maskedAction) {
-
+		    //IF TOUCHSCREEN IS TAPPED
 		    case MotionEvent.ACTION_DOWN:
 		    	Intent i = new Intent(Onboarding5.this, Onboarding6.class);
 				finish();

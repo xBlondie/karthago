@@ -101,13 +101,13 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 		
-		
+		//NOT USED
 	}
 
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
 		
-		
+		//NOT USED
 	}
 	
 	private void initSpinner(){
@@ -148,7 +148,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 			@Override
 			public void onClick(View v) {
 				String choosedUser = userlist.getSelectedItem().toString();
-				session.changeUserWithRedirectToMenu(choosedUser);;				
+				session.changeUserWithRedirectToMenu(choosedUser);				
 				
 			}
 		});
