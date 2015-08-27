@@ -148,7 +148,7 @@ public class ConfigActivity extends Activity  implements AdapterView.OnItemSelec
 			@Override
 			public void onClick(View v) {
 				String choosedUser = userlist.getSelectedItem().toString();
-				session.changeUserWithRedirectToMenu(choosedUser);;				
+				session.changeUserWithRedirectToMenu(choosedUser);				
 				
 			}
 		});
