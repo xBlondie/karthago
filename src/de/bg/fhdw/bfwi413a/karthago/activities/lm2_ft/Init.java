@@ -15,7 +15,6 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -118,9 +117,9 @@ public class Init extends Activity{
 				}
 				
 				
-				Timestamp tstamp = new Timestamp(new Date().getTime());
-				dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
-				dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
+				long tstamp = new Date().getTime();
+				dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp);
+				dbhandler.insertEvent(event_name, tstamp, user, cardfile);
 				finish();
 				ApplicationLogicSelection.startSingleQuestion(Init.this);
 			}

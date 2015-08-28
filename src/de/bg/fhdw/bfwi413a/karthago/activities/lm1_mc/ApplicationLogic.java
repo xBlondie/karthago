@@ -1,8 +1,5 @@
 package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 import android.content.Context;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 

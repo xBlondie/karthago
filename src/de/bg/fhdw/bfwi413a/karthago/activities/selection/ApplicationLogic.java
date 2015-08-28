@@ -2,7 +2,6 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import android.content.Context;
@@ -18,7 +17,7 @@ public class ApplicationLogic {
 	private Data mData;
 	
 	private DatabaseHandler dbhandler;
-	private Timestamp tstamp;
+	private long tstamp;
 	private SessionManagement session;
 	private String requiredID;
 	private Context mContext;
@@ -117,12 +116,12 @@ public class ApplicationLogic {
 	
 	public void startSingleQuestion(Context context){ //DIESE FUNKTION MUSS IMMER FÜR DIE NÄCHSTE FRAGE AUFGERUFEN WERDEN!!!
 		//DECLARE AND INITIALIZE IMPORTANT VARIABLES
-		tstamp = new Timestamp(new Date().getTime());
+		tstamp = new Date().getTime();
 		session = new SessionManagement(context);
 		dbhandler = new DatabaseHandler(context);
 		String cardfile_id = session.getCardfileID();
 		//GET THE NEXT QUESTION
-		requiredID = dbhandler.getRequiredQuestionIDs(tstamp.getTime(), cardfile_id, session.getUserDetails().toString());
+		requiredID = dbhandler.getRequiredQuestionIDs(tstamp, cardfile_id, session.getUserDetails().toString());
 		//CHECK IF A ANSWER HAS TO BE ANSWERED
 		if(requiredID.equals("")){
 		//IF NOT

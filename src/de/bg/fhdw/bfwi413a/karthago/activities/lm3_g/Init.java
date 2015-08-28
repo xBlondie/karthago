@@ -1,8 +1,6 @@
 //Leonie
 package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
-import java.sql.Timestamp;
-
 //author: Leonie
 
 import java.util.ArrayList;
@@ -92,9 +90,9 @@ public class Init extends Activity{
 			           public void onClick(DialogInterface dialog, int id) {
 			        	boolean rightORwrong = true;
 			        	String event_name = "correct";
-			        	Timestamp tstamp = new Timestamp(new Date().getTime());
-						dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
-						dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
+			        	long tstamp = new Date().getTime();
+						dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp);
+						dbhandler.insertEvent(event_name, tstamp, user, cardfile);
 						dialog.cancel();
 						finish();
 						ApplicationLogicSelection.startSingleQuestion(Init.this);
@@ -104,9 +102,9 @@ public class Init extends Activity{
 			           public void onClick(DialogInterface dialog, int id) {
 			        	   boolean rightORwrong = false;
 			        	   String event_name = "incorrect";
-				        	Timestamp tstamp = new Timestamp(new Date().getTime());
-							dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
-							dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
+				        	long tstamp = new Date().getTime();
+							dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp);
+							dbhandler.insertEvent(event_name, tstamp, user, cardfile);
 							dialog.cancel();
 							finish();
 							ApplicationLogicSelection.startSingleQuestion(Init.this);

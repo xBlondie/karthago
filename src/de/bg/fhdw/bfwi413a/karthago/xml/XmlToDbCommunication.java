@@ -15,7 +15,6 @@
 
 package de.bg.fhdw.bfwi413a.karthago.xml;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,7 +34,7 @@ public class XmlToDbCommunication{
 	ArrayList<String> list_answer_type;
 	Results result;
 	String user;
-	Timestamp tstamp;
+	long tstamp;
 	
 	public XmlToDbCommunication(Context context){
 		//INITIALIZE OBJECTS
@@ -48,7 +47,7 @@ public class XmlToDbCommunication{
 		list_cardfile_names = new ArrayList<String>();
 		list_answer_type = new ArrayList<String>();
 		user = new String();
-		tstamp = new Timestamp(new Date().getTime()); 
+		tstamp = new Date().getTime();
 	}
 	
 	//METHOD TO GET ALL CARDFILE-NAMES AND COPY THEM INTO THE DATABASE
@@ -69,7 +68,7 @@ public class XmlToDbCommunication{
 		user = session.getUserDetails().toString();
 		
 		for(int i = 0; i<list_ids.size(); i++){
-			dbhandler.insertDataFromXMLToDB(Integer.parseInt(list_ids.get(i).toString()), user, tstamp.getTime(), list_cardfile_names.get(i).toString(), list_answer_type.get(i).toString());
+			dbhandler.insertDataFromXMLToDB(Integer.parseInt(list_ids.get(i).toString()), user, tstamp, list_cardfile_names.get(i).toString(), list_answer_type.get(i).toString());
 		}
 		
 		
@@ -113,7 +112,7 @@ public class XmlToDbCommunication{
 		for(int k = 0; k < size; k++){
 			arrayXMLnew.add(questionIDsXML.get(k).toString());
 		}
-		Timestamp tstamp1 = new Timestamp(new Date().getTime());
+		long tstamp1 = new Date().getTime();
 		for(int i = 0; i < arrayXMLnew.size(); i++){
 			boolean exist = false;
 			for(int j = 0; j < questionIDsDB.size(); j++){
@@ -127,7 +126,7 @@ public class XmlToDbCommunication{
 			if(exist == false){
 				String cardfile_name = result.get_list_cardfile_id().get(i).toString();
 				String answer_type = result.get_list_answer_type().get(i).toString();
-				dbhandler.insertDataFromXMLToDB(Integer.parseInt(arrayXMLnew.get(i).toString()), user, tstamp1.getTime(), cardfile_name, answer_type);
+				dbhandler.insertDataFromXMLToDB(Integer.parseInt(arrayXMLnew.get(i).toString()), user, tstamp1, cardfile_name, answer_type);
 			}
 		
 		}

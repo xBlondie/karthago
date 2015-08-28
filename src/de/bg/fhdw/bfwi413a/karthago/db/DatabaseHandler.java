@@ -374,7 +374,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
 	}
 	
-	public void insertDataFromXMLToDB(Integer question_id, String user, Long timestamp, String cardfile_name, String answer_type) {
+	public void insertDataFromXMLToDB(Integer question_id, String user, long timestamp, String cardfile_name, String answer_type) {
 		//CREATE DATABASE-INSTANCE
 		SQLiteDatabase db = this.getWritableDatabase();
 		
@@ -393,7 +393,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
 	}
 	
-	public String getRequiredQuestionIDs(Long timestamp, String cardfile_name, String user){
+	public String getRequiredQuestionIDs(long timestamp, String cardfile_name, String user){
 		//ARRAY TO STORE REQUIRED IDs
         String required_id = new String();
         
@@ -582,7 +582,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return flag;	
 	}
 
-    public void insertEvent(String name, Long timestamp, String user, String cardfile_name) {
+    public void insertEvent(String name, long timestamp, String user, String cardfile_name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
