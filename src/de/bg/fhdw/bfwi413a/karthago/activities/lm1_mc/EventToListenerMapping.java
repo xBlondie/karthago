@@ -14,7 +14,7 @@ public class EventToListenerMapping implements OnClickListener{
 	public EventToListenerMapping (Gui gui, ApplicationLogic applicationLogic) {
 		mApplicationLogic = applicationLogic;
 		mGui = gui;
-//		mGui.getmButtonSendMC().setOnClickListener(this);
+		mGui.getConfirm().setOnClickListener(this);
 	}
 
 	@Override

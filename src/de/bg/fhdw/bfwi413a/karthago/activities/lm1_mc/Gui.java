@@ -11,82 +11,79 @@ import de.bg.fhdw.bfwi413a.karthago.R;
 
 public class Gui {
 	
-	TextView mTextviewQuestionMC;
-	Button mButtonSendMC;
-	EditText mEditTextFT;
-	CheckBox CheckBox1;
-	CheckBox CheckBox2;
-	CheckBox CheckBox3;
-	CheckBox CheckBox4;
-	
+	TextView question;
+	TextView leveltext;
+	CheckBox answer1;
+	CheckBox answer2;
+	CheckBox answer3;
+	CheckBox answer4;
+	Button confirm;
 	
 	public Gui(Activity activity){
-		activity.setContentView(R.layout.activity_lm1_mc);
-//		this.mTextviewQuestionMC = (TextView) activity.findViewById(R.id.textview_question_mc);
-//		this.mButtonSendMC = (Button) activity.findViewById(R.id.btn_send_mc);
-//		this.CheckBox1 = (CheckBox) activity.findViewById(R.id.checkBox1);
-//		this.CheckBox2 = (CheckBox) activity.findViewById(R.id.checkBox2);
-//		this.CheckBox3 = (CheckBox) activity.findViewById(R.id.checkBox3);
-//		this.CheckBox4 = (CheckBox) activity.findViewById(R.id.checkBox4);
-		
+		activity.setContentView(R.layout.activity_lm1_mc);		
+		this.question = (TextView) activity.findViewById(R.id.question);
+        this.leveltext = (TextView) activity.findViewById(R.id.textview_level_mc);
+		this.answer1 = (CheckBox) activity.findViewById(R.id.answer1);
+		this.answer2 = (CheckBox) activity.findViewById(R.id.answer2);
+		this.answer3 = (CheckBox) activity.findViewById(R.id.answer3);
+		this.answer4 = (CheckBox) activity.findViewById(R.id.answer4);
+		this.confirm = (Button) activity.findViewById(R.id.confirm);
 	}
 
-	public TextView getmTextviewQuestionFT() {
-		return mTextviewQuestionMC;
+	public TextView getQuestion() {
+		return question;
 	}
 
-	public void setmTextviewQuestionMC(String text) {
-		this.mTextviewQuestionMC.setText(text);
+	public void setQuestion(String text) {
+		question.setText(text);
 	}
 
-	public Button getmButtonSendMC() {
-		return null;
+	public TextView getLeveltext() {
+		return leveltext;
 	}
 
-	public void setmButtonSendMC(Button mButtonSendMC) {
-		this.mButtonSendMC = mButtonSendMC;
+	public void setLeveltext(String text) {
+		leveltext.setText(text);
 	}
 
-	public EditText getmEditTextFT() {
-		return mEditTextFT;
+	public CheckBox getAnswer1() {
+		return answer1;
 	}
 
-	public void setmEditTextFT(EditText mEditTextFT) {
-		this.mEditTextFT = mEditTextFT;
+	public void setAnswer1(String text) {
+		answer1.setText(text);
 	}
 
-	public CheckBox getCheckBox1() {
-		return CheckBox1;
+	public CheckBox getAnswer2() {
+		return answer2;
 	}
 
-	public void setCheckBox1(String text) {
-		CheckBox1.setText(text);
+	public void setAnswer2(String text) {
+		answer2.setText(text);
 	}
 
-	public CheckBox getCheckBox2() {
-		return CheckBox2;
+	public CheckBox getAnswer3() {
+		return answer3;
 	}
 
-	public void setCheckBox2(String text) {
-		CheckBox2.setText(text);
+	public void setAnswer3(String text) {
+		answer3.setText(text);
 	}
 
-	public CheckBox getCheckBox3() {
-		return CheckBox3;
+	public CheckBox getAnswer4() {
+		return answer4;
 	}
 
-	public void setCheckBox3(String text) {
-		CheckBox3.setText(text);
+	public void setAnswer4(String text) {
+		answer4.setText(text);
 	}
 
-	public CheckBox getCheckBox4() {
-		return CheckBox4;
+	public Button getConfirm() {
+		return confirm;
 	}
 
-	public void setCheckBox4(String text) {
-		CheckBox4.setText(text);
-	}
-
-	
+	public void setConfirm(Button confirm) {
+		this.confirm = confirm;
+	}	
 	
 }
