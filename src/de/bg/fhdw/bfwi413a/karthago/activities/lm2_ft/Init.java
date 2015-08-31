@@ -36,6 +36,7 @@ import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
 public class Init extends Activity{
 	
+	//DECLARE NECESSARY OBJECTS
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
@@ -56,56 +57,79 @@ public class Init extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//GET CURRENT QUESTIONID FOR LOADING QUESTION
 		questionID = getIntent().getExtras().getString("currentQuestionId");
+		
+		//INITIALIZE OBJECTS
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
 		
+		//SET LAYOUT
 		setContentView(R.layout.activity_lm2_ft);
 		 
-		
+		//INITIALIZE FURTHER OBJECTS
 		xmlhandler = new XMLDomParserAndHandler(getApplicationContext());
-		correctAnswers = new ArrayList<String>();
-		result = xmlhandler.questionAndAnswersForFTAndGQuestions(questionID);
-		questionText = result.getQuestionForFT();
-		correctAnswers = result.getCorrectAnswersForFT();
 		dbhandler = new DatabaseHandler(getApplicationContext());
-        ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
-        SessionManagement session = new SessionManagement(getApplicationContext());
-        final String user = session.getUserDetails();
+		ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
+		SessionManagement session = new SessionManagement(getApplicationContext());
+		correctAnswers = new ArrayList<String>();
+		
+		//GET ALL REQUIRED PARTS (QUESTION AND CORRECT ANSWERS) IN BACKGROUND
+		result = xmlhandler.questionAndAnswersForFTAndGQuestions(questionID);
+		//FETCH QUESTION-TEXT
+		questionText = result.getQuestionForFT();
+		//FETCH ALL CORRECT ANSWERS
+		correctAnswers = result.getCorrectAnswersForFT();
+        
+		//GET USER AND CARDFILE-ID
+		final String user = session.getUserDetails();
         final String cardfile = session.getCardfileID();
         
+        //INITIALIZE GUI-ELEMENTS
         question = (TextView) findViewById(R.id.textview_question_ft);
         leveltext = (TextView) findViewById(R.id.textview_level_ft);
         answer = (EditText) findViewById(R.id.edittext_ft);
         commiting = (Button) findViewById(R.id.btn_send_ft);
 
+        //SET QUESTION-TEXT
         question.setText(questionText);
+        
+        //SET ACTUAL LEVEL IN DISPLAY
         String textForLevel = new String();
         textForLevel = "Level: " + dbhandler.getCurrentLevelForQuestionId(questionID);
         leveltext.setText(textForLevel);
         
+        //SET ONCLICK LISTENER ON BUTTON
         commiting.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
+				//FETCH USERANSWER
 				userAnswer = answer.getText().toString();
+				//BOOLEAN IF ANSWER WAS RIGHT
 				boolean rightORwrong = false;
+				//FOR STATISTIK
 				String event_name = "incorrect";
 				
 				for(int i = 0; i < correctAnswers.size(); i++){
+					//COMPARE USER ANSWER WITH RIGHT ANSWER
 					if(correctAnswers.get(i).toString().equalsIgnoreCase(userAnswer)){
+						//IF ONE QUESTION IS RIGHT SET BOOLEAN TRUE
 						rightORwrong = true;
 						event_name = "correct";
 						break;
 					}
 				}
 				
+				//IF ANSWER WAS RIGHT
 				if(rightORwrong == true){
+					//SHOW TOAST
 					Toast toast = Toast.makeText(getApplicationContext(), "Die Antwort war richtig!", Toast.LENGTH_LONG);
 					toast.show();
 				}else{
+					//SHOW ALL RIGHT ANSWERS
 					String corAns = new String();
 					for(int i = 0; i < correctAnswers.size(); i++){
 						corAns = corAns + ", " + (correctAnswers.get(i).toString());
@@ -117,10 +141,13 @@ public class Init extends Activity{
 					toast.show();
 				}
 				
-				
+				//GET NEW TIMESTAMP
 				Timestamp tstamp = new Timestamp(new Date().getTime());
+				//INCREASE OR DECREASE LEVEL IN DATABASE
 				dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp.getTime());
+				//UPDATE STATISTIK
 				dbhandler.insertEvent(event_name, tstamp.getTime(), user, cardfile);
+				//FINISH ACTIVITY AND LOAD NEW QUESTION 
 				finish();
 				ApplicationLogicSelection.startSingleQuestion(Init.this);
 			}
@@ -150,8 +177,10 @@ public class Init extends Activity{
 		new EventToListenerMapping(mGui, mApplicationLogic);
 	}
 	
+	//ON BACK BUTTON EVENT
 	public boolean onKeyDown(int keycode, KeyEvent event){
 		  if(keycode==KeyEvent.KEYCODE_BACK){
+			  //RETURN TO MENU
 		   Navigation.startActivityMenu(mData.getmActivity());
 		  }
 		 return false;

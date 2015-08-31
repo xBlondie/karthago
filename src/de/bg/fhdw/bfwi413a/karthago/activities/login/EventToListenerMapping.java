@@ -1,43 +1,39 @@
 package de.bg.fhdw.bfwi413a.karthago.activities.login;
 
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 
-public class EventToListenerMapping implements OnClickListener, OnItemSelectedListener{
+public class EventToListenerMapping{
 	
+	//DECLARE NECESSARY OBJECTS
 	private ApplicationLogic mApplicationLogic;
 	private Gui mGui;
 	
 	
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic) {
+		//INITIALIZE OBJECTS
 		mApplicationLogic = applicationLogic;
 		mGui = gui;
-//		mGui.getmButtonLogin().setOnClickListener(this);
-		mGui.getmSpinnerUser().setOnItemSelectedListener(this);
+		//EVENT IF NEW-USER WAS CLICKED
+		mGui.getNew_user().setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mApplicationLogic.onNewUser();
+			}
+		});
+		
+		//EVENT IF LOGIN-BUTTON WAS CLICKED
+		mGui.getmButtonLogin().setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mApplicationLogic.loginUser();
+				
+			}
+		});
 		
 		
 	}
-
-	@Override
-	public void onClick(View v) {
-//		mApplicationLogic.onLoginButtonClick();
-	}
-	
-
-	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position,
-			long id) {
-		//mApplicationLogic.onSpinnerUsed();
 		
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
-		// TODO Auto-generated method stub
-	}
-	
-	
 
 }
