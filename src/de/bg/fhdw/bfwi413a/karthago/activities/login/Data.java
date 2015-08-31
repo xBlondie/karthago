@@ -1,22 +1,32 @@
 package de.bg.fhdw.bfwi413a.karthago.activities.login;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
+import de.bg.fhdw.bfwi413a.karthago.R;
+import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
 public class Data {
 
 private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu erhalten
 	
+	//DECLARE NECESSARY OBJECTS
 	private int mLoginId;
 	private Activity mActivity;
+	DatabaseHandler mdbHandler;
+	private List<String> users;
+	private ArrayAdapter<String> dataAdapter;
+	private Intent intent;
 	
 	private final int DEFAULT_LOGIN_ID = 0;
 	
 	public Data(Activity activity, Bundle savedInstanceState){
-		Intent intent;
-		
+		//INITIALIZE OBJECTS
+		mdbHandler = new DatabaseHandler(activity);
 		mActivity = activity;
 		if ( savedInstanceState == null ) {
 			intent = mActivity.getIntent();
@@ -25,6 +35,21 @@ private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu
 		else {
 			restoreDataFromBundle(savedInstanceState);
 		}
+		
+		//LOAD USERLIST FROM DATABASE
+		loadUserlistFromDatabase();
+		
+	}
+	
+	//METHOD TO LOAD USERLIST FROM DATABASE
+	public void loadUserlistFromDatabase(){
+		//GET USERS
+		users = mdbHandler.getUserList();
+		//CONFIGURE ADAPTER
+		dataAdapter = new ArrayAdapter<String>(mActivity,
+                R.layout.spinner_item, users);
+		//SET DROPDOWNVIEW
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	}
 
 	public int getmMenuId() {
@@ -43,6 +68,11 @@ private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu
 	
 	public void restoreDataFromBundle(Bundle bundle) {
 		mLoginId = bundle.getInt(KEY_LOGIN_ID);
+	}
+
+	//GETTER
+	public ArrayAdapter<String> getDataAdapter() {
+		return dataAdapter;
 	}
 
 }

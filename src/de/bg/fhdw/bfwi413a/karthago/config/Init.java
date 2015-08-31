@@ -1,3 +1,16 @@
+/**********************************************************************************
+ * ----------       LOGIN-ACTIVITY - WRITTEN BY: PATRICK KÜNZL           ----------
+ * 
+ * Diese Activity hat die Funktion zur Darstellung der Freitext-Fragen der App.
+ * 
+ * Klassen, mit die diese App kommuniziert sind:
+ * 	- SessionManagement (Usersession verwalten)
+ *  - DatabaseHandler (Einpflegen der ConfigActivity)
+ *  
+ * 
+ * Nähere Informationen zu den Methoden siehe im Quellcode!
+ * 
+ *********************************************************************************/
 
 package de.bg.fhdw.bfwi413a.karthago.config;
 
