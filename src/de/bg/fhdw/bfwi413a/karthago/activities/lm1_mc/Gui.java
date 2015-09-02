@@ -1,16 +1,30 @@
+/**********************************************************************************
+ * ----------       GUI-CLASS (LM1)- WRITTEN BY: LEONIE SCHIBURR       ------------
+ *********************************************************************************/
+
+/**
+ * The Gui Class implements the gui elements (TextView, Buttons, ...) for the activity
+ * and initializes them with the ids of the views and widgets from the layout.
+ * 
+ * It also provides getters and setters to get the gui elements and set there content to
+ * the different questions.
+ * 
+ * Methods and Variables are commented in the Code.
+ * 
+ *  */
+
 package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 import de.bg.fhdw.bfwi413a.karthago.R;
 
-//author: Leonie
 
 public class Gui {
 	
+	//DECLARE GUI-ELEMENTS
 	TextView question;
 	TextView leveltext;
 	CheckBox answer1;
@@ -30,6 +44,8 @@ public class Gui {
 		this.confirm = (Button) activity.findViewById(R.id.confirm);
 	}
 
+	//GETTERS AND SETTERS
+	
 	public TextView getQuestion() {
 		return question;
 	}

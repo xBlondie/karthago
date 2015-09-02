@@ -1,3 +1,17 @@
+/**********************************************************************************************
+ * ----------       APPLICATIONLOGIC-CLASS (LM1)- WRITTEN BY: LEONIE SCHIBURR       -----------
+ *********************************************************************************************/
+
+/**
+ * The ApplicationLogic Class provides the program logic for the learn mode.
+ * It initializes the Gui with the data from the xml and database, like question and level, and
+ * it reacts to the user inputs and validates its answer and executes the logic for right or wrong
+ * answers.
+ * 
+ * Methods and Variables are commented in the Code.
+ * 
+ *  */
+
 package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
 import java.util.ArrayList;
@@ -5,9 +19,6 @@ import java.util.Date;
 
 import android.content.Context;
 import android.widget.Toast;
-import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
-
-//author: Leonie
 
 public class ApplicationLogic {
 	

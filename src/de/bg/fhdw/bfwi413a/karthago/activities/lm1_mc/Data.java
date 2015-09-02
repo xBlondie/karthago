@@ -1,3 +1,17 @@
+/**********************************************************************************
+ * ----------       DATA-CLASS (LM1)- WRITTEN BY: LEONIE SCHIBURR       -----------
+ *********************************************************************************/
+
+/**
+ * The Data Class provides the necessary data, like the question, answers, user and session,
+ * from the xml and the database.
+ * 
+ * It also provides getters for the variables to use the information in the other classes.
+ * 
+ * Methods and Variables are commented in the Code.
+ * 
+ *  */
+
 package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
 import java.util.ArrayList;
@@ -6,23 +20,30 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
 import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 import de.bg.fhdw.bfwi413a.karthago.xml.Results;
 import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
-//author: Leonie
 
 public class Data {
 	
-	private static final String KEY_LM3_ID = "M"; //Um den Zustand der Activity zu erhalten
+	//Not used, because obsolete
+	//private static final String KEY_LM3_ID = "M";
+	//private int mLM3Id;
+	//private final int DEFAULT_LM3_ID = 0;
 	
-	private int mLM3Id;
+	//DECLARE ACTIVITY VARIABLE
+	//This variable is necessary to get the current activity, for methods like finish() and getIntent()
+	//which are used in other classes of the activity
 	private Activity mActivity;
 	
-	private final int DEFAULT_LM3_ID = 0;
-	
+	//DECLARE NECESSARY VARIABLES
+	//To retrieve the data from the xml file and the database
+	//variables for the helper classes like XMLDOMParserAndHandler, Results, SessionManagement and
+	//DatabaseHandler
+	//The informations are stored in String variables like questionID, UserAnswers a.s.o.
+	//which can be requested with getters
 	XMLDomParserAndHandler xmlhandler;
 	ArrayList<String> QuestionAndAnswers;
 	ArrayList<String> CorrectAnswers;
@@ -39,10 +60,12 @@ public class Data {
 		mActivity = activity;
 		if ( savedInstanceState == null ) {
 			intent = mActivity.getIntent();
-			mLM3Id = intent.getIntExtra(Navigation.KEY_LM3_ID, DEFAULT_LM3_ID);
+			//Not used, because obsolete
+			//mLM3Id = intent.getIntExtra(Navigation.KEY_LM3_ID, DEFAULT_LM3_ID);
 		}
 		else {
-			restoreDataFromBundle(savedInstanceState);
+			//Not used, because obsolete
+			//restoreDataFromBundle(savedInstanceState);
 		}
 		
 		questionID = mActivity.getIntent().getExtras().getString("currentQuestionId");
@@ -55,10 +78,6 @@ public class Data {
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
         session = new SessionManagement(context);
         UserAnswers = new ArrayList<String>();
-	}
-
-	public int getmMenuId() {
-		return mLM3Id;
 	}
 
 	public Activity getmActivity() {
@@ -97,14 +116,19 @@ public class Data {
 		return session;
 	}
 	
+	//Not used, because obsolete
+	
+//	public int getmMenuId() {
+//	return mLM3Id;
+//  }
 	// save and restore data
 
-	public void saveDataInBundle(Bundle bundle) {
-		bundle.putInt(KEY_LM3_ID, mLM3Id);
-	}
-	
-	public void restoreDataFromBundle(Bundle bundle) {
-		mLM3Id = bundle.getInt(KEY_LM3_ID);
-	}
+//	public void saveDataInBundle(Bundle bundle) {
+//		bundle.putInt(KEY_LM3_ID, mLM3Id);
+//	}
+//	
+//	public void restoreDataFromBundle(Bundle bundle) {
+//		mLM3Id = bundle.getInt(KEY_LM3_ID);
+//	}
 
 }
