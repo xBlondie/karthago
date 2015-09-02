@@ -1,6 +1,19 @@
-package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
+/**********************************************************************************
+ * ----------       GUI-CLASS (LM3)- WRITTEN BY: LEONIE SCHIBURR       ------------
+ *********************************************************************************/
 
-//author: Leonie
+/**
+ * The Gui Class implements the gui elements (TextView, Buttons, ...) for the activity
+ * and initializes them with the ids of the views and widgets from the layout.
+ * 
+ * It also provides getters and setters to get the gui elements and set there content to
+ * the different questions.
+ * 
+ * Methods and Variables are commented in the Code.
+ * 
+ *  */
+
+package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
 import android.app.Activity;
 import android.widget.Button;
