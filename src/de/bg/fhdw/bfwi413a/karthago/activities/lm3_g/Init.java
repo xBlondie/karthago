@@ -1,26 +1,44 @@
-//Leonie
+/***********************************************************************************************************
+ * ----------       LEARN-MODE-3-GEDANKLICH-ACTIVITY - WRITTEN BY: LEONIE SCHIBURR           ----------
+
+ * 
+ * This Activity is for the questions of the cardfile, which the user has to answer in his thoughts.
+ * 
+ * The main Functions are:
+ * - Provide the information for the current question from the xmlfile and the database
+ * - Initialize the Activity with gui elements, question data, listeners and logic
+ * - Interaction with user and providing answering process
+ * 
+ * Classes, with which this Activity communicates, are:
+ * 	 - Navigation (Call to start the next Activity)
+ *   - SessionManagement (To get the current session)
+ *   - DatabaseHandler (To retrieve data like the questionId, user a.s.o.)
+ * 
+ * Methodes and Variables are commented in the Code.
+ * 
+ **********************************************************************************************************/
+
 package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
-//author: Leonie
+/**********************************************************************************
+ * ----------       INIT-CLASS (LM3)- WRITTEN BY: LEONIE SCHIBURR       -----------
+ *********************************************************************************/
 
-import java.util.ArrayList;
-import java.util.Date;
+/**
+ * The Init Class initializes the activity. It initializes the Gui, the Data, the Application Logic and 
+ * the Event to Listener Mapping.
+ * It also reacts if the back button is of the device is pressed and provides the onSaveInstanceState method
+ * to store additional data for the recreation of the Activity if necessary.
+ * 
+ * Methods and Variables are commented in the Code.
+ * 
+ *  */
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import de.bg.fhdw.bfwi413a.karthago.R;
-import de.bg.fhdw.bfwi413a.karthago.SessionManagement;
-import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
-import de.bg.fhdw.bfwi413a.karthago.xml.Results;
-import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 
 public class Init extends Activity{
 	
@@ -28,94 +46,15 @@ public class Init extends Activity{
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	
-	TextView question;
-	TextView leveltext;
-	Button confirm;
-	
-	XMLDomParserAndHandler xmlhandler;
-	Results result = new Results();
-	String questionText;
-	ArrayList<String> correctAnswers;
-	String questionID;
-	private de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic ApplicationLogicSelection;
-	private DatabaseHandler dbhandler;
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lm3_g);
-		questionID = getIntent().getExtras().getString("currentQuestionId");
+		
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-		
-		xmlhandler = new XMLDomParserAndHandler(getApplicationContext());
-		correctAnswers = new ArrayList<String>();
-		result = xmlhandler.questionAndAnswersForFTAndGQuestions(questionID);
-		questionText = result.getQuestionForFT();
-		correctAnswers = result.getCorrectAnswersForFT();
-		dbhandler = new DatabaseHandler(getApplicationContext());
-        ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
-		SessionManagement session = new SessionManagement(getApplicationContext());
-        final String user = session.getUserDetails();
-        final String cardfile = session.getCardfileID();
-        
-		question = (TextView) findViewById(R.id.textview_question_g);
-		leveltext = (TextView) findViewById(R.id.textview_level_g);
-		confirm = (Button) findViewById(R.id.btn_show_g);
-		
-		question.setText(questionText);
-		String textForLevel = new String();
-        textForLevel = "Level: " + dbhandler.getCurrentLevelForQuestionId(questionID);
-        leveltext.setText(textForLevel);
-		
-		confirm.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				
-				AlertDialog.Builder builder = new AlertDialog.Builder(Init.this);
-				builder.setTitle("Lösung");
-				TextView corAns = new TextView(Init.this);
-				for(int i = 0; i < correctAnswers.size(); i++){
-					corAns.append(correctAnswers.get(i).toString());
-				}
-				corAns.setGravity(Gravity.CENTER_HORIZONTAL);
-				builder.setView(corAns);
-				// Add the buttons
-				builder.setPositiveButton("Habs gewusst!", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
-			        	boolean rightORwrong = true;
-			        	String event_name = "correct";
-			        	long tstamp = new Date().getTime();
-						dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp);
-						dbhandler.insertEvent(event_name, tstamp, user, cardfile);
-						dialog.cancel();
-						finish();
-						ApplicationLogicSelection.startSingleQuestion(Init.this);
-			           }
-			       });
-				builder.setNegativeButton("Falsche Antwort!", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
-			        	   boolean rightORwrong = false;
-			        	   String event_name = "incorrect";
-				        	long tstamp = new Date().getTime();
-							dbhandler.IncreaseOrDecreaseLevelAndSetNewTimestamp(rightORwrong, questionID, tstamp);
-							dbhandler.insertEvent(event_name, tstamp, user, cardfile);
-							dialog.cancel();
-							finish();
-							ApplicationLogicSelection.startSingleQuestion(Init.this);
-			           }
-			       });
-				
-				// Create the AlertDialog
-				builder.show();
-				
-			}
-		});
 	}
 
 	@Override
@@ -140,7 +79,9 @@ public class Init extends Activity{
 	}
 	
 	public boolean onKeyDown(int keycode, KeyEvent event){
+		//CATCH BACK-BUTTON EVENT
 		  if(keycode==KeyEvent.KEYCODE_BACK){
+			//CALL MENU-ACTIVITY
 		   Navigation.startActivityMenu(mData.getmActivity());
 		  }
 		 return false;

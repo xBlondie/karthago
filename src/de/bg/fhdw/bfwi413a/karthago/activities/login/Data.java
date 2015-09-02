@@ -12,17 +12,16 @@ import de.bg.fhdw.bfwi413a.karthago.db.DatabaseHandler;
 
 public class Data {
 
-private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu erhalten
+	//Not used, because obsolete
+	//private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu erhalten
+	//private int mLoginId;
+	//private final int DEFAULT_LOGIN_ID = 0;
 	
-	//DECLARE NECESSARY OBJECTS
-	private int mLoginId;
 	private Activity mActivity;
 	DatabaseHandler mdbHandler;
 	private List<String> users;
 	private ArrayAdapter<String> dataAdapter;
 	private Intent intent;
-	
-	private final int DEFAULT_LOGIN_ID = 0;
 	
 	public Data(Activity activity, Bundle savedInstanceState){
 		//INITIALIZE OBJECTS
@@ -30,10 +29,12 @@ private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu
 		mActivity = activity;
 		if ( savedInstanceState == null ) {
 			intent = mActivity.getIntent();
-			mLoginId = intent.getIntExtra(Navigation.KEY_LOGIN_ID, DEFAULT_LOGIN_ID);
+			//Not used, because obsolete
+			//mLoginId = intent.getIntExtra(Navigation.KEY_LOGIN_ID, DEFAULT_LOGIN_ID);
 		}
 		else {
-			restoreDataFromBundle(savedInstanceState);
+			//Not used, because obsolete
+			//restoreDataFromBundle(savedInstanceState);
 		}
 		
 		//LOAD USERLIST FROM DATABASE
@@ -52,23 +53,27 @@ private static final String KEY_LOGIN_ID = "M"; //Um den Zustand der Activity zu
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	}
 
-	public int getmMenuId() {
-		return mLoginId;
-	}
+	
 
 	public Activity getmActivity() {
 		return mActivity;
 	}
 	
+	//Not used, because obsolete
+	
+	//public int getmMenuId() {
+	//	return mLoginId;
+	//}
+	
 	// save and restore data
 	
-	public void saveDataInBundle(Bundle bundle) {
-		bundle.putInt(KEY_LOGIN_ID, mLoginId);
-	}
+	//public void saveDataInBundle(Bundle bundle) {
+		//bundle.putInt(KEY_LOGIN_ID, mLoginId);
+	//}
 	
-	public void restoreDataFromBundle(Bundle bundle) {
-		mLoginId = bundle.getInt(KEY_LOGIN_ID);
-	}
+	//public void restoreDataFromBundle(Bundle bundle) {
+		//mLoginId = bundle.getInt(KEY_LOGIN_ID);
+	//}
 
 	//GETTER
 	public ArrayAdapter<String> getDataAdapter() {
