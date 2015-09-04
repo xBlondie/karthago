@@ -16,11 +16,11 @@ import de.bg.fhdw.bfwi413a.karthago.xml.XMLDomParserAndHandler;
 import de.bg.fhdw.bfwi413a.karthago.Util;
 
 public class Init extends Activity {
-	
+
 	Data mData;
 	Gui mGui;
 	ApplicationLogic mApplicationLogic;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -28,53 +28,55 @@ public class Init extends Activity {
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-		
-		StringBuilder state = new StringBuilder();
+
 		XMLDomParserAndHandler xml = new XMLDomParserAndHandler(getApplicationContext());
 		int cardFileAmount = xml.getCardFileNames().size();
-		state.append("Card Files: " + cardFileAmount + "\n");
+		mGui.setTextviewCountAmountCardfile(Integer.toString(cardFileAmount));
 
 		Results results = xml.getAllIDs();
 		int cardAmount = results.get_list_ids().size();
-		state.append("Questions: " + cardAmount + "\n");
+		mGui.setTextviewCountQuestAll(Integer.toString(cardAmount));
 
-		Map<String, Integer> question_type_frequencies = Util.frequencies(results.get_list_answer_type());
-		for (Map.Entry<String, Integer> item : question_type_frequencies.entrySet()) {
-			state.append(item.getKey() + ": " + item.getValue() + "\n");
-		}
+		Map<String, Integer> question_types = Util.frequencies(results.get_list_answer_type());
+		int mc_questions = question_types.get("MC");
+		int ft_questions = question_types.get("FT");
+		int g_questions = question_types.get("G");
+		mGui.setTextviewCountQuestMc(Integer.toString(mc_questions));
+		mGui.setTextviewCountQuestFt(Integer.toString(ft_questions));
+		mGui.setTextviewCountQuestG(Integer.toString(g_questions));
 
 		SessionManagement session = new SessionManagement(getApplicationContext());
 		DatabaseHandler db_handler = new DatabaseHandler(getApplicationContext());
 		String current_user = session.getUserDetails();
-                ArrayList<String> answer_types = db_handler.getEventsByAnswer(current_user);
-		Map<String, Integer> answer_frequencies = Util.frequencies(answer_types);
-                state.append("Answered: " + answer_types.size() + "\n");
-		for (Map.Entry<String, Integer> item : answer_frequencies.entrySet()) {
-			state.append(item.getKey() + ": " + item.getValue() + "\n");
-		}
-		
-		mGui.setTextviewStatistic(state.toString());
+		ArrayList<String> answer_types = db_handler.getEventsByAnswer(current_user);
+		Map<String, Integer> answers = Util.frequencies(answer_types);
+		mGui.setTextviewCountQuestAnswered(Integer.toString(answers.size()));
+
+		int right_answers = answers.get("correct") != null ? answers.get("correct") : 0;
+		int wrong_answers = answers.get("incorrect") != null ? answers.get("incorrect") : 0;
+		mGui.setTextviewCountQuestRight(Integer.toString(right_answers));
+		mGui.setTextviewCountQuestWrong(Integer.toString(wrong_answers));
 	}
-	
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 	}
-	
+
 	private void initData(Bundle savedInstanceState) {
 		mData = new Data(this, savedInstanceState);
 	}
-	
+
 	private void initGui() {
-		mGui = new Gui(this);	
+		mGui = new Gui(this);
 	}
-	
+
 	private void initApplicationLogic() {
 		mApplicationLogic = new ApplicationLogic(mGui, mData, getApplicationContext());
 	}
-	
+
 	private void initEventToListenerMapping() {
-		new EventToListenerMapping(mGui, mApplicationLogic);	
+		new EventToListenerMapping(mGui, mApplicationLogic);
 	}
 
 	public boolean onKeyDown(int keycode, KeyEvent event){
