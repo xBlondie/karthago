@@ -16,7 +16,15 @@
     <string name="start_selection">Kartei auswählen</string>
     <string name="start_config">Einstellungen</string>
     <string name="logout">Logout</string>
-    <string name="statistics">Statistiken</string>
+    <string name="statistics">Statistik</string>
+    <string name="amount_cardfile">Anzahl Karteien</string>
+    <string name="quest_all">Vorhandene Fragen</string>
+    <string name="quest_mc">Multiple Choice</string>
+    <string name="quest_ft">Freitext</string>
+    <string name="quest_g">Gedanken</string>
+    <string name="quest_answered">Beantwortete Fragen</string>
+    <string name="quest_right">Richtig</string>
+    <string name="quest_wrong">Falsch</string>
     <string name="hello">Hallo</string>
     <string name="text_textview_cardfile_selection">Wähle eine Kartei aus</string>
     <string name="cardfile1">Allgemeinwissen</string>
