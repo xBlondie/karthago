@@ -5,9 +5,176 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
-        android:id="@+id/textview_statistic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/statistics"
+        android:id="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="#296E87"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/textview_caption_amount_cardfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_cardfile"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+            
+            <TextView
+                android:id="@+id/textview_caption_quest_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_amount_cardfile"
+                android:text="@string/quest_all"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+            
+            <TextView
+                android:id="@+id/textview_caption_quest_mc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_quest_all"
+                android:text="@string/quest_mc"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                        
+            <TextView
+                android:id="@+id/textview_caption_quest_ft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_quest_mc"
+                android:text="@string/quest_ft"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                    
+           <TextView
+                android:id="@+id/textview_caption_quest_g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_quest_ft"
+                android:text="@string/quest_g"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                                
+           <TextView
+                android:id="@+id/textview_caption_quest_answered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_quest_g"
+                android:text="@string/quest_answered"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                                            
+           <TextView
+                android:id="@+id/textview_caption_quest_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_quest_answered"
+                android:text="@string/quest_right"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                                                        
+          <TextView
+                android:id="@+id/textview_caption_quest_wrong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_caption_quest_right"
+                android:text="@string/quest_wrong"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+          
+            <TextView
+                android:id="@+id/textview_count_amount_cardfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+            
+            <TextView
+                android:id="@+id/textview_count_quest_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_amount_cardfile"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+            
+            <TextView
+                android:id="@+id/textview_count_quest_mc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_quest_all"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                        
+            <TextView
+                android:id="@+id/textview_count_quest_ft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_quest_mc"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                    
+           <TextView
+                android:id="@+id/textview_count_quest_g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_quest_ft"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                                
+           <TextView
+                android:id="@+id/textview_count_quest_answered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_quest_g"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                                            
+           <TextView
+                android:id="@+id/textview_count_quest_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_quest_answered"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+                                                                        
+          <TextView
+                android:id="@+id/textview_count_quest_wrong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_count_quest_right"
+                android:text="X"
+                android:textColor="#296E87"
+                android:textSize="30sp"/>
+          
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
