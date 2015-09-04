@@ -2,6 +2,7 @@
  * ----------       LEARN-MODE-1-MULTIPLE-CHOICE-ACTIVITY - WRITTEN BY: LEONIE SCHIBURR           ----------
  * 
  * This Activity is for the Multiple Choice Questions of the cardfile.
+ * 
  * The main Functions are:
  * - Provide the information for the current question from the xmlfile and the database
  * - Initialize the Activity with gui elements, question data, listeners and logic
@@ -9,10 +10,9 @@
  * 
  * Classes, with which this Activity communicates, are:
  * 	 - Navigation (Call to start the next Activity)
- *   - SessionManagement (To get the current session)
- *   - DatabaseHandler (To retrieve data like the questionId, user a.s.o.)
+ *   - SessionManagement (Get information like userDetails and cardfileId)
+ *   - DatabaseHandler (Retrieve data like the questionId from the database)
  * 
- * Methodes and Variables are commented in the Code.
  * 
  **********************************************************************************************************/
 
@@ -25,17 +25,16 @@ package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 /**
  * The Init Class initializes the activity. It initializes the Gui, the Data, the Application Logic and 
  * the Event to Listener Mapping.
- * It also reacts if the back button is of the device is pressed and provides the onSaveInstanceState method
- * to store additional data for the recreation of the Activity if necessary.
+ * It also reacts if the back button of the device is pressed and navigates to the menu.
+ * The onSaveInstanceState method is not used, because the implementation is obsolete.
  * 
  * Methods and Variables are commented in the Code.
  * 
  *  */
 
-
+//IMPORTS FOR NECESSARY CLASSES AND PACKAGES
 import de.bg.fhdw.bfwi413a.karthago.Navigation;
 import android.app.Activity;
-
 import android.os.Bundle;
 import android.view.KeyEvent;
 
@@ -45,17 +44,19 @@ public class Init extends Activity{
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
-		
+	
+	//METHOD FOR CREATION OF ACTIVITY
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //INITIALIZE MVC-CLASSES
+      //INITIALIZE MVC-VARIABLES
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();	
 	}
  
-	//METHOD FOR RECREATING ACTIVITY
+	//METHOD FOR RECREATING ACTIVITY (OBSOLETE --> RECREATION VIA DATABASE)
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -81,7 +82,7 @@ public class Init extends Activity{
 		new EventToListenerMapping(mGui, mApplicationLogic);
 	}
 	
-	//LISTENER FOR BACK BUTTON
+	//LISTENER FOR BACK BUTTON (KEYCODE_BACK)
 	public boolean onKeyDown(int keycode, KeyEvent event){
 		//CATCH BACK-BUTTON EVENT
 		  if(keycode==KeyEvent.KEYCODE_BACK){

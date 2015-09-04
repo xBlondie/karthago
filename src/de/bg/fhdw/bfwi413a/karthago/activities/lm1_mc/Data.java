@@ -14,6 +14,7 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
+//IMPORTS FOR NECESSARY CLASSES AND PACKAGES
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -34,16 +35,16 @@ public class Data {
 	//private final int DEFAULT_LM3_ID = 0;
 	
 	//DECLARE ACTIVITY VARIABLE
-	//This variable is necessary to get the current activity, for methods like finish() and getIntent()
-	//which are used in other classes of the activity
+		//This variable is necessary to get the current activity, for methods like finish() and getIntent()
+		//which are used in other classes of the activity
+	
 	private Activity mActivity;
 	
 	//DECLARE NECESSARY VARIABLES
-	//To retrieve the data from the xml file and the database
-	//variables for the helper classes like XMLDOMParserAndHandler, Results, SessionManagement and
-	//DatabaseHandler
-	//The informations are stored in String variables like questionID, UserAnswers a.s.o.
-	//which can be requested with getters
+		//To retrieve the data from the xml file and the database
+		//variables for the helper classes like XMLDOMParserAndHandler, Results, SessionManagement and DatabaseHandler
+		//The informations are stored in String variables like questionID, UserAnswers a.s.o. which can be requested with getters
+	
 	XMLDomParserAndHandler xmlhandler;
 	ArrayList<String> QuestionAndAnswers;
 	ArrayList<String> CorrectAnswers;
@@ -54,6 +55,7 @@ public class Data {
 	private DatabaseHandler dbhandler;
 	ArrayList<String> UserAnswers;
 	
+	//CONSTRUCTOR
 	public Data(Activity activity, Bundle savedInstanceState, Context context){
 		Intent intent;
 		
@@ -68,17 +70,29 @@ public class Data {
 			//restoreDataFromBundle(savedInstanceState);
 		}
 		
+		//INITIALIZE HELPER CLASSES AND DATA
+		//gets current questionID
 		questionID = mActivity.getIntent().getExtras().getString("currentQuestionId");
+		//to get information from the xml file
 		xmlhandler = new XMLDomParserAndHandler(context);
         QuestionAndAnswers = new ArrayList<String>();
+        //gets the questions and Answers for the specific questionID
         result = xmlhandler.getRequiredQuestionAnswersAndCorrectAnswers(questionID);
+        //saves questions and answers in a String Array
         QuestionAndAnswers = result.get_list_Question_and_Answers();
+        //saves correct answers in a String Array
         CorrectAnswers = result.get_list_correct_answers();
+        //to get information from the database 
         dbhandler = new DatabaseHandler(context);
+        //to call the next question with the help of the selection application logic and the method startSingleQuestion
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
+        //get session for userDetails and cardfileId
         session = new SessionManagement(context);
+        //to save the answer(s) of the user and work with it/them
         UserAnswers = new ArrayList<String>();
 	}
+	
+	//GETTERS
 
 	public Activity getmActivity() {
 		return mActivity;

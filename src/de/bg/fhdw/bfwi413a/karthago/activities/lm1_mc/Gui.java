@@ -3,10 +3,10 @@
  *********************************************************************************/
 
 /**
- * The Gui Class implements the gui elements (TextView, Buttons, ...) for the activity
- * and initializes them with the ids of the views and widgets from the layout.
+ * The Gui Class declares variables for the gui elements (TextView, Buttons, ...) for the activity
+ * and initializes them with the IDs of the views and widgets implemented in the layout.
  * 
- * It also provides getters and setters to get the gui elements and set there content to
+ * It also provides getters and setters to get the gui elements and to set their content to
  * the different questions.
  * 
  * Methods and Variables are commented in the Code.
@@ -15,6 +15,7 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc;
 
+//IMPORTS FOR NECESSARY CLASSES AND PACKAGES
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -33,8 +34,11 @@ public class Gui {
 	CheckBox answer4;
 	Button confirm;
 	
+	//CONSTRUCTOR
 	public Gui(Activity activity){
-		activity.setContentView(R.layout.activity_lm1_mc);		
+		//ASSIGN LAYOUT TO ACTIVITY
+		activity.setContentView(R.layout.activity_lm1_mc);
+		//INITIALIZE GUI ELEMENTS
 		this.question = (TextView) activity.findViewById(R.id.question);
         this.leveltext = (TextView) activity.findViewById(R.id.textview_level_mc);
 		this.answer1 = (CheckBox) activity.findViewById(R.id.answer1);
@@ -44,12 +48,13 @@ public class Gui {
 		this.confirm = (Button) activity.findViewById(R.id.confirm);
 	}
 
-	//GETTERS AND SETTERS
+	//GETTERS AND SETTERS FOR GUI ELEMENTS
 	
 	public TextView getQuestion() {
 		return question;
 	}
-
+	
+	//The setter changes not the Object itself, but just the Text (Question text from XML) 
 	public void setQuestion(String text) {
 		question.setText(text);
 	}
@@ -57,7 +62,8 @@ public class Gui {
 	public TextView getLeveltext() {
 		return leveltext;
 	}
-
+	
+	//The setter changes not the Object itself, but just the Text (Level-Information from Database) 
 	public void setLeveltext(String text) {
 		leveltext.setText(text);
 	}
@@ -66,6 +72,7 @@ public class Gui {
 		return answer1;
 	}
 
+	//The setter changes not the Object itself, but just the Text (Answer text from XML) 
 	public void setAnswer1(String text) {
 		answer1.setText(text);
 	}
@@ -74,6 +81,7 @@ public class Gui {
 		return answer2;
 	}
 
+	//The setter changes not the Object itself, but just the Text (Answer text from XML) 
 	public void setAnswer2(String text) {
 		answer2.setText(text);
 	}
@@ -82,6 +90,7 @@ public class Gui {
 		return answer3;
 	}
 
+	//The setter changes not the Object itself, but just the Text (Answer text from XML) 
 	public void setAnswer3(String text) {
 		answer3.setText(text);
 	}
@@ -90,6 +99,7 @@ public class Gui {
 		return answer4;
 	}
 
+	//The setter changes not the Object itself, but just the Text (Answer text from XML) 
 	public void setAnswer4(String text) {
 		answer4.setText(text);
 	}
