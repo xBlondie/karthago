@@ -14,6 +14,7 @@
 
 package de.bg.fhdw.bfwi413a.karthago.activities.lm3_g;
 
+//IMPORTS FOR NECESSARY CLASSES AND PACKAGES
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -32,7 +33,15 @@ public class Data {
 	//private int mLM3Id;
 	//private final int DEFAULT_LM3_ID = 0;
 	
+	//DECLARE ACTIVITY VARIABLE
+			//This variable is necessary to get the current activity, for methods like finish() and getIntent()
+			//which are used in other classes of the activity
 	private Activity mActivity;
+	
+	//DECLARE NECESSARY VARIABLES
+			//To retrieve the data from the xml file and the database
+			//variables for the helper classes like XMLDOMParserAndHandler, Results, SessionManagement and DatabaseHandler
+			//The informations are stored in String variables like questionID, UserAnswers a.s.o. which can be requested with getters
 	
 	XMLDomParserAndHandler xmlhandler;
 	Results result = new Results();
@@ -43,6 +52,7 @@ public class Data {
 	private de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic ApplicationLogicSelection;
 	private DatabaseHandler dbhandler;
 	
+	//CONSTRUCTOR
 	public Data(Activity activity, Bundle savedInstanceState, Context context){
 		Intent intent;
 		
@@ -57,17 +67,27 @@ public class Data {
 			//restoreDataFromBundle(savedInstanceState);
 		}
 		
+		//INITIALIZE HELPER CLASSES AND DATA
+		//gets current questionID
 		questionID = mActivity.getIntent().getExtras().getString("currentQuestionId");
+		//to get information from the xml file
 		xmlhandler = new XMLDomParserAndHandler(context);
 		correctAnswers = new ArrayList<String>();
+		//gets the questions and Answers for the specific questionID
 		result = xmlhandler.questionAndAnswersForFTAndGQuestions(questionID);
 		questionText = result.getQuestionForFT();
+		//saves correct answers in a String Array
 		correctAnswers = result.getCorrectAnswersForFT();
+		//to get information from the database 
 		dbhandler = new DatabaseHandler(context);
+		//to call the next question with the help of the selection application logic and the method startSingleQuestion
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
+        //get session for userDetails and cardfileId
 		session = new SessionManagement(context);
 	}
 
+	//GETTERS
+	
 	public Activity getmActivity() {
 		return mActivity;
 	}
