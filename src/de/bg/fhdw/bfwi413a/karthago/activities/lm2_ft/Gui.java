@@ -1,6 +1,21 @@
+/**********************************************************************************
+ * ----------       GUI-CLASS (LM2)- WRITTEN BY: FRANZISKA PLATE       ------------
+ *********************************************************************************/
+
+/**
+ * The Gui Class declares variables for the gui elements (TextView, Buttons, ...) for the activity
+ * and initializes them with the IDs of the views and widgets implemented in the layout.
+ *
+ * It also provides getters and setters to get the gui elements and to set their content to
+ * the different questions.
+ *
+ * Methods and Variables are commented in the Code.
+ *
+ *  */
+
 package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 
-//author: Leonie
+//IMPORTS FOR NECESSARY CLASSES AND PACKAGES
 
 import java.util.Date;
 
@@ -18,22 +33,28 @@ public class Gui {
 //	Button mButtonSENDFT;
 //	EditText mEditTextFT;
 	
+	//DECLARE GUI-ELEMENTS
 	private TextView question;
 	private EditText answer;
 	private Button commiting;
 	private TextView leveltext;
 	
+	//CONSTRUCTOR
 	public Gui(Activity activity){
+		//ASSIGN LAYOUT TO ACTIVITY
 		activity.setContentView(R.layout.activity_lm2_ft);
 //		this.mTextviewQuestionFT = (TextView) activity.findViewById(R.id.textview_question_ft);
 //		this.mButtonSENDFT = (Button) activity.findViewById(R.id.btn_send_ft);
 //		this.mEditTextFT = (EditText) activity.findViewById(R.id.edittext_ft);
+
+		//INITIALIZE GUI ELEMENTS
 		this.question = (TextView) activity.findViewById(R.id.textview_question_ft);
         this.leveltext = (TextView) activity.findViewById(R.id.textview_level_ft);
         this.answer = (EditText) activity.findViewById(R.id.edittext_ft);
         this.commiting = (Button) activity.findViewById(R.id.btn_send_ft);
 	}
 
+	//GETTERS AND SETTERS
 	public TextView getQuestion() {
 		return question;
 	}
