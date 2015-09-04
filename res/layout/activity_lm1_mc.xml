@@ -20,49 +20,53 @@
         android:text="TextView" />
 
     <CheckBox
+        android:paddingLeft="20mm"
         android:id="@+id/answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/question"
         android:layout_below="@+id/question"
         android:layout_marginLeft="75dp"
-		android:gravity="center"
+		android:gravity="center_vertical"
         android:text="CheckBox"
         android:textSize="25sp"
         android:button="@drawable/custom_checkbox_design" />
 
     <CheckBox
+        android:paddingLeft="20mm"
         android:id="@+id/answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/answer1"
         android:layout_below="@+id/answer1"
         android:layout_marginTop="10dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:text="CheckBox"
         android:textSize="25sp"
         android:button="@drawable/custom_checkbox_design" />
 
     <CheckBox
+        android:paddingLeft="20mm"
         android:id="@+id/answer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/answer2"
         android:layout_below="@+id/answer2"
         android:layout_marginTop="10dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:text="CheckBox"
         android:textSize="25sp"
         android:button="@drawable/custom_checkbox_design" />
 
     <CheckBox
+        android:paddingLeft="20mm"
         android:id="@+id/answer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/answer3"
         android:layout_below="@+id/answer3"
         android:layout_marginTop="10dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:text="CheckBox"
         android:textSize="25sp"
         android:button="@drawable/custom_checkbox_design" />

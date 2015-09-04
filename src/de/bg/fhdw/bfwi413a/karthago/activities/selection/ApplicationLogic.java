@@ -1,5 +1,11 @@
-// Die ApplicationLogic verwaltet, was passiert, wenn man die Buttons benutzt
-
+/**********************************************************************************
+ * ----------       APPLICATIONLOGIC-CLASS (SELECTION)- WRITTEN BY: AN-NAM PHAM         -----------
+ *
+ * The ApplicationLogic Class provides methods for the selection functionality.
+ * It reacts to the user input (chosen cardfile) and starts the learn mode.
+ * 
+ * 
+ ************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
 
 import java.util.Date;
@@ -23,12 +29,11 @@ public class ApplicationLogic {
 	private Context mContext;
 	private String answer_type;
 	
-	
+	//CONSTRUCTOR TO GENERATE A APPLICATIONLOGIC OBJECT
 	public ApplicationLogic(Gui gui, Data data, Context context) {
 		//INITIALIZE COMPONENTS
 		mGui = gui;
 		mData = data;
-		initDataToGui();
 		dbhandler = new DatabaseHandler(context);
 		session = new SessionManagement(context);
 		requiredID = new String();
@@ -36,97 +41,130 @@ public class ApplicationLogic {
 		
 	}
 	
+	//EMPTY CONSTRUCTOR
 	public ApplicationLogic() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	private void initDataToGui() {
 	
 	}
-
-
+	
+	//FOR CLICK ON EACH BUTTON (CARDFILE): START THE LEARN MODE WITH THE CHOSEN CARDFILE
 	public void onButtonClicked(int i) {
 		switch ( i ) {
 		case 1:
 			//DECLARE THE NAME OF THE CARDFILE
 			String cardfile_id1 = "Allgemeinwissen";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id1);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 2:
 			//DECLARE THE NAME OF THE CARDFILE
+			
 			String cardfile_id2 = "Fitness";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id2);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 3:   
 			//DECLARE THE NAME OF THE CARDFILE
+			
 			String cardfile_id3 = "Musik";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id3);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 4:   
 			//DECLARE THE NAME OF THE CARDFILE
+			
 			String cardfile_id4 = "Architektur";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id4);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 5:   
 			//DECLARE THE NAME OF THE CARDFILE
 			String cardfile_id5 = "Filme";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id5);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 6:   
 			//DECLARE THE NAME OF THE CARDFILE
 			String cardfile_id6 = "Kunst";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id6);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 7:   
 			//DECLARE THE NAME OF THE CARDFILE
 			String cardfile_id7 = "Geschichte";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id7);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		case 8:   
 			//DECLARE THE NAME OF THE CARDFILE
 			String cardfile_id8 = "Fotografie";
-			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD BELOW
+			
+			//WRITE THE CARDFILENAME IN THE SESSION; IMPORTANT FOR METHOD STARTSINGLEQUESTION
+				//writes ID of the chosen cardfile into the session
+				//startSingleQuestion prompts the cardfile (now the chosen cardfile)
 			session.writeCardfileID(cardfile_id8);
+			
 			//START THE QUESTION
 			startSingleQuestion(mContext);
 			break;
 		}
 	}
 	
-	public void startSingleQuestion(Context context){ //DIESE FUNKTION MUSS IMMER FÜR DIE NÄCHSTE FRAGE AUFGERUFEN WERDEN!!!
-		//DECLARE AND INITIALIZE IMPORTANT VARIABLES
+	//METHOD THAT STARTS THE FIRST/NEXT QUESTION
+		//this question has to be called after every learn mode activity to start a new question or finish the learn mode
+	public void startSingleQuestion(Context context){
+		//DECLARE AND INITIALIZE NEEDED VARIABLES
 		tstamp = new Date().getTime();
 		session = new SessionManagement(context);
 		dbhandler = new DatabaseHandler(context);
 		String cardfile_id = session.getCardfileID();
-		//GET THE NEXT QUESTION
+		//GET THE ID FOR THE FIRST/NEXT QUESTION
+			//if there is no question left or there aren't any questions, the method getRequiredQuestionIDs will return an empty string
 		requiredID = dbhandler.getRequiredQuestionIDs(tstamp, cardfile_id, session.getUserDetails().toString());
-		//CHECK IF A ANSWER HAS TO BE ANSWERED
+		//CHECK IF ANY QUESTION HAS TO BE ANSWERED
 		if(requiredID.equals("")){
-		//IF NOT
+		//IF NO QUESTION HAS TO BE ANSWERED THE USER IS PROVIDED WITH A MESSAGE (TOAST)
 		Toast toast = Toast.makeText(context, "Es müssen keine weiteren Fragen der Kartei " + cardfile_id + " bearbeitet werden oder die Kartei ist nicht verfügbar!", Toast.LENGTH_LONG);
 		toast.show();
+		//RETURN TO SELECTION ACTIVITY WHEN COMING FROM LEARN MODE ACTIVITY WITH NO QUESTIONS LEFT
 		Intent nextScreen = new Intent(context, de.bg.fhdw.bfwi413a.karthago.activities.selection.Init.class);
         nextScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(nextScreen);
@@ -134,27 +172,31 @@ public class ApplicationLogic {
 			//IF A QUESTION HAST TO BE ANSWERED
 			//GET ANSWERTYPE OF QUESTION
 			answer_type = dbhandler.getAnswerTypeForCertainQuestionID(requiredID);
-			//DECIDING OF WHICH ANSWERTYPE START THE ACTIVITY AND 
+			//CALLS LEARN MODE ACTIVITY BELONGING TO THE PROMPTED ANSWERTYPE
 			if(answer_type.equals("MC")){
 				//CREATE INTENT
 				Intent nextScreen = new Intent(context, de.bg.fhdw.bfwi413a.karthago.activities.lm1_mc.Init.class);
-				//SET FLAG BECAUSE CLASS IS NO ACTIVITY
+				//SET FLAG BECAUSE CLASS IS NO ACTIVITY (APPLICATIONLOGIC)
 				nextScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				//PUT DATA TO INTENT
 				nextScreen.putExtra("currentQuestionId", requiredID);
 				context.startActivity(nextScreen);
 			}
 			else if(answer_type.equals("FT")){
+				//CREATE INTENT
 				Intent nextScreen = new Intent(context, de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft.Init.class);
+				//SET FLAG BECAUSE CLASS IS NO ACTIVITY (APPLICATIONLOGIC)
 				nextScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				//Intent mit den Daten füllen
+				//PUT DATA TO INTENT
 				nextScreen.putExtra("currentQuestionId", requiredID);
 				context.startActivity(nextScreen);
 			}
 			else if(answer_type.equals("G")){
+				//CREATE INTENT
 				Intent nextScreen = new Intent(context, de.bg.fhdw.bfwi413a.karthago.activities.lm3_g.Init.class);
+				//SET FLAG BECAUSE CLASS IS NO ACTIVITY (APPLICATIONLOGIC)
 				nextScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				//Intent mit den Daten füllen
+				//PUT DATA TO INTENT
 				nextScreen.putExtra("currentQuestionId", requiredID);
 				context.startActivity(nextScreen);
 			}	
