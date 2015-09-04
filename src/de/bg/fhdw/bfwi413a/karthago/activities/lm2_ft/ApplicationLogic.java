@@ -84,7 +84,7 @@ public class ApplicationLogic {
 			StringBuilder sb = new StringBuilder(corAns);
 			sb.deleteCharAt(0);
 			String corAnsClean = sb.toString();
-			Toast toast = Toast.makeText(mContext, "Die Antwort war falsch!\nRichtige Antworten: " + corAnsClean, Toast.LENGTH_LONG);
+			Toast toast = Toast.makeText(mContext, "Die Antwort war falsch!\nRichtige Antwort(en): " + corAnsClean, Toast.LENGTH_LONG);
 			toast.show();
 		}
 		
