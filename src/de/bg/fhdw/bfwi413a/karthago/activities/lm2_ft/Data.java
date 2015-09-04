@@ -1,5 +1,19 @@
-package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
+/**********************************************************************************
+ * ----------       DATA-CLASS (LM2)- WRITTEN BY: FRANZISKA PLATE       -----------
+ *********************************************************************************/
 
+/**
+ * The Data Class provides the necessary data, like the question, answers, user and session,
+ * from the xml and the database.
+ * 
+ * It also provides getters for the variables to use the information in the other classes.
+ * 
+ * Methods and Variables are commented in the Code.
+ * 
+ *  */
+
+package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
+//IMPORTS NECESSARY CLASSES AND PACKAGES
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -20,8 +34,15 @@ public class Data {
 //	private int mLM2Id;
 //	private final int DEFAULT_LM2_ID = 0;
 	
+	////DECLARE ACTIVITY VARIABLE
+		//This Variable is necessary to get the current activity, for methods like finish() and getIntent()
+		//which are used in other classes of the activity
 	private Activity mActivity;
 	
+	//DECLARE NECESSARY VARIABLES
+		//To retrieve the data from the xml file and the database
+		//variables for the helper classes like XMLDOMParserAndHandler, Results, SessionManagement and DatabaseHandler
+		//The informations are stored in String variables like questionID, UserAnswers a.s.o. which can be requested with getters
 	private XMLDomParserAndHandler xmlhandler;
 	private Results result = new Results();
 	private String questionText;
@@ -32,6 +53,7 @@ public class Data {
 	private String userAnswer;
 	private SessionManagement session;
 	
+	//CONSTRUCTOR
 	public Data(Activity activity, Bundle savedInstanceState, Context context){
 		Intent intent;
 		
@@ -46,17 +68,28 @@ public class Data {
 			//restoreDataFromBundle(savedInstanceState);
 		}
 		
+		//INITIALIZE HELPER CLASSES AND DATA
+		//gets current questionID
 		questionID = mActivity.getIntent().getExtras().getString("currentQuestionId");
+		//to get information from the xml file
 		xmlhandler = new XMLDomParserAndHandler(context);
+		//create new ArrayList for correctAnswers
 		correctAnswers = new ArrayList<String>();
+		 //gets the questions and Answers for the specific questionID
 		result = xmlhandler.questionAndAnswersForFTAndGQuestions(questionID);
+		//get questionText form the database
 		questionText = result.getQuestionForFT();
+		//get all correct answers
 		correctAnswers = result.getCorrectAnswersForFT();
+		//create new database objekt
 		dbhandler = new DatabaseHandler(context);
+	 //to call the next question with the help of the selection application logic and the method startSingleQuestion
         ApplicationLogicSelection = new de.bg.fhdw.bfwi413a.karthago.activities.selection.ApplicationLogic();
+         //create new session with userDetails and cardfileId
         session = new SessionManagement(context);
 	}
-
+	
+	//GETTERS
 	public Activity getmActivity() {
 		return mActivity;
 	}
