@@ -242,7 +242,7 @@
     <AnswerType>MC</AnswerType>
     <Answers>
       <Answer1>Cheerleader von Omi/Felix Jaehn</Answer1>
-      <Answer2>Ein neues FitFriday von Rebecca Black</Answer2>
+      <Answer2>Friday von Rebecca Black</Answer2>
       <Answer3 correct="true">Baby von Justin Bieber</Answer3>
       <Answer4>Wreckingball von Miley Cyrus</Answer4>
     </Answers>
@@ -306,7 +306,7 @@
   </Question>
   <Question>
     <QuestionId>29</QuestionId>
-    <QuestionText>Welchen Begriff prägte der schwedische Architekt Asplund für einen Baustil des 20. Jahrhunderts, der sich vor allem durch die Verwendung von Sichtbeton, Stahl und Glas auszeichnet?</QuestionText>
+    <QuestionText>Welchen Begriff prägte der Architekt Asplund für einen Baustil des 20. Jahrhunderts, der sich durch die Verwendung von Sichtbeton, Stahl und Glas auszeichnet?</QuestionText>
     <AnswerType>MC</AnswerType>
     <Answers>
       <Answer1>Funktionalismus</Answer1>

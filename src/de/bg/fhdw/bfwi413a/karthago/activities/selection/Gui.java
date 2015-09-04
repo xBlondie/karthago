@@ -1,6 +1,16 @@
-//Gui wird benötigt, damit die Gui geladen werden kann und funktioniert
-
+/**********************************************************************************
+ * ----------       GUI-CLASS (SELECTION)- WRITTEN BY: AN-NAM PHAM         -----------
+ *
+ * The Gui Class declares variables for the the gui elements (TextView, Buttons, ...) for the activity
+ * and assigns them to the views and widgets implement in the layout. 
+ * 
+ * It also provides getters and setters to get the gui elements and to set their content to
+ * the different questions.
+ * 
+ ************************************************************************************/
 package de.bg.fhdw.bfwi413a.karthago.activities.selection;
+
+//IMPORTS FOR NEEDED CLASSES
 
 import android.app.Activity;
 import android.widget.Button;
@@ -9,7 +19,7 @@ import de.bg.fhdw.bfwi413a.karthago.R;
 
 public class Gui {
 
-	//Objektvariablen anlegen, damit sie funktionieren
+	//DECLARE VARIABLES FOR USED GUI ELEMENTS
 	TextView mTextviewCardfileSelection;
 	Button mButtonCardfile1;
 	Button mButtonCardfile2;
@@ -20,9 +30,11 @@ public class Gui {
 	Button mButtonCardfile7;
 	Button mButtonCardfile8;
 	
-	//Constructor, damit die GUI initialisiert werden kann
+	//CONSTRUCTOR TO GENERATE A GUI OBJECT
 	public Gui(Activity activity) {
+		//ASSIGN LAYOUT TO ACTIVITY
 		activity.setContentView(R.layout.activity_selection);
+		//ASSIGN USED GUI ELEMENTS TO VARIABLES 
 		this.mTextviewCardfileSelection = (TextView) activity.findViewById(R.id.textview_cardfile_selection);
 		this.mButtonCardfile1 = (Button) activity.findViewById(R.id.btn_cardfile1);
 		this.mButtonCardfile2 = (Button) activity.findViewById(R.id.btn_cardfile2);
@@ -35,7 +47,8 @@ public class Gui {
 	}
 
 	
-	//getter und setter (werden benötigt, um Informationen von woanders zu holen oder zu schicken)
+	
+	//GETTERS AND SETTERS 
 	public Button getmButtonCardfile1() {
 		return mButtonCardfile1;
 	}
@@ -100,6 +113,7 @@ public class Gui {
 		this.mButtonCardfile8 = mButtonCardfile8;
 	}
 	
+	//METHOD TO DISABLE BUTTONS
 	public void diasableButtons(){
 		mButtonCardfile1.setEnabled(false);
 		mButtonCardfile2.setEnabled(false);
