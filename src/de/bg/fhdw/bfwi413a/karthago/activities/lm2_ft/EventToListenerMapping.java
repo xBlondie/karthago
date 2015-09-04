@@ -1,15 +1,15 @@
-+/****************************************************************************************************
-+ * ----------       EVENTTOLISTENERMAPPING-CLASS (LM2)- WRITTEN BY: FRANZISKA PLATE       -----------
-+ ***************************************************************************************************/
-+
-+/**
-+ * The EventToListenerMapping Class sets the OnClickListener on the Buttons of the Activity.
-+ * It also calls the method (specified in the ApplicationLogic class) for the Button, when it is clicked.
-+ * If there is more then one Button clicked, it differentiates between the Buttons.
-+ * 
-+ * Methods and Variables are commented in the Code.
-+ * 
-+ *  */
+/****************************************************************************************************
+ * ----------       EVENTTOLISTENERMAPPING-CLASS (LM2)- WRITTEN BY: FRANZISKA PLATE       -----------
+ ***************************************************************************************************/
+
+/**
+ * The EventToListenerMapping Class sets the OnClickListener on the Buttons of the Activity.
+ * It also calls the method (specified in the ApplicationLogic class) for the Button, when it is clicked.
+ * If there is more then one Button clicked, it differentiates between the Buttons.
+ *
+ * Methods and Variables are commented in the Code.
+ *
+ *  */
 
 package de.bg.fhdw.bfwi413a.karthago.activities.lm2_ft;
 
