@@ -123,7 +123,7 @@ public class ApplicationLogic {
 			String corAnsClean = sb.toString();
 			
 			//information text for the user
-			Toast toast = Toast.makeText(mContext, "Die Antwort war falsch!\nRichtige Antworten: " + corAnsClean, Toast.LENGTH_LONG);
+			Toast toast = Toast.makeText(mContext, "Die Antwort war falsch!\nRichtige Antwort(en): " + corAnsClean, Toast.LENGTH_LONG);
 			toast.show();
 		}
 		

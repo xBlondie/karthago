@@ -21,7 +21,7 @@
     <string name="quest_all">Vorhandene Fragen</string>
     <string name="quest_mc">Multiple Choice</string>
     <string name="quest_ft">Freitext</string>
-    <string name="quest_g">Gedanken</string>
+    <string name="quest_g">Gedanklich</string>
     <string name="quest_answered">Beantwortete Fragen</string>
     <string name="quest_right">Richtig</string>
     <string name="quest_wrong">Falsch</string>

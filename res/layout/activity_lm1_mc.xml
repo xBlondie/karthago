@@ -87,8 +87,8 @@
         android:id="@+id/textview_level_mc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/question"
-        android:layout_toLeftOf="@+id/answer2"
+        android:layout_alignParentRight="true"
+        android:textColor="#296E87"
         android:text="TextView" />
 
 </RelativeLayout>

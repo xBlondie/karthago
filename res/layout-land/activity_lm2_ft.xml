@@ -29,8 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="22dp"
-            android:layout_toRightOf="@+id/textview_question_ft"
+            android:textColor="#296E87"
             android:text="TextView" />
 
     </RelativeLayout>
